@@ -10,7 +10,7 @@ class pasta {
     std::string name;
   public:
 
-}
+};
 
   return 0;
 }
