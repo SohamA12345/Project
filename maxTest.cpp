@@ -2,19 +2,7 @@
 #include <string>
 #include<vector>
 
-class Ingredient {
-  private:
-    std::string name;
-    double price;
-  public:
-
-  Ingredient(double price, std::string name) : price(price), name(name) {}
-
-  std::string get_name() {
-      return name;
-  }
-
-};
+#include "Ingredient.h"
 
 
 
@@ -50,11 +38,10 @@ class Pasta {
 
 int main() {
 
-Ingredient tomato(2.0, "Tomato");
-Ingredient mushroom(2.0, "Mushroom");
-Ingredient onion(2.0, "Onion");
+Ingredient tomato("Tomato", 2.0);
+Ingredient mushroom("Mushroom", 1.50);
+Ingredient onion("Onion", 0.55);
 
-<<<<<<< HEAD
 Pasta yummy(7.5, "Yummy", "Tomato Sauce");
 
 yummy.addIngredient(tomato);
@@ -62,9 +49,6 @@ yummy.addIngredient(mushroom);
 yummy.addIngredient(onion);
 
   std::cout << yummy.get_ingredientName(2) << std::endl;
-=======
-};
->>>>>>> 6c202bd4525764aa4a9f80ee49fadf25817bb877
 
   return 0;
 }
