@@ -1,17 +1,31 @@
 // This implements a menu for the 
 #include "mmaker.h"
+#include <iostream>
 
 int main() {
 
-  menu Customer; // A menu object from menu class to implement a customer portal
+  menu portal; // A menu object from menu class to implement a portal
+  menu Customer;
 
-  
+  portal.menu_head("Portal");
 
-  Customer.menu_head("Select Cuisine");
+  portal.add("Customer");
+  portal.add("Manager");
+  portal.add("Exit");
 
-  Customer.add("Italian");
-  Customer.add("Indian");
-  Customer.add("British");
+  int portal_choice = portal.display();
 
-  
+  Customer.menu_head("Food/Drinks:");
+
+  switch (portal_choice) {
+    case 1:
+        std::cout << "You selected Italian cuisine.\n";
+        break;
+    case 2:
+        std::cout << "You selected Indian cuisine.\n";
+        break;
+    default:
+        std::cout << "Invalid selection.\n";
+        break;
+}
 }
