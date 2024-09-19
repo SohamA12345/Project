@@ -15,6 +15,10 @@ public:
     void set_item_name(string name);
     void set_item_price(int price);
     void set_item_size(int size);
+
+    string get_item_name();
+    int get_item_price();
+    int get_item_size();
 };
 
 // Default menu_item constructor
@@ -43,6 +47,17 @@ void menu_item::set_item_price(int price) {
 void menu_item::set_item_size(int size) {
     item_size = size;
     cout << "This item's size is changed to " << item_size << endl;
+}
+
+// Getter functions that outputs the values of the menu item
+string menu_item::get_item_name() {
+    return item_name;
+}
+int menu_item::get_item_price() {
+    return item_price;
+}
+int menu_item::get_item_size() {
+    return item_size;
 }
 
 #endif
