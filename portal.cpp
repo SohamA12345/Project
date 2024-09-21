@@ -1,0 +1,64 @@
+#include "portal.h"
+
+void portal::run() {
+  menu portal;    // A menu object from menu class to implement a portal.
+  menu customer;  // A menu object to implment a login portal for manager.
+
+  std::string username;
+  std::ofstream credentials_file("credentials", std::ios::app);
+
+  menu manager;
+
+  portal.menu_head("Portal");
+
+  portal.add("Customer");
+  portal.add("Manager");
+  portal.add("Exit");
+
+  int portal_choice = portal.display();
+
+  switch (portal_choice) {
+    case 1:
+      std::cout << "Manager\n";
+      break;
+    case 2:
+      std::cout << "Customer\n";
+
+      customer.menu_head("Login/Create an account");
+      customer.add("Login");
+      customer.add("Create an account");
+      customer.add("Back");
+
+      int customer_choice = customer.display();
+
+      switch (customer_choice) {
+        case 1:
+          std::cout << "Username: ";
+          break;
+        case 2:
+          std::cout << "Username: ";
+          std::cin >> username;
+          if (credentials_file.is_open()) {
+            credentials_file << username << std::endl;
+            credentials_file.close();
+            std::cout << "Username saved to credentials file.\n";
+          } else {
+            std::cerr << "Unable to open file.\n";
+          }
+          break;
+        case 3:
+          this->state = 1;
+          break;
+        default:
+          break;
+      }
+
+      break;
+    case 3:
+      std::cout << "Exit\n";
+      return;
+    default:
+      std::cout << "Invalid selection.\n";
+      break;
+  }
+}
