@@ -1,7 +1,5 @@
 #include "portal_menu.h"
 
-using namespace std;
-
 void portal_menu::return_logic(int portal_choice) {
   switch (portal_choice) {
     case 1:
@@ -20,10 +18,10 @@ void portal_menu::return_logic(int portal_choice) {
 }
 
 portal_menu::portal_menu() {
-  generic_menu::menu_head(portal, "Portal");
-  generic_menu::options(portal, portal_options, 3);
+  generic_menu::menu_head(&portal, "Portal");
+  generic_menu::options(&portal, portal_options, 3);
 
-  int choices = generic_menu::disp(portal);
+  int choices = generic_menu::disp(&portal);
 
   return_logic(choices);
 }

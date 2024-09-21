@@ -3,13 +3,11 @@
 
 #include "generic_menu.h"
 
-using namespace std;
-
 class portal_menu : public generic_menu
 {
 private:
   menu portal;
-  string portal_options[3] = {"Manager", "Customer", "Exit"};
+  std::string portal_options[3] = {"Manager", "Customer", "Exit"};
 public:
   void return_logic(int choice);
 
