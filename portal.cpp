@@ -12,9 +12,9 @@ void portal::run() {
 
   portal.menu_head("Portal");
 
-  portal.add("Manager");
-  portal.add("Customer");
-  portal.add("Exit");
+  portal.add("Manager", 0, "Manager portal only for branch manager.");
+  portal.add("Customer", 0, "Dear customer, please login to start the order.");
+  portal.add("Exit", 0, "Thanks for visiting");
 
   int portal_choice = portal.display();
 

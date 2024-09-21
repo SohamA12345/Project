@@ -14,10 +14,10 @@ void customer_login::run() {
 
   cout << "Customer\n";
 
-  customer.menu_head("Login/Create an account");
-  customer.add("Login");
-  customer.add("Create an account");
-  customer.add("Back");
+  customer.menu_head("Login/Create an account.");
+  customer.add("Login", 0, "Login if you already have an account.");
+  customer.add("Create an account", 0, "If you don't have an account, create using this option.");
+  customer.add("Back", 0, "Returns to Manager/Customer options.");
 
   customer_choice = customer.display();
 
