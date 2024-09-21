@@ -1,3 +1,6 @@
+#ifndef MMAKER_H
+#define MMAKER_H
+
 #pragma once
 #include <iostream>
 #include <fstream>
@@ -221,3 +224,5 @@ void menu::readfromfile(string s)
     }
     file.close();
 }
+
+#endif

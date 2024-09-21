@@ -4,6 +4,7 @@
 #include <string>
 
 #include "mmaker.h"
+#include "customer_menu.h"
 
 int main() {
   menu portal;  // A menu object from menu class to implement a portal.
