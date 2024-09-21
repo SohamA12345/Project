@@ -11,9 +11,9 @@ public:
   generic_menu();
   ~generic_menu();
 
-  void menu_head(menu obj, string title);
-  void options(menu obj, string options_array[], int no_of_options); //If this is manager menu we can use this to add options in the food.
-  int disp(menu obj);
+  void menu_head(menu* obj, std::string title);
+  void options(menu* obj, std::string options_array[], int no_of_options); //If this is manager menu we can use this to add options in the food.
+  int disp(menu* obj);
   virtual void return_logic(int choice) = 0;
 };
 

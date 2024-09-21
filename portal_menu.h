@@ -3,6 +3,8 @@
 
 #include "generic_menu.h"
 
+using namespace std;
+
 class portal_menu : public generic_menu
 {
 private:
@@ -14,8 +16,5 @@ public:
   portal_menu();
   ~portal_menu();
 };
-
-
-
 
 #endif

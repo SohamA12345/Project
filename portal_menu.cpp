@@ -1,5 +1,7 @@
 #include "portal_menu.h"
 
+using namespace std;
+
 void portal_menu::return_logic(int portal_choice) {
   switch (portal_choice) {
     case 1:

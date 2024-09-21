@@ -5,6 +5,8 @@
 
 #include "portal_menu.cpp"
 
+using namespace std;
+
 int main() {
   portal_menu portal;  // A menu object from menu class to implement a portal.
 	return 0;

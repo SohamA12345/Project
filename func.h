@@ -1,3 +1,6 @@
+#ifndef FUNC_H
+#define FUNC_H
+
 #pragma once
 #include <termios.h>
 #include <stdio.h>
@@ -95,3 +98,5 @@ int getmax_y()
     #endif /* TIOCGSIZE */
     return cols;
 }
+
+#endif
