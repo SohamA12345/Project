@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-#include "mmaker.h"
 #include "portal.h"
 
 int main() {
@@ -12,8 +11,7 @@ int main() {
   do
   {
     portal_obj.run();
-  } while (portal_obj.get_state() == 1);
+  } while (portal_obj.get_state_portal() == 1);
   
-
   return 0;
 }
