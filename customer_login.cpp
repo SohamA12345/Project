@@ -29,21 +29,13 @@ void customer_login::run() {
       cout << "Username: ";
       cin >> username;
 
-      if (credentials_file.is_open()) {
-        credentials_file << username << endl;
-        credentials_file.close();
-        cout << "Username saved\n";
-      } else {
-        cerr << "Unable to open file.\n";
-      }
-
       cout << "Password: ";
       cin >> password;
 
       if (credentials_file.is_open()) {
-        credentials_file << password << endl;
+        credentials_file << username << endl << password;
         credentials_file.close();
-        cout << "Password saved\n";
+        cout << "Username & Password saved\n";
       } else {
         cerr << "Unable to open file.\n";
       }
