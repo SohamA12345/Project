@@ -5,18 +5,16 @@
 
 #include "mmaker.h"
 
-class generic_menu
+class generic_menu : public menu
 {
-private:
-  menu menu;
-  int customer_choices;
 public:
   generic_menu();
   ~generic_menu();
 
-  virtual void menu_head(string title) = 0;
-  virtual void options(string options_array[], int no_of_options) = 0; //If this is manager menu we can use this to add options in the food.
-  virtual int disp() = 0;
+  void menu_head(menu obj, string title);
+  void options(menu obj, string options_array[], int no_of_options); //If this is manager menu we can use this to add options in the food.
+  int disp(menu obj);
+  virtual void return_logic(int choice) = 0;
 };
 
 #endif
