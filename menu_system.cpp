@@ -1,11 +1,14 @@
-// This implements a menu for the 
-#include "mmaker.h"
+// This implements a menu for the
+#include <fstream>
 #include <iostream>
+#include <string>
+
+#include "mmaker.h"
 
 int main() {
-
-  menu portal; // A menu object from menu class to implement a portal
-  menu Customer;
+  menu portal;  // A menu object from menu class to implement a portal.
+  menu Customer; // A menu object to implment a login portal for manager.
+	menu manager;
 
   portal.menu_head("Portal");
 
@@ -15,17 +18,22 @@ int main() {
 
   int portal_choice = portal.display();
 
-  Customer.menu_head("Food/Drinks:");
+	Customer.menu_head("Login/Create an account");
 
   switch (portal_choice) {
     case 1:
-        std::cout << "You selected Italian cuisine.\n";
-        break;
+      std::cout << "Manager\n";
+      break;
     case 2:
-        std::cout << "You selected Indian cuisine.\n";
-        break;
+      std::cout << "Customer\n";
+      break;
+		case 3:
+			std::cout << "Exit\n";
+			return 0;
     default:
-        std::cout << "Invalid selection.\n";
-        break;
-}
+      std::cout << "Invalid selection.\n";
+      break;
+  }
+
+	return 0;
 }
