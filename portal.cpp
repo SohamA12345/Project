@@ -12,21 +12,25 @@ void portal::run() {
 
   portal.menu_head("Portal");
 
-  portal.add("Manager", 0, "Manager portal only for branch manager.");
-  portal.add("Customer", 0, "Dear customer, please login to start the order.");
-  portal.add("Exit", 0, "Thanks for visiting");
+  portal.add("Manager", 1, "Manager portal only for branch manager.");
+  portal.add("Customer", 2, "Dear customer, please login to start the order. If this is the first time visiting, create an account.");
+  portal.add("Exit", 3, "Thanks for visiting");
 
   int portal_choice = portal.display();
 
   switch (portal_choice) {
     case 1:
-      cout << "Manager\n";
+    // Manager_menu obj
+    // In manager menu it has the ability to delete the username and password files. As well display on the screen.
       break;
     case 2:
-      obj.run();
+    do
+    {
+      obj.run(state_portal);
+    } while (obj.get_state_customer_login() == 1);
+  
       break;
     case 3:
-      cout << "Exit\n";
       this->state_portal = 0;
       return;
     default:
