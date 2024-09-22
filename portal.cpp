@@ -1,5 +1,6 @@
 #include "portal.h"
 #include "customer_login.h"
+#include "manager_login.h"
 #include "mmaker.h"
 
 using namespace std;
@@ -7,8 +8,7 @@ using namespace std;
 void portal::run() {
   menu portal; // A menu object from menu class to implement a portal.
   customer_login obj; //runs the customer login.
-
-  menu manager;
+  manager_login obj_manager; //runs manager login.
 
   portal.menu_head("Portal");
 
@@ -20,6 +20,7 @@ void portal::run() {
 
   switch (portal_choice) {
     case 1:
+      obj_manager.run(this->state_portal);
     // Manager_menu obj
     // In manager menu it has the ability to delete the username and password files. As well display on the screen.
       break;

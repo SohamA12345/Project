@@ -30,7 +30,7 @@ void customer_login::run(int& state_portal) {
   switch (customer_choice) {
     case 1:
       cout << "Username: ";
-      cin >> username;
+      getline(cin, username);
 
       if (i_usernames_file.is_open()) {
         while (getline(i_usernames_file, read_line)) {
@@ -42,14 +42,18 @@ void customer_login::run(int& state_portal) {
             cout << "Login failed. No matching username found, please create a "
                     "new "
                     "acount\n";
+            cout << "Press enter to return to previous options.";
+
+            cin.get();
             state_customer_login = 1;
+            
             return;
           }
         }
       }
 
       cout << "Password: ";
-      cin >> password;
+      getline(cin, password);
 
       if (i_passwords_file.is_open()) {
         while (getline(i_passwords_file, read_line)) {
@@ -61,6 +65,8 @@ void customer_login::run(int& state_portal) {
             cout << "Login failed. No matching password found, please create a "
                     "new "
                     "acount\n";
+            cout << "Press enter to return to previous options.";
+            cin.get();
             state_customer_login = 1;
             return;
           }
