@@ -1,10 +1,12 @@
 #include "customer_login.h"
-
+#include "customer_menu.h"
 #include "mmaker.h"
 
 void customer_login::run(int& state_portal) {
   menu customer;  // A menu object to implment a login portal for manager.
   menu acount_created;
+
+  customer_menu obj;
 
   string username;
   string password;
@@ -60,7 +62,14 @@ void customer_login::run(int& state_portal) {
           if (read_line == password) {
             cout << "Login Successful\n";
             this->state_customer_login = 0;
-            return;  // Checkout.
+
+            do
+            {
+              obj.run();
+            } while (obj.get_state_portal_customer() == 1);
+            
+
+            return;
           } else {
             cout << "Login failed. No matching password found, please create a "
                     "new "
