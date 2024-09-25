@@ -1,35 +1,34 @@
 #ifndef FOOD_ITEM_H
 #define FOOD_ITEM_H
 
-#include "MenuItem.h"
-#include "Ingredient.h"
-
 #include <vector>
 
+#include "Ingredient.h"
+#include "MenuItem.h"
+
 class FoodItem : public MenuItem {
-protected:
+ protected:
   std::vector<Ingredient*> ingredientList;
-public:
-// default constructor
-FoodItem();
 
-// constructor without pre-made ingredient list
-FoodItem(string name, double price, int size);
+ public:
+  // default constructor
+  FoodItem();
 
-// contructor with pre-made ingredient list
-FoodItem(string name, double price, int size, std::vector<Ingredient*> ingredientList);
+  // constructor without pre-made ingredient list
+  FoodItem(string name, double price, int size);
 
-// setter/ adder functions
-void addIngredient(Ingredient &i);
+  // contructor with pre-made ingredient list
+  FoodItem(string name, double price, int size,
+           std::vector<Ingredient*> ingredientList);
 
-// getter functions
-Ingredient* get_ingredient(int index);
+  // adder functions
+  void addIngredient(Ingredient& i);
 
-std::string get_ingredientName(int index);
+  // getter functions
+  Ingredient* get_ingredient(int index);
 
-// deconstructor
-~FoodItem();
-
+  // deconstructor
+  ~FoodItem();
 };
 
 #endif
