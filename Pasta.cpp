@@ -3,14 +3,14 @@
 // default constructor
 Pasta::Pasta() : FoodItem(), pastaSauce("N/A") {}
 
-// constructor without ingredient list
+// constructor without ingredients
 Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce)
     : FoodItem(name, price, size), pastaSauce(pastaSauce) {}
 
-// constructor with ingredient list
+// constructor with ingredients
 Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce,
-             std::vector<Ingredient*> ingredientList)
-    : FoodItem(name, price, size, ingredientList), pastaSauce(pastaSauce) {}
+             std::vector<Ingredient*> ingredients)
+    : FoodItem(name, price, size, ingredients), pastaSauce(pastaSauce) {}
 
 // getter functions
 std::string Pasta::get_pastaSauce() { return pastaSauce; }

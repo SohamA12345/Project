@@ -8,18 +8,18 @@
 
 class FoodItem : public MenuItem {
  protected:
-  std::vector<Ingredient*> ingredientList;
+  std::vector<Ingredient*> ingredients;
 
  public:
   // default constructor
   FoodItem();
 
-  // constructor without pre-made ingredient list
+  // constructor without pre-made ingredients
   FoodItem(string name, double price, int size);
 
-  // contructor with pre-made ingredient list
+  // contructor with pre-made ingredients
   FoodItem(string name, double price, int size,
-           std::vector<Ingredient*> ingredientList);
+           std::vector<Ingredient*> ingredients);
 
   // adder functions
   void addIngredient(Ingredient& i);
