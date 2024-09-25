@@ -1,13 +1,24 @@
 #include "Pasta.h"
 
-Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce) : MenuItem(name, price, size), pastaSauce(pastaSauce) {}
+// default constructor
+Pasta::Pasta() : FoodItem(), pastaSauce("N/A") {}
 
-Pasta::Pasta() : MenuItem() , pastaSauce("NoSauce"){}
+// constructor without ingredient list
+Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce)
+    : FoodItem(name, price, size), pastaSauce(pastaSauce) {}
 
-std::string Pasta::get_pastaSauce() {
-  return pastaSauce;
-}
+// constructor with ingredient list
+Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce,
+             std::vector<Ingredient*> ingredientList)
+    : FoodItem(name, price, size, ingredientList), pastaSauce(pastaSauce) {}
 
+// getter functions
+std::string Pasta::get_pastaSauce() { return pastaSauce; }
+
+// setter functions
 void Pasta::set_pastaSauce(std::string pastaSauce) {
   this->pastaSauce = pastaSauce;
 }
+
+// deconstructor
+Pasta::~Pasta(){}
