@@ -3,14 +3,14 @@
 #include <iostream>
 using namespace std;
 
-class menu_item {
+class MenuItem {
 protected:
     string item_name;
     double item_price;
     int item_size;
 public:
-    menu_item();
-    menu_item(string name, double price, int size);
+    MenuItem();
+    MenuItem(string name, double price, int size);
     
     void set_item_name(string name);
     void set_item_price(double price);
@@ -22,41 +22,41 @@ public:
 };
 
 // Default menu_item constructor
-menu_item::menu_item() {
+MenuItem::MenuItem() {
     item_name = "N/A";
     item_price = 0;
     item_size = 1;
 }
 
 // Menu_item constructor
-menu_item::menu_item(string name, double price, int size) {
+MenuItem::MenuItem(string name, double price, int size) {
     item_name = name;
     item_price = price;
     item_size = size;
 }
 
 // Setter functions that changes the variables for the menu item
-void menu_item::set_item_name(string name) {
+void MenuItem::set_item_name(string name) {
     item_name = name;
     cout << "This item's name is changed to " << item_name << endl;
 }
-void menu_item::set_item_price(double price) {
+void MenuItem::set_item_price(double price) {
     item_price = price;
     cout << "This item's price is changed to " << item_price << endl;
 }
-void menu_item::set_item_size(int size) {
+void MenuItem::set_item_size(int size) {
     item_size = size;
     cout << "This item's size is changed to " << item_size << endl;
 }
 
 // Getter functions that outputs the values of the menu item
-string menu_item::get_item_name() {
+string MenuItem::get_item_name() {
     return item_name;
 }
-double menu_item::get_item_price() {
+double MenuItem::get_item_price() {
     return item_price;
 }
-int menu_item::get_item_size() {
+int MenuItem::get_item_size() {
     return item_size;
 }
 
