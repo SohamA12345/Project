@@ -6,7 +6,8 @@ using namespace std;
 class menu_item {
 protected:
     string item_name;
-    double item_price;
+    double item_price_initial;
+    double item_price_final;
     int item_size;
 public:
     // default constructor
@@ -18,7 +19,7 @@ public:
     // setter functions
     void set_item_name(string name);
     void set_item_price(double price);
-    void set_item_size(int size);
+    void set_item_size(string str_size);
 
     // getter functions
     string get_item_name();
