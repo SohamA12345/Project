@@ -9,7 +9,6 @@ private:
   std::string name;
   double price;
 
-
 public:
 
   Ingredient();
@@ -21,7 +20,7 @@ public:
   void set_name(std::string name);
   void set_price(double price);
 
-  
+
 
 };
 

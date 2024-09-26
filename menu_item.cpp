@@ -12,6 +12,11 @@ menu_item::menu_item(string name, double price, int size) {
     item_name = name;
     item_price = price;
     item_size = size;
+    if (item_size > 3) {
+        item_size = 3;
+    } else if (item_size < 1) {
+        item_size = 1;
+    }
 }
 
 // Setter functions that changes the variables for the menu item
@@ -25,6 +30,11 @@ void menu_item::set_item_price(double price) {
 }
 void menu_item::set_item_size(int size) {
     item_size = size;
+    if (item_size > 3) {
+        item_size = 3;
+    } else if (item_size < 1) {
+        item_size = 1;
+    }
     cout << "This item's size is changed to " << item_size << endl;
 }
 
