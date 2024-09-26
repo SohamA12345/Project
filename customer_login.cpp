@@ -1,12 +1,12 @@
 #include "customer_login.h"
-#include "customer_menu.h"
+//#include "customer_menu.h"
 #include "mmaker.h"
 
 void customer_login::run(int& state_portal) {
   menu customer;  // A menu object to implment a login portal for manager.
   menu acount_created;
 
-  customer_menu obj;
+  //customer_menu obj;
 
   string username;
   string password;
@@ -63,10 +63,10 @@ void customer_login::run(int& state_portal) {
             cout << "Login Successful\n";
             this->state_customer_login = 0;
 
-            do
-            {
-              obj.run();
-            } while (obj.get_state_portal_customer() == 1);
+            // do
+            // {
+            //   obj.run();
+            // } while (obj.get_state_portal_customer() == 1);
             
 
             return;
