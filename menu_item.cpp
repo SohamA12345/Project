@@ -3,14 +3,14 @@
 // Default menu_item constructor
 menu_item::menu_item() {
     item_name = "N/A";
-    item_price = 0;
+    item_price_initial = 0;
     item_size = 1;
 }
 
 // Menu_item constructor
 menu_item::menu_item(string name, double price, int size) {
     item_name = name;
-    item_price = price;
+    item_price_initial = price;
     item_size = size;
     if (item_size > 3) {
         item_size = 3;
@@ -25,14 +25,18 @@ void menu_item::set_item_name(string name) {
     cout << "This item's name is changed to " << item_name << endl;
 }
 void menu_item::set_item_price(double price) {
-    item_price = price;
-    cout << "This item's price is changed to " << item_price << endl;
+    item_price_initial = price;
+    cout << "This item's price is changed to " << item_price_initial << endl;
 }
-void menu_item::set_item_size(int size) {
-    item_size = size;
-    if (item_size > 3) {
+void menu_item::set_item_size(string str_size) {
+    if (str_size == "small") {
+        item_size = 1;
+    } else if (str_size == "medium") {
+        item_size = 2;
+    } else if (str_size == "large") {
         item_size = 3;
-    } else if (item_size < 1) {
+    } else {
+        cout << "invalid input, size set to small" << endl;
         item_size = 1;
     }
     cout << "This item's size is changed to " << item_size << endl;
@@ -43,7 +47,7 @@ string menu_item::get_item_name() {
     return item_name;
 }
 double menu_item::get_item_price() {
-    return item_price;
+    return item_price_initial;
 }
 int menu_item::get_item_size() {
     return item_size;

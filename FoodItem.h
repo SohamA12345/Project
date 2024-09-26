@@ -3,10 +3,10 @@
 
 #include <vector>
 
-#include "Ingredient.h"
-#include "MenuItem.h"
+#include "ingredient.h"
+#include "menu_item.h"
 
-class FoodItem : public MenuItem {
+class FoodItem : public menu_item {
  protected:
   std::vector<Ingredient*> ingredients;
 
@@ -22,10 +22,15 @@ class FoodItem : public MenuItem {
            std::vector<Ingredient*> ingredients);
 
   // adder functions
-  void addIngredient(Ingredient& i);
+  void add_ingredient(Ingredient& i);
 
   // getter functions
   Ingredient* get_ingredient(int index);
+
+  double calculate_item_price();
+
+ // print ingredients functions
+ void print_ingredients();
 
   // deconstructor
   ~FoodItem();

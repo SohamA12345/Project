@@ -1,4 +1,4 @@
-#include "pasta.h"
+#include "Pasta.h"
 
 // default constructor
 Pasta::Pasta() : FoodItem(), pastaSauce("N/A") {}

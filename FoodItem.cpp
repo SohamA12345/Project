@@ -1,0 +1,47 @@
+#include "FoodItem.h"
+
+// default constructor
+FoodItem::FoodItem() : menu_item("N/A", 0.0, 1) {}
+
+// constructor without pre-made ingredients
+FoodItem::FoodItem(string name, double price, int size)
+    : menu_item(name, price, size) {}
+
+// contructor with pre-made ingredients
+FoodItem::FoodItem(string name, double price, int size,
+                   std::vector<Ingredient*> ingredients)
+    : menu_item(name, price, size), ingredients(ingredients) {}
+
+// setter/ adder functions
+void FoodItem::add_ingredient(Ingredient& i) { ingredients.push_back(&i); }
+
+// getter functions
+Ingredient* FoodItem::get_ingredient(int index) {
+  return ingredients[index];
+}
+
+double FoodItem::calculate_item_price() {
+  double total_price = get_item_price();
+  int vector_length = ingredients.size();
+  for (int i = 0; i < vector_length; i++) {
+    total_price += ingredients[i]->get_price();
+  }
+  return total_price;
+}
+
+// print ingredients function
+void FoodItem::print_ingredients() {
+  int vector_length = ingredients.size();
+  if (vector_length == 0) { // no ingredients in item
+    std::cout << "No ingredients added!" << std::endl;
+  } else if (vector_length < 0) { // negative ingredients 
+    std::cout << "Error" << std::endl;
+  } else {
+    for (int i = 0; i < vector_length; i++) { // print name + price
+      cout << ingredients[i]->get_name() << " | $" << ingredients[i]->get_price() << std::endl;
+    }
+  }
+}
+
+// deconstructor
+FoodItem::~FoodItem() {}

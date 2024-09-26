@@ -1,4 +1,4 @@
-#include "pizza.h"
+#include "Pizza.h"
 
 // default constructor
 Pizza::Pizza() : FoodItem(), pizzaSauce("N/A"), pizzaBase("N/A") {}
