@@ -1,7 +1,7 @@
 #ifndef PIZZA_H
 #define PIZZA_H
 
-#include "FoodItem.h"
+#include "foodItem.h"
 
 class Pizza : public FoodItem {
  private:

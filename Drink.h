@@ -5,14 +5,14 @@
 using namespace std;
 #include "menu_item.h"
 
-class Drink {
+class drink {
 protected:
     string size;
 public:
-    Drink(/* args */);
+    drink(/* args */);
 };
 
-Drink::Drink() {
+drink::drink() {
 
 }
 

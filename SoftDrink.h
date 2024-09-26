@@ -1,7 +1,7 @@
 #ifndef SOFTDRINK_H
 #define SOFTDRINK_H
 
-class SoftDrink {
+class soft_drink {
 private:
     /* data */
 public:

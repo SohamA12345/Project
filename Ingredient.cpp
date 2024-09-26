@@ -1,4 +1,4 @@
-#include "Ingredient.h"
+#include "ingredient.h"
 
 Ingredient::Ingredient(std::string name, double price) : name(name), price(price) {}
 

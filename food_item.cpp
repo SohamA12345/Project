@@ -1,4 +1,4 @@
-#include "FoodItem.h"
+#include "food_item.h"
 
 // default constructor
 FoodItem::FoodItem() : MenuItem("N/A", 0.0, 1) {}
