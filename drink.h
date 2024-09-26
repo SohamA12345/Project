@@ -8,11 +8,24 @@ using namespace std;
 class drink : public menu_item {
 protected:
     int sugar;
-    int ice;
+    bool ice;
 public:
     //constructors: 
     drink(int size, string name, double price);
     drink();
+
+    // increase the amount of sugar
+    void add_sugar(int num_spoon);
+    void remove_sugar(int num_spoon);
+
+    // change whether ice is added
+    void change_ice();
+
+    // show current amount of sugar
+    int get_sugar();
+
+    // show whether ice is currently being added
+    void show_ice();
 
     // returns the price of the drink
     double calculate_item_price();
