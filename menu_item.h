@@ -8,6 +8,9 @@ protected:
     string item_name;
     double item_price;
     int item_size;
+    int small = 1;
+    float medium = 1.25;
+    float large = 1.5;
 public:
     // default constructor
     menu_item();
@@ -18,7 +21,7 @@ public:
     // setter functions
     void set_item_name(string name);
     void set_item_price(double price);
-    void set_item_size(int size);
+    void set_item_size(string name_size);
 
     // getter functions
     string get_item_name();
