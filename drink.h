@@ -7,7 +7,8 @@ using namespace std;
 
 class drink : public menu_item {
 protected:
-    double drink_price;
+    int sugar;
+    int ice;
 public:
     //constructors: 
     drink(int size, string name, double price);

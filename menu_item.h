@@ -6,7 +6,8 @@ using namespace std;
 class menu_item {
 protected:
     string item_name;
-    double item_price;
+    double item_price_initial;
+    double item_price_final;
     int item_size;
     int small = 1;
     float medium = 1.25;
@@ -21,7 +22,7 @@ public:
     // setter functions
     void set_item_name(string name);
     void set_item_price(double price);
-    void set_item_size(string name_size);
+    void set_item_size(int size);
 
     // getter functions
     string get_item_name();
