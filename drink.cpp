@@ -12,7 +12,7 @@ drink::drink() {
     item_price = 0.0;
 }
 
-// returns the price of the drink, increased based on the item_size
+// returns the price of the drink, which is based on the item's price and increases based on the item's size
 double drink::calculate_item_price() {
     drink_price = item_price * (1 + 0.25 * (item_size - 1));
     return drink_price;
