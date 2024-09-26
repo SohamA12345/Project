@@ -3,17 +3,17 @@
 #include <iostream>
 using namespace std;
 
-class MenuItem {
+class menu_item {
 protected:
     string item_name;
     double item_price;
     int item_size;
 public:
     // default constructor
-    MenuItem();
+    menu_item();
 
     // constructor
-    MenuItem(string name, double price, int size);
+    menu_item(string name, double price, int size);
     
     // setter functions
     void set_item_name(string name);
@@ -25,7 +25,5 @@ public:
     double get_item_price();
     int get_item_size();
 };
-
-
 
 #endif
