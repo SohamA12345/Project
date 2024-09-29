@@ -13,7 +13,7 @@ FoodItem::FoodItem(string name, double price, int size,
     : menu_item(name, price, size), ingredients(ingredients) {}
 
 // setter/ adder functions
-void FoodItem::add_ingredient(Ingredient& i) { ingredients.push_back(&i); }
+void FoodItem::add_ingredient(Ingredient* i) { ingredients.push_back(i); }
 
 // getter functions
 Ingredient* FoodItem::get_ingredient(int index) {

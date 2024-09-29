@@ -22,7 +22,7 @@ class FoodItem : public menu_item {
            std::vector<Ingredient*> ingredients);
 
   // adder functions
-  void add_ingredient(Ingredient& i);
+  void add_ingredient(Ingredient* i);
 
   // getter functions
   Ingredient* get_ingredient(int index);
