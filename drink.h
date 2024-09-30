@@ -6,7 +6,7 @@ using namespace std;
 #include "menu_item.h"
 
 class drink : public menu_item {
-protected:
+private:
     int sugar;
     bool ice;
 public:
