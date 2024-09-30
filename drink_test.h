@@ -3,12 +3,6 @@
 #include "drink.h"
 
 class drink_test {
-public:
-    void run_tests() {
-        test_drink_default();
-        test_drink_case1();
-        test_drink_case2();
-    };
 private:
     // default case with no input
     void test_drink_default() {
@@ -81,4 +75,10 @@ private:
             cout << "test 2 price calculation failed, result unexpected" << endl;
         }
     }
+public:
+    void run_tests() {
+        test_drink_default();
+        test_drink_case1();
+        test_drink_case2();
+    };
 };
