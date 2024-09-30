@@ -1,12 +1,12 @@
 #include "customer_login.h"
-//#include "customer_menu.h"
+// #include "customer_menu.h"
 #include "mmaker.h"
 
 void customer_login::run(int& state_portal) {
   menu customer;  // A menu object to implment a login portal for manager.
   menu acount_created;
 
-  //customer_menu obj;
+  // customer_menu obj;
 
   string username;
   string password;
@@ -33,53 +33,71 @@ void customer_login::run(int& state_portal) {
     case 1:
       cout << "Username: ";
       getline(cin, username);
+      bool username_found;
+      int line_number;
+      username_found = false;
+      line_number = 0;
 
       if (i_usernames_file.is_open()) {
         while (getline(i_usernames_file, read_line)) {
-          if (read_line == username) {
-            cout << "Username Exists\n";
-            this->state_customer_login = 0;
-            break;
-          } else {
-            cout << "Login failed. No matching username found, please create a "
-                    "new "
-                    "acount\n";
-            cout << "Press enter to return to previous options.";
+          line_number++;
 
+          if (read_line == username) {
+            cout << "Username Exists. Press 'Enter' to continue.";
             cin.get();
-            state_customer_login = 1;
-            
-            return;
+
+            i_usernames_file.close();
+            this->state_customer_login = 0;
+
+            username_found = true;
+
+            break;
           }
         }
+      }
+
+      if (username_found == false) {
+        cout << "Login failed. No matching username found, please create a "
+                "new "
+                "acount\n";
+        cout << "Press enter to return to previous options.";
+
+        cin.get();
+        state_customer_login = 1;
+
+        return;
       }
 
       cout << "Password: ";
       getline(cin, password);
 
       if (i_passwords_file.is_open()) {
-        while (getline(i_passwords_file, read_line)) {
-          if (read_line == password) {
-            cout << "Login Successful\n";
-            this->state_customer_login = 0;
-
-            // do
-            // {
-            //   obj.run();
-            // } while (obj.get_state_portal_customer() == 1);
-            
-
-            return;
-          } else {
-            cout << "Login failed. No matching password found, please create a "
-                    "new "
-                    "acount\n";
-            cout << "Press enter to return to previous options.";
-            cin.get();
-            state_customer_login = 1;
-            return;
-          }
+        for (int i = 0; i < line_number; i++) { // Reads the line in password associated with the username.
+          getline(i_passwords_file, read_line);
         }
+      }
+
+      if (read_line == password) {
+        cout << "Login Successful. Press 'Enter' to acess the menu.";
+        cin.get();
+
+        i_passwords_file.close();
+        this->state_customer_login = 0;
+
+        // do
+        // {
+        //   obj.run();
+        // } while (obj.get_state_portal_customer() == 1);
+
+        return;
+      } else {
+        cout << "Login failed. No matching password found, please create a "
+                "new "
+                "acount\n";
+        cout << "Press enter to return to previous options.";
+        cin.get();
+        state_customer_login = 1;
+        return;
       }
 
       break;
@@ -105,17 +123,17 @@ void customer_login::run(int& state_portal) {
         this->state_customer_login = 1;
 
         acount_created.menu_head(username + " thanks for creating an account");
-        acount_created.add("Back to login", 1, "Please login to access the exclusive menu.");
+        acount_created.add("Back to login", 1,
+                           "Please login to access the exclusive menu.");
 
         acount_created_choice = acount_created.display();
 
-        switch (acount_created_choice)
-        {
-        case 1:
-          cin.get(); // Pauses program till enter is pressed.
-          break;
-        default:
-          break;
+        switch (acount_created_choice) {
+          case 1:
+            cin.get();  // Pauses program till enter is pressed.
+            break;
+          default:
+            break;
         }
 
         o_passwords_file.close();
