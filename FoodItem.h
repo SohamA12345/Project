@@ -22,7 +22,7 @@ class FoodItem : public menu_item {
            std::vector<Ingredient*> ingredients);
 
   // adder functions
-  void add_ingredient(Ingredient& i);
+  void add_ingredient(Ingredient* i);
 
   // getter functions
   Ingredient* get_ingredient(int index);
@@ -30,7 +30,7 @@ class FoodItem : public menu_item {
   double calculate_item_price();
 
  // print ingredients functions
- void print_ingredients();
+ void print_ingredients_and_price();
 
   // deconstructor
   ~FoodItem();
