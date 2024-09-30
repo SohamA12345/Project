@@ -25,7 +25,7 @@ public:
     int get_sugar();
 
     // show whether ice is currently being added
-    void show_ice();
+    bool show_ice();
 
     // returns the price of the drink
     double calculate_item_price();

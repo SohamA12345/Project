@@ -15,7 +15,7 @@ drink::drink() {
 
 // returns the price of the drink, which is based on the item's price and increases based on the item's size
 double drink::calculate_item_price() {
-    item_price_final = item_price_final * (1 + 0.25 * (item_size - 1));
+    item_price_final = item_price_initial * (1 + 0.25 * (item_size - 1));
     return item_price_final;
 }
 
@@ -42,10 +42,6 @@ int drink::get_sugar() {
 }
 
 // function for showing whether ice has been added currently
-void drink::show_ice() {
-    if (ice == false) {
-        cout << "no ice" << endl;
-    } else {
-        cout << "ice added" << endl;
-    }
+bool drink::show_ice() {
+    return ice;
 }
