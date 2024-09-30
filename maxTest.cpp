@@ -62,7 +62,7 @@ int main() {
 
 
   std::cout << pizzaList[0].get_item_name() << std::endl;
-  pizzaList[0].print_ingredients();
+  pizzaList[0].print_ingredients_and_price();
 
   return 0;
 }
