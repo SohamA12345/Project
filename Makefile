@@ -1,1 +1,5 @@
-Start: Portal.h Manager Login, Manager Menu, Customer Login, Customer Menu, Food/Drink, Categories_Food, Drink, Customer_Drink, Add_Ingredient, Customer_Food/Drink, Checkout, Customer_Categories_Food Add_To_Cart 
+Start: MenuSystem.cpp MMaker.cpp Func.cpp Portal.cpp ManagerLogin.cpp ManagerMenu.cpp CustomerLogin.cpp CustomerMenu.cpp
+	@g++ MenuSystem.cpp MMaker.cpp Func.cpp ManagerLogin.h ManagerMenu.h CustomerLogin.h CustomerMenu.h Portal.cpp ManagerLogin.cpp ManagerMenu.cpp CustomerLogin.cpp CustomerMenu.cpp -o ResturantManagementSuite.exe
+	@./ResturantManagementSuite.exe
+
+	FoodDrink.h CategoriesFood.h ManagerDrink.h CustomerDrink.h AddIngredient.h CustomerFoodDrink.h Checkout.h CustomerCategoriesFood.h AddToCart.h FoodDrink.cpp CategoriesFood.cpp ManagerDrink.cpp CustomerDrink.cpp AddIngredient.cpp CustomerFoodDrink.cpp Checkout.cpp CustomerCategoriesFood.cpp AddToCart.cpp

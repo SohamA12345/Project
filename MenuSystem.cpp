@@ -4,10 +4,10 @@
 #include <string>
 #include "menu_item.h"
 
-#include "portal.h"
+#include "Portal.h"
 
 int main() {
-  portal portal_obj;
+  Portal portal_obj;
   
 
   do
