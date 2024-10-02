@@ -1,6 +1,6 @@
 #include "Portal.h"
 #include "CustomerLogin.h"
-#include "manager_login.h"
+#include "ManagerLogin.h"
 #include "MMaker.h"
 
 using namespace std;
@@ -8,7 +8,7 @@ using namespace std;
 void Portal::run() {
   menu Portal; // A menu object from menu class to implement a Portal.
   CustomerLogin obj; //runs the customer login.
-  manager_login obj_manager; //runs manager login.
+  ManagerLogin obj_manager; //runs manager login.
 
   Portal.menu_head("Portal");
 
