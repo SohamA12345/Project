@@ -1,15 +1,10 @@
-// This implements a menu for the
-#include <fstream>
-#include <iostream>
-#include <string>
-#include "menu_item.h"
+// Main File to display the starting gui.
 
 #include "Portal.h"
 
 int main() {
   Portal portal_obj;
   
-
   do
   {
     portal_obj.run();
