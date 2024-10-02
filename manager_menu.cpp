@@ -1,5 +1,5 @@
 #include "manager_menu.h"
-#include "mmaker.h"
+#include "MMaker.h"
 
 void manager_menu::run() {
   menu manager_menu;

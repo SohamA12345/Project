@@ -1,6 +1,6 @@
 #include "CustomerLogin.h"
 // #include "CustomerMenu.h"
-#include "mmaker.h"
+#include "MMaker.h"
 
 void CustomerLogin::run(int& state_portal) {
   menu customer;  // A menu object to implment a login portal for manager.
