@@ -3,9 +3,9 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "menu_item.h"
+#include "MenuItem.h"
 
-class Drink : public menu_item {
+class Drink : public MenuItem {
 private:
     int sugar;
     bool ice;
