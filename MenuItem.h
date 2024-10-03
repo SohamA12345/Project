@@ -1,9 +1,9 @@
-#ifndef MENU_ITEM_H
-#define MENU_ITEM_H
+#ifndef MENUITEM_H
+#define MENUITEM_H
 #include <iostream>
 using namespace std;
 
-class menu_item {
+class MenuItem {
 protected:
     string item_name;
     double item_price_initial;
@@ -11,10 +11,10 @@ protected:
     int item_size;
 public:
     // default constructor
-    menu_item();
+    MenuItem();
 
     // constructor
-    menu_item(string name, double price, int size);
+    MenuItem(string name, double price, int size);
     
     // setter functions
     void set_item_name(string name);

@@ -3,16 +3,16 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "menu_item.h"
+#include "MenuItem.h"
 
-class drink : public menu_item {
+class Drink : public MenuItem {
 private:
     int sugar;
     bool ice;
 public:
     //constructors: 
-    drink(int size, string name, double price);
-    drink();
+    Drink(int size, string name, double price);
+    Drink();
 
     // increase the amount of sugar
     void add_sugar(int num_spoon);

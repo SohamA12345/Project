@@ -1,12 +1,12 @@
-// this is the unit test file for menu_item.h
-#include "menu_item.h"
-#include "drink.h"
+// this is the unit test file for Drink.h
+#include "MenuItem.h"
+#include "Drink.h"
 
-class drink_test {
+class DrinkTest {
 private:
     // default case with no input
     void test_drink_default() {
-        drink d1;
+        Drink d1;
         if(d1.get_sugar() != 0) {
             cout << "default test sugar failed, result unexpected" << endl;
         }
@@ -26,8 +26,8 @@ private:
 
     // 2nd case with input
     void test_drink_case1() {
-        drink d1;
-        d1 = drink(2, "Coke", 2.2);
+        Drink d1;
+        d1 = Drink(2, "Coke", 2.2);
         if(d1.get_sugar() != 0) {
             cout << "test 1 sugar failed, result unexpected" << endl;
         }
@@ -50,7 +50,7 @@ private:
 
     // 3rd case that alters the inputs
     void test_drink_case2() {
-        drink d2;
+        Drink d2;
         d2.set_item_size("medium");
         d2.set_item_name("Sprite");
         d2.set_item_price(5.0);

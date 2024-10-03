@@ -1,14 +1,14 @@
-#include "menu_item.h"
+#include "MenuItem.h"
 
 // Default menu_item constructor
-menu_item::menu_item() {
+MenuItem::MenuItem() {
     item_name = "N/A";
     item_price_initial = 0;
     item_size = 1;
 }
 
 // Menu_item constructor
-menu_item::menu_item(string name, double price, int size) {
+MenuItem::MenuItem(string name, double price, int size) {
     item_name = name;
     item_price_initial = price;
     item_size = size;
@@ -20,15 +20,15 @@ menu_item::menu_item(string name, double price, int size) {
 }
 
 // Setter functions that changes the variables for the menu item
-void menu_item::set_item_name(string name) {
+void MenuItem::set_item_name(string name) {
     item_name = name;
     cout << "This item's name is changed to " << item_name << endl;
 }
-void menu_item::set_item_price(double price) {
+void MenuItem::set_item_price(double price) {
     item_price_initial = price;
     cout << "This item's price is changed to " << item_price_initial << endl;
 }
-void menu_item::set_item_size(string str_size) {
+void MenuItem::set_item_size(string str_size) {
     if (str_size == "small") {
         item_size = 1;
     } else if (str_size == "medium") {
@@ -43,12 +43,12 @@ void menu_item::set_item_size(string str_size) {
 }
 
 // Getter functions that outputs the values of the menu item
-string menu_item::get_item_name() {
+string MenuItem::get_item_name() {
     return item_name;
 }
-double menu_item::get_item_price() {
+double MenuItem::get_item_price() {
     return item_price_initial;
 }
-int menu_item::get_item_size() {
+int MenuItem::get_item_size() {
     return item_size;
 }
