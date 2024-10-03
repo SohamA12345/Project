@@ -5,24 +5,26 @@
 
 class Pasta : public FoodItem {
  private:
-  std::string pastaSauce;
+  std::string pasta_type;
+  std::string pasta_sauce;
 
  public:
   // default constructor
   Pasta();
 
   // constructor without ingredient list
-  Pasta(std::string name, double price, int size, std::string pastaSauce);
+  Pasta(std::string name, double price, int size, std::string pasta_type, std::string pasta_sauce);
 
   // constructor with ingredient list
-  Pasta(std::string name, double price, int size, std::string pastaSauce,
+  Pasta(std::string name, double price, int size, std::string pasta_type, std::string pasta_sauce,
         std::vector<Ingredient> ingredientList);
 
   // getter functions
   std::string get_pastaSauce();
 
   // setter functions
-  void set_pastaSauce(std::string pastaSauce);
+  void set_pasta_type(std::string pasta_type);
+  void set_pasta_sauce(std::string pasta_sauce);
 
   // deconstructor
   ~Pasta();
