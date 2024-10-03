@@ -1,23 +1,27 @@
 #include "Pasta.h"
 
 // default constructor
-Pasta::Pasta() : FoodItem(), pastaSauce("N/A") {}
+Pasta::Pasta() : FoodItem(), pasta_type("N/A"), pasta_sauce("N/A") {}
 
 // constructor without ingredients
-Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce)
-    : FoodItem(name, price, size), pastaSauce(pastaSauce) {}
+Pasta::Pasta(std::string name, double price, int size, std::string pasta_type, std::string pasta_sauce)
+    : FoodItem(name, price, size), pasta_type(pasta_type), pasta_sauce(pasta_sauce) {}
 
 // constructor with ingredients
-Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce,
+Pasta::Pasta(std::string name, double price, int size, std::string pasta_type, std::string pasta_sauce,
              std::vector<Ingredient> ingredients)
-    : FoodItem(name, price, size, ingredients), pastaSauce(pastaSauce) {}
+    : FoodItem(name, price, size, ingredients), pasta_type(pasta_type), pasta_sauce(pasta_sauce) {}
 
 // getter functions
-std::string Pasta::get_pastaSauce() { return pastaSauce; }
+std::string Pasta::get_pastaSauce() { return pasta_sauce; }
 
 // setter functions
-void Pasta::set_pastaSauce(std::string pastaSauce) {
-  this->pastaSauce = pastaSauce;
+void Pasta::set_pasta_type(std::string pasta_type) {
+  this->pasta_type = pasta_type;
+}
+
+void Pasta::set_pasta_sauce(std::string pasta_sauce) {
+  this->pasta_sauce = pasta_sauce;
 }
 
 // deconstructor

@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include "Pasta.h"
-//#include "Pizza.h"
+#include "Pizza.h"
 
 
 
@@ -89,7 +89,7 @@ Pasta read_pasta_file(std::string name) {
       pasta.set_item_size(current_line);
       break;
       case 4:
-      pasta.set_pastaSauce(current_line);
+      pasta.set_pasta_sauce(current_line);
       break;
       default:
         break;
@@ -195,7 +195,7 @@ p.add_ingredient(i2);
 write_food_item(p);
 */
 
-
+/*
 vector<Ingredient> ingredient_list;
 Ingredient i("cheese", 1);
 Ingredient i2("spring onion", 0.50);
@@ -225,6 +225,12 @@ std::cout << p.get_ingredient(i).get_price() << std::endl;
 }
 
 write_food_item(p);
+
+*/
+
+Pizza p;
+
+std::cout << p.get_item_price() << std::endl;
 
   return 0;
 }

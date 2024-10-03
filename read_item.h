@@ -9,7 +9,7 @@ private:
 
 public:
 
-std::vector<Ingredient> read_ingredient_list(int ingredient_line_start);
+std::vector<Ingredient> read_ingredient_list();
 
 void read_menu_item(MenuItem* item, std::ifstream* inFile); // reads in information that all menu items have
 
