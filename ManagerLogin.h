@@ -7,8 +7,8 @@ using namespace std;
 
 class ManagerLogin {
  private:
-  string username = "Resturant";
-  string password = "Menu";
+  string username = "12345";
+  string password = "1234";
  public:
   void run(int& state_portal);
   ManagerLogin();
