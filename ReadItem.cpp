@@ -1,4 +1,4 @@
-#include "read_item.h"
+#include "ReadItem.h"
 
 #include <fstream>
 
@@ -57,9 +57,9 @@ Pasta ReadItem::read_pasta(std::string name) {
   int index = 4;
   int pasta_attributes = 2;
   std::string current_line;
-  std::getline(inFile, current_line);
   for (int i = index; i < index + pasta_attributes; i++) {
-    switch (index) {
+    std::getline(inFile, current_line);
+    switch (i) {
       case 4:
         pasta.set_pasta_type(current_line);
         break;
@@ -74,6 +74,37 @@ Pasta ReadItem::read_pasta(std::string name) {
   // read in ingredient list
   std::vector<Ingredient> list = read_ingredient_list();
   pasta.set_ingredient_list(list);
+
+  return pasta;
 }
 
-Pizza ReadItem::read_pizza() {}
+Pizza ReadItem::read_pizza(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Pizza pizza;
+  read_menu_item(
+      &pizza, &inFile);  // calls general function and should return on line 3
+
+  // unique to pizza, 2 attributes pizza sauce and pizza cheese
+  int index = 4;
+  int pizza_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + pizza_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        pizza.set_pizza_sauce(current_line);
+        break;
+      case 5:
+        pizza.set_pizza_cheese(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  std::vector<Ingredient> list = read_ingredient_list();
+  pizza.set_ingredient_list(list);
+
+  return pizza;
+}

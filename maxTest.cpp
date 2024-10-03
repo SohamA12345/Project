@@ -5,6 +5,7 @@
 #include "Pasta.h"
 #include "Pizza.h"
 
+#include "ReadItem.h"
 
 
 
@@ -27,7 +28,7 @@ std::string item_size;
         item_size = "small";
     }
     outFile << item_size << std::endl;
-    outFile << pasta.get_pastaSauce() << std::endl;
+    outFile << pasta.get_pasta_sauce() << std::endl;
     int no_ingredients = pasta.get_ingredient_list().size();
     outFile << no_ingredients << std::endl;
     for (int i = 0; i < no_ingredients; i++) {
@@ -229,8 +230,25 @@ write_food_item(p);
 */
 
 Pizza p;
+ReadItem r;
+std::string name = "MacandCheese";
+p = r.read_pizza(name);
 
+
+std::cout << p.get_item_name() << std::endl;
 std::cout << p.get_item_price() << std::endl;
+std::cout << p.get_item_size() << std::endl;
+
+std::cout << p.get_pizza_sauce() << std::endl;
+std::cout << p.get_pizza_cheese() << std::endl;
+
+std::cout << p.get_ingredient_list()[0].get_name() << std::endl;
+std::cout << p.get_ingredient_list()[0].get_price() << std::endl;
+std::cout << p.get_ingredient_list()[1].get_name() << std::endl;
+std::cout << p.get_ingredient_list()[1].get_price() << std::endl;
+std::cout << p.get_ingredient_list()[2].get_name() << std::endl;
+std::cout << p.get_ingredient_list()[2].get_price() << std::endl;
+
 
   return 0;
 }
