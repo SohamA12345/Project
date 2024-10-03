@@ -9,7 +9,7 @@ Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce)
 
 // constructor with ingredients
 Pasta::Pasta(std::string name, double price, int size, std::string pastaSauce,
-             std::vector<Ingredient*> ingredients)
+             std::vector<Ingredient> ingredients)
     : FoodItem(name, price, size, ingredients), pastaSauce(pastaSauce) {}
 
 // getter functions

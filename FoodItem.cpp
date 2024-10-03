@@ -9,28 +9,36 @@ FoodItem::FoodItem(string name, double price, int size)
 
 // contructor with pre-made ingredients
 FoodItem::FoodItem(string name, double price, int size,
-                   std::vector<Ingredient*> ingredients)
+                   std::vector<Ingredient> ingredients)
     : menu_item(name, price, size), ingredients(ingredients) {}
 
 // setter/ adder functions
-void FoodItem::add_ingredient(Ingredient* i) { ingredients.push_back(i); }
+void FoodItem::add_ingredient(Ingredient i) { ingredients.push_back(i); }
+
+void FoodItem::set_ingredient_list(vector<Ingredient> list) {
+  this->ingredients = list;
+}
 
 // getter functions
-Ingredient* FoodItem::get_ingredient(int index) {
+Ingredient FoodItem::get_ingredient(int index) {
   return ingredients[index];
+}
+
+vector<Ingredient> FoodItem::get_ingredient_list() {
+  return ingredients;
 }
 
 double FoodItem::calculate_item_price() {
   double total_price = get_item_price();
   int vector_length = ingredients.size();
   for (int i = 0; i < vector_length; i++) {
-    total_price += ingredients[i]->get_price();
+    total_price += ingredients[i].get_price();
   }
   return total_price;
 }
 
 // print ingredients function
-void FoodItem::print_ingredients() {
+void FoodItem::print_ingredients_and_price() {
   int vector_length = ingredients.size();
   if (vector_length == 0) { // no ingredients in item
     std::cout << "No ingredients added!" << std::endl;
@@ -38,7 +46,7 @@ void FoodItem::print_ingredients() {
     std::cout << "Error" << std::endl;
   } else {
     for (int i = 0; i < vector_length; i++) { // print name + price
-      cout << ingredients[i]->get_name() << " | $" << ingredients[i]->get_price() << std::endl;
+      cout << ingredients[i].get_name() << " | $" << ingredients[i].get_price() << std::endl;
     }
   }
 }

@@ -8,7 +8,7 @@
 
 class FoodItem : public menu_item {
  protected:
-  std::vector<Ingredient*> ingredients;
+  std::vector<Ingredient> ingredients;
 
  public:
   // default constructor
@@ -19,13 +19,18 @@ class FoodItem : public menu_item {
 
   // contructor with pre-made ingredients
   FoodItem(string name, double price, int size,
-           std::vector<Ingredient*> ingredients);
+           std::vector<Ingredient> ingredients);
+
+  // setter funciton
+  void set_ingredient_list(vector<Ingredient> list);
 
   // adder functions
-  void add_ingredient(Ingredient* i);
+  void add_ingredient(Ingredient i);
 
   // getter functions
-  Ingredient* get_ingredient(int index);
+  Ingredient get_ingredient(int index);
+
+  vector<Ingredient> get_ingredient_list();
 
   double calculate_item_price();
 
