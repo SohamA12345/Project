@@ -9,7 +9,7 @@ Pizza::Pizza(std::string name, double price, int size, std::string pizzaSauce, s
 
 // constructor with ingredients
 Pizza::Pizza(std::string name, double price, int size, std::string pizzaSauce, std::string pizzaBase,
-             std::vector<Ingredient*> ingredients)
+             std::vector<Ingredient> ingredients)
     : FoodItem(name, price, size, ingredients), pizzaSauce(pizzaSauce), pizzaBase(pizzaBase) {}
 
 // getter functions

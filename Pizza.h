@@ -18,7 +18,7 @@ class Pizza : public FoodItem {
 
   // constructor with ingredient list
   Pizza(std::string name, double price, int size, std::string pizzaSauce,
-        std::string pizzaBase, std::vector<Ingredient*> ingredientList);
+        std::string pizzaBase, std::vector<Ingredient> ingredientList);
 
   // getter functions
   std::string get_pizzaSauce();
