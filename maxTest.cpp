@@ -229,18 +229,18 @@ write_food_item(p);
 
 */
 
-Pizza p;
+Burger p;
 ReadItem r;
 std::string name = "MacandCheese";
-p = r.read_pizza(name);
+p = r.read_burger(name);
 
 
 std::cout << p.get_item_name() << std::endl;
 std::cout << p.get_item_price() << std::endl;
 std::cout << p.get_item_size() << std::endl;
 
-std::cout << p.get_pizza_sauce() << std::endl;
-std::cout << p.get_pizza_cheese() << std::endl;
+std::cout << p.get_burger_bun() << std::endl;
+std::cout << p.get_burger_meat() << std::endl;
 
 std::cout << p.get_ingredient_list()[0].get_name() << std::endl;
 std::cout << p.get_ingredient_list()[0].get_price() << std::endl;

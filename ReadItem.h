@@ -3,6 +3,7 @@
 
 #include "Pasta.h"
 #include "Pizza.h"
+#include "Burger.h"
 
 class ReadItem {
 private:
@@ -16,6 +17,8 @@ void read_menu_item(MenuItem* item, std::ifstream* inFile); // reads in informat
 Pasta read_pasta(std::string name);
 
 Pizza read_pizza(std::string name);
+
+Burger read_burger(std::string name);
 
 
 };
