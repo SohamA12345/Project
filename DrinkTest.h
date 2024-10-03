@@ -1,4 +1,4 @@
-// this is the unit test file for menu_item.h
+// this is the unit test file for Drink.h
 #include "MenuItem.h"
 #include "Drink.h"
 
