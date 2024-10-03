@@ -3,10 +3,10 @@
 
 #include <vector>
 
-#include "ingredient.h"
-#include "menu_item.h"
+#include "Ingredient.h"
+#include "MenuItem.h"
 
-class FoodItem : public menu_item {
+class FoodItem : public MenuItem {
  protected:
   std::vector<Ingredient> ingredients;
 

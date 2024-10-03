@@ -1,16 +1,16 @@
 #include "FoodItem.h"
 
 // default constructor
-FoodItem::FoodItem() : menu_item("N/A", 0.0, 1) {}
+FoodItem::FoodItem() : MenuItem("N/A", 0.0, 1) {}
 
 // constructor without pre-made ingredients
 FoodItem::FoodItem(string name, double price, int size)
-    : menu_item(name, price, size) {}
+    : MenuItem(name, price, size) {}
 
 // contructor with pre-made ingredients
 FoodItem::FoodItem(string name, double price, int size,
                    std::vector<Ingredient> ingredients)
-    : menu_item(name, price, size), ingredients(ingredients) {}
+    : MenuItem(name, price, size), ingredients(ingredients) {}
 
 // setter/ adder functions
 void FoodItem::add_ingredient(Ingredient i) { ingredients.push_back(i); }
