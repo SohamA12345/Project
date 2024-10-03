@@ -7,7 +7,6 @@ private:
         p.get_state_portal();
     }
     
-
 public:
     void run_tests() {
         base_portal_test();
