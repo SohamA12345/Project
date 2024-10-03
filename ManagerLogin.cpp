@@ -1,14 +1,14 @@
-#include "manager_login.h"
-#include "manager_menu.h"
+#include "ManagerLogin.h"
+#include "ManagerMenu.h"
 #include <iostream>
 
 using namespace std;
 
-void manager_login::run(int& state_portal) {
+void ManagerLogin::run(int& state_portal) {
   string username;
   string password;
 
-  //manager_menu obj;
+  //ManagerMenu obj;
 
   cout << "Manager Username: ";
   getline(cin, username); // Ensures when the user presses enter doesn't effect once returned to portal.
@@ -41,5 +41,5 @@ void manager_login::run(int& state_portal) {
   }
 }
 
-manager_login::manager_login() {}
-manager_login::~manager_login() {}
+ManagerLogin::ManagerLogin() {}
+ManagerLogin::~ManagerLogin() {}

@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <cstdio>
-#include "func.h"
+#include "Func.h"
 
 using namespace std;
 

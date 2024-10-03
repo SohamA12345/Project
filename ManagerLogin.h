@@ -5,14 +5,14 @@
 
 using namespace std;
 
-class manager_login {
+class ManagerLogin {
  private:
   string username = "Resturant";
   string password = "Menu";
  public:
   void run(int& state_portal);
-  manager_login();
-  ~manager_login();
+  ManagerLogin();
+  ~ManagerLogin();
 };
 
 #endif

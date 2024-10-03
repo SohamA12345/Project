@@ -1,12 +1,12 @@
-#include "customer_login.h"
-// #include "customer_menu.h"
-#include "mmaker.h"
+#include "CustomerLogin.h"
+// #include "CustomerMenu.h"
+#include "MMaker.h"
 
-void customer_login::run(int& state_portal) {
+void CustomerLogin::run(int& state_portal) {
   menu customer;  // A menu object to implment a login portal for manager.
   menu acount_created;
 
-  // customer_menu obj;
+  // CustomerMenu obj;
 
   string username;
   string password;
@@ -152,8 +152,8 @@ void customer_login::run(int& state_portal) {
   }
 }
 
-int customer_login::get_state_customer_login() {
+int CustomerLogin::get_state_customer_login() {
   return this->state_customer_login;
 }
-customer_login::customer_login() {}
-customer_login::~customer_login() {}
+CustomerLogin::CustomerLogin() {}
+CustomerLogin::~CustomerLogin() {}
