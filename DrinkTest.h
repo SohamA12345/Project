@@ -6,20 +6,20 @@ class DrinkTest {
 private:
     // default case with no input
     void test_drink_default() {
-        Drink d1;
-        if(d1.get_sugar() != 0) {
+        Drink d;
+        if(d.get_sugar() != 0) {
             cout << "default test sugar failed, result unexpected" << endl;
         }
-        if(d1.show_ice() != 0) {
+        if(d.show_ice() != 0) {
             cout << "default test ice failed, result unexpected" << endl;
         }
-        if(d1.get_item_size() != 1) {
+        if(d.get_item_size() != 1) {
             cout << "test 1 size failed, result unexpected" << endl;
         }
-        if(d1.get_item_name() != "N/A") {
+        if(d.get_item_name() != "N/A") {
             cout << "test 1 name failed, result unexpected" << endl;
         }
-        if(d1.get_item_price() != 0) {
+        if(d.get_item_price() != 0) {
             cout << "test 1 price failed, result unexpected" << endl;
         }
     }

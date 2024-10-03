@@ -9,8 +9,7 @@ Drink::Drink(int new_size, string new_name, double new_price) {
     ice = false;
 }
 // Default Constructor
-Drink::Drink() {
-    Drink(1, "N/A", 0.0);
+Drink::Drink() : Drink(1, "N/A", 0.0) {
 }
 
 // returns the price of the drink, which is based on the item's price and increases based on the item's size

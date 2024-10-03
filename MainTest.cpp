@@ -4,9 +4,12 @@
 #include "CustomerLoginTest.h"
 
 int main() {
+
+    cout << "This is the test for Drink: " << endl;
     DrinkTest D_T;
     D_T.run_tests();
 
+    cout << "\nThis is the test for pizza: " << endl;
     PizzaTest P_T;
     P_T.run_tests();
 
