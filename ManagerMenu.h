@@ -6,7 +6,7 @@ class ManagerMenu {
   int state_portal_manager =
       0;  // 0 mean no need to run portal again, 1 means need to run again.
  public:
-  void run();
+  void run(int& state_portal);
   int get_state_portal_manager();
   ManagerMenu();
   ~ManagerMenu();
