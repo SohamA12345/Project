@@ -3,7 +3,7 @@
 
   
   void ManagerDrink::run(int& state_portal_food) {
-
+    
   }
 
   int ManagerDrink::get_state_portal_drink() {}

@@ -17,19 +17,22 @@ void FoodDrink::run(int& state_portal_manager) {
 
   AddIngredient obj1;
   CategoriesFood obj2;
-  
+
 
   switch (choice)
   {
   case 1:
+    
+    do
+    {
+      obj1.run(this->state_portal_food);
+    } while (obj1.get_add_ingredient() == 1);
+    
     break;
-
   case 2:
     break;
-
   case 3:
     break;
-
   case 4:
 
     this->state_portal_food = 0;
