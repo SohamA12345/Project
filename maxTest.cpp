@@ -222,19 +222,24 @@ int main() {
   write_food_item(p);
 
   */
-  IngredientList list = read_ingredient_list();
+
 
 
 
   //list.add_ingredient("Curry", 3.00);
-list.remove_ingredient("Curry"); 
 
+  IngredientList list = read_ingredient_list(); // reads file called ingredientlist.txt and hold the ingredients
+  list.add_ingredient("Curry", 2.5); // this function will add ingredient with input name and price
+  list.add_ingredient("Bacon", 1.5);
+  list.remove_ingredient("Curry");  // will remove ingredient by name
+
+  // you can use this to check everything is right
   for (int i = 0; i < list.get_ingredient_list().size(); i++) {
     std::cout << list.get_ingredient_list()[i].get_name() << std::endl;
     std::cout << list.get_ingredient_list()[i].get_price() << std::endl;
   }
 
-  write_ingredient_list(list);
+  write_ingredient_list(list); // write back to ingredient.txt the new list after updating
 
   /*write_ingredient_list(list);
 
