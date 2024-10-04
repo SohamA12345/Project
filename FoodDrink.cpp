@@ -1,5 +1,8 @@
 #include "FoodDrink.h"
 #include "MMaker.h"
+#include "AddIngredient.h"
+#include "CategoriesFood.h"
+#include "ManagerDrink.h"
 
 void FoodDrink::run(int& state_portal_manager) {
   menu FoodDrink;
@@ -11,6 +14,10 @@ void FoodDrink::run(int& state_portal_manager) {
   FoodDrink.add("Back", 4, "Return to Manager Tools");
 
   int choice = FoodDrink.display();
+
+  AddIngredient obj1;
+  CategoriesFood obj2;
+  
 
   switch (choice)
   {
@@ -24,7 +31,7 @@ void FoodDrink::run(int& state_portal_manager) {
     break;
 
   case 4:
-  
+
     this->state_portal_food = 0;
     state_portal_manager = 1;
 
