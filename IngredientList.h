@@ -5,24 +5,30 @@
 #include <vector>
 
 class IngredientList {
-  private:
-    std::vector<Ingredient> ingredientList;
-  public:
+private:
+  std::vector<Ingredient> ingredients;
+public:
   // default constructor
   IngredientList();
 
+  // constructor
+  IngredientList(std::vector<Ingredient> ingredients);
+
   // setter functions
-  void set_ingredient(Ingredient i); 
+  void set_ingredient_list(std::vector<Ingredient> ingredients);
+  // getter functions
+  std::vector<Ingredient> get_ingredient_list();
 
-// getter functions
-  Ingredient* get_ingredient(int index); // returns address of ingredient at the index 
+  // add ingredient
+void add_ingredient(Ingredient ingredient); // by ingredient
+void add_ingredient(std::string name, double price); // by name and price
 
-// remove functions
-void remove_ingredient(int index);
+// remove ingredient
 void remove_ingredient(std::string name);
 
   // deconstructor
   ~IngredientList();
+
 };
 
 #endif
