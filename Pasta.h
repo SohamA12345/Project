@@ -20,7 +20,8 @@ class Pasta : public FoodItem {
         std::vector<Ingredient> ingredientList);
 
   // getter functions
-  std::string get_pastaSauce();
+      std::string get_pasta_type();
+      std::string get_pasta_sauce();
 
   // setter functions
   void set_pasta_type(std::string pasta_type);

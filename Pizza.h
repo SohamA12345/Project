@@ -5,28 +5,28 @@
 
 class Pizza : public FoodItem {
  private:
-  std::string pizzaSauce;
-  std::string pizzaBase;
+  std::string pizza_sauce;
+  std::string pizza_cheese;
 
  public:
   // default constructor
   Pizza();
 
   // constructor without ingredient list
-  Pizza(std::string name, double price, int size, std::string pizzaSauce,
-        std::string pizzaBase);
+  Pizza(std::string name, double price, int size, std::string pizza_sauce,
+        std::string pizza_cheese);
 
   // constructor with ingredient list
-  Pizza(std::string name, double price, int size, std::string pizzaSauce,
-        std::string pizzaBase, std::vector<Ingredient> ingredientList);
+  Pizza(std::string name, double price, int size, std::string pizza_sauce,
+        std::string pizza_cheese, std::vector<Ingredient> ingredientList);
 
   // getter functions
-  std::string get_pizzaSauce();
-  std::string get_pizzaBase();
+  std::string get_pizza_sauce();
+  std::string get_pizza_cheese();
 
   // setter functions
-  void set_pizzaSauce(std::string pastaSauce);
-  void set_pizzaBase(std::string pizzaBase);
+  void set_pizza_sauce(std::string pasta_sauce);
+  void set_pizza_cheese(std::string pizza_cheese);
 
   // deconstructor
   ~Pizza();
