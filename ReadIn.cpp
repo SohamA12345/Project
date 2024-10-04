@@ -1,10 +1,11 @@
-#include "ReadItem.h"
-
-#include <fstream>
+#include "ReadIn.h"
 
 #include "MenuItem.h"
 
-std::vector<Ingredient> ReadItem::read_ingredient_list() {
+// default constructor
+ReadIn::ReadIn() {}
+
+IngredientList ReadIn::read_ingredient_list() {
   std::ifstream inFile("ingredientlist.txt");
   vector<Ingredient> list;
   int line_count = 0;
@@ -20,10 +21,11 @@ std::vector<Ingredient> ReadItem::read_ingredient_list() {
       index++;
     }
   }
-  return list;
+  IngredientList ingredient_list(list);
+  return ingredient_list;
 }
 
-void ReadItem::read_menu_item(MenuItem* item, std::ifstream* inFile) {
+void ReadIn::read_menu_item(MenuItem* item, std::ifstream* inFile) {
   int line_count = 0;
   std::string current_line;
   for (int i = 0; i < 3; i++) {
@@ -46,7 +48,7 @@ void ReadItem::read_menu_item(MenuItem* item, std::ifstream* inFile) {
   }
 }
 
-Pasta ReadItem::read_pasta(std::string name) {
+Pasta ReadIn::read_pasta(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
   Pasta pasta;
@@ -72,13 +74,13 @@ Pasta ReadItem::read_pasta(std::string name) {
   }
 
   // read in ingredient list
-  std::vector<Ingredient> list = read_ingredient_list();
-  pasta.set_ingredient_list(list);
+  IngredientList ingredient_list = read_ingredient_list();
+  pasta.set_ingredient_list(ingredient_list.get_ingredient_list());
 
   return pasta;
 }
 
-Pizza ReadItem::read_pizza(std::string name) {
+Pizza ReadIn::read_pizza(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
   Pizza pizza;
@@ -103,13 +105,13 @@ Pizza ReadItem::read_pizza(std::string name) {
     }
   }
   // read in ingredient list
-  std::vector<Ingredient> list = read_ingredient_list();
-  pizza.set_ingredient_list(list);
+  IngredientList ingredient_list = read_ingredient_list();
+  pizza.set_ingredient_list(ingredient_list.get_ingredient_list());
 
   return pizza;
 }
 
-Burger ReadItem::read_burger(std::string name) {
+Burger ReadIn::read_burger(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
   Burger burger;
@@ -134,8 +136,11 @@ Burger ReadItem::read_burger(std::string name) {
     }
   }
   // read in ingredient list
-  std::vector<Ingredient> list = read_ingredient_list();
-  burger.set_ingredient_list(list);
+  IngredientList ingredient_list = read_ingredient_list();
+  burger.set_ingredient_list(ingredient_list.get_ingredient_list());
 
   return burger;
 }
+
+// deconstructor
+ReadIn::~ReadIn() {}

@@ -1,17 +1,44 @@
 #include "IngredientList.h"
 
-  // default constructor
-  IngredientList::IngredientList() {}
+// default constructor
+IngredientList::IngredientList() : ingredients() {}
 
-  // setter functions
-  void IngredientList::set_ingredient(Ingredient i) {}
+// constructor
+IngredientList::IngredientList(std::vector<Ingredient> ingredients)
+    : ingredients(ingredients) {}
 
+// setter functions
+void IngredientList::set_ingredient_list(std::vector<Ingredient> ingredients) {
+  this->ingredients = ingredients;
+}
 // getter functions
-  Ingredient* IngredientList::get_ingredient(int index) {} // returns address of ingredient at the index 
+std::vector<Ingredient> IngredientList::get_ingredient_list() {
+  return this->ingredients;
+}
 
-// remove functions
-void IngredientList::remove_ingredient(int index) {}
-void IngredientList::remove_ingredient(std::string name) {}
+// add ingredient by ingredient
+void IngredientList::add_ingredient(Ingredient ingredient) {
+  ingredients.push_back(ingredient);
+}
+//add ingredient by name and price
+void IngredientList::add_ingredient(std::string name,
+                                    double price) {
+  ingredients.push_back(Ingredient(name, price));
+}
 
-  // deconstructor
-  IngredientList::~IngredientList() {}
+// remove ingredient
+void IngredientList::remove_ingredient(std::string name) {
+  int index = 0;
+  bool found_ingredient = false;
+  while (index < ingredients.size() && found_ingredient == false) {
+    if (ingredients[index].get_name() == name) {
+      ingredients.erase(ingredients.begin() +
+                        index);  // remove ingredient at corresponding index
+      found_ingredient = true;
+    }
+    index++;
+  }
+}
+
+// deconstructor
+IngredientList::~IngredientList() {}
