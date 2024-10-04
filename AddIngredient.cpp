@@ -1,7 +1,10 @@
 #include "AddIngredient.h"
 #include "MMaker.h"
 #include "ReadIn.h"
-#include "WriteIn.cpp"
+#include "WriteIn.h"
+#include "IngredientList.h"
+#include "Ingredient.h"
+#include <limits>
 
 void AddIngredient::run(int& state_portal_food) {
   menu AddIngredient;
@@ -11,7 +14,8 @@ void AddIngredient::run(int& state_portal_food) {
   AddIngredient.add("Add Ingredient", 1, "Add a new ingredient used to create unique dishes");
   AddIngredient.add("Remove Ingredient", 2, "Removes a certain ingredient from all the dishes created and ingredient list. No way to recover the ingredient.");
   AddIngredient.add("Show all ingredients", 3, "Displays all the ingredient that were created and still available.");
-  AddIngredient.add("Back", 4, "Returns to Menu Changing Suite");
+  AddIngredient.add("Removes all ingredients. CANNOT Recover content", 4, "Removes all ingredient created.");
+  AddIngredient.add("Back", 5, "Returns to Menu Changing Suite");
 
   int choice = AddIngredient.display();
 
@@ -34,13 +38,25 @@ void AddIngredient::run(int& state_portal_food) {
     cin >> ingredient_price;
 
     if (cin.fail()) {
-      cout << "Invalid input!" << endl;
+
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+      cout << "Invalid input! Press ENTER to continue." << endl;
+      cin.get();
+
       this->add_ingredient = 1;
+
       return;
     }
 
     list.add_ingredient(ingredient_name, ingredient_price); // Adds ingredient with from the inputs, name and price.
     write_in.write_ingredient_list(list); // write back to ingredient.txt the new list after updating
+
+    cout << "Successfully added Ingredient. Press ENTER to continue.";
+    cin.get();
+
+    this->add_ingredient = 1;
 
     break;
   case 2:
@@ -49,16 +65,46 @@ void AddIngredient::run(int& state_portal_food) {
 
     list.remove_ingredient(ingredient_name);  // Removes ingredient by name of it
 
+    write_in.write_ingredient_list(list); // Updates file.
+
+    cout << "Successfully removed Ingredient. Press ENTER to continue.";
+    cin.get();
+
+    this->add_ingredient = 1;
+
     break;
   case 3:
 
     // Shows all the ingreadients
     for (int i = 0; i < list.get_ingredient_list().size(); i++) {
-      std::cout << list.get_ingredient_list()[i].get_name() << '\t' << list.get_ingredient_list()[i].get_price() << std::endl;
+      cout << list.get_ingredient_list()[i].get_name() << '\t' << list.get_ingredient_list()[i].get_price() << endl;
     }
+
+    cout << "Press ENTER to continue.";
+    cin.get();
+
+    this->add_ingredient = 1;
 
     break;
   case 4:
+
+    {
+      ofstream file("ingredientlist.txt", std::ios::trunc);
+
+      if (file.is_open()) {
+          file.close();
+      } else {
+          cout << "Unable to open file";
+      }
+    }
+
+    cout << "Successfully removed all ingredients. Press ENTER to continue.";
+    cin.get();
+
+    this->add_ingredient = 1;
+
+    break;
+  case 5:
 
     this->add_ingredient = 0;
     state_portal_food = 1;
