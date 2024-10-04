@@ -1,6 +1,7 @@
 #include "ManagerMenu.h"
 #include <fstream>
 #include "MMaker.h"
+#include "FoodDrink.h"
 
 void ManagerMenu::run(int& state_portal) {
   menu ManagerMenu;
@@ -23,20 +24,29 @@ void ManagerMenu::run(int& state_portal) {
   ifstream i_passwords("passwords");
   const char* password_file = "passwords";
 
+  FoodDrink obj;
+
   switch (choice)
   {
     case 1:
-      /* code */
+      do
+      {
+        obj.run(this->state_portal_manager);
+      } while (obj.get_state_portal_food() == 1);
+      
       break;
     case 2:
+
       while(getline(i_username, line1) && getline(i_passwords, line2)) {
         cout << line1 << '\t' << line2 << endl;
       }
       cout << "Press ENTER to continue";
       cin.get();
       this->state_portal_manager = 1;
+
       break;
     case 3:
+
       if (remove(username_file) == 0) {
         cout << "File deleted successfully.\n";
       } else {
@@ -55,8 +65,10 @@ void ManagerMenu::run(int& state_portal) {
 
       break;
     case 4:
+
       this->state_portal_manager = 0;
       state_portal = 1;
+      
       return;
     default:
       break;
