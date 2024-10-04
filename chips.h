@@ -3,12 +3,13 @@
 
 #include "FoodItem.h"
 
-class Chips: public FoodItem {
-private:
+class Chips : public FoodItem {
+ private:
   std::string chips_cut;
   std::string chips_seasoning;
-public:
- // default constructor
+
+ public:
+  // default constructor
   Chips();
 
   // constructor without ingredient list
@@ -29,9 +30,6 @@ public:
 
   // deconstructor
   ~Chips();
-
-
-
 };
 
 #endif
