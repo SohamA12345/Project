@@ -4,7 +4,9 @@
 #include "IngredientList.h"
 #include "Pasta.h"
 #include "Pizza.h"
-#include "ReadItem.h"
+#include "ReadIn.h"
+#include "WriteIn.h"
+
 
 void write_food_item(Pasta pasta) {  // pizza
   std::string file_name = pasta.get_item_name() + ".txt";
@@ -34,7 +36,7 @@ void write_food_item(Pasta pasta) {  // pizza
 
   outFile.close();
 }
-
+/*
 void write_ingredient_list(IngredientList ingredient_list) {
   std::vector<Ingredient> list = ingredient_list.get_ingredient_list();
   std::ofstream outFile("ingredientlist.txt");
@@ -63,7 +65,7 @@ vector<Ingredient> read_ingredient_list() {
   }
   return list;
 }
-
+*/ /*
 Pasta read_pasta_file(std::string name) {
   int ingredients_line_start = 6;
   std::ifstream inFile(name + ".txt");
@@ -112,7 +114,7 @@ Pasta read_pasta_file(std::string name) {
   pasta.set_ingredient_list(curr_list);
   return pasta;
 }
-
+*/
 int main() {
   //  std::vector<Pizza> pizzaList;
 
@@ -228,7 +230,9 @@ int main() {
 
   //list.add_ingredient("Curry", 3.00);
 
-  IngredientList list = read_ingredient_list(); // reads file called ingredientlist.txt and hold the ingredients
+  ReadIn read_in; // create read object
+
+  IngredientList list = read_in.read_ingredient_list(); // reads file called ingredientlist.txt and hold the ingredients in list
   list.add_ingredient("Curry", 2.5); // this function will add ingredient with input name and price
   list.add_ingredient("Bacon", 1.5);
   list.remove_ingredient("Curry");  // will remove ingredient by name
@@ -239,7 +243,9 @@ int main() {
     std::cout << list.get_ingredient_list()[i].get_price() << std::endl;
   }
 
-  write_ingredient_list(list); // write back to ingredient.txt the new list after updating
+  WriteIn write_in; // create write object
+  
+  write_in.write_ingredient_list(list); // write back to ingredient.txt the new list after updating
 
   /*write_ingredient_list(list);
 
