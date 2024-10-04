@@ -30,7 +30,7 @@ void ManagerLogin::run(int& state_portal) {
 
     do
     {
-      obj.run();
+      obj.run(state_portal);
     } while (obj.get_state_portal_manager() == 1);
 
   } else {

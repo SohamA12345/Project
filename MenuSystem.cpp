@@ -4,7 +4,7 @@
 
 int main() {
   Portal portal_obj;
-  
+
   do
   {
     portal_obj.run();
