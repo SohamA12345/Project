@@ -245,7 +245,7 @@ int main() {
 
   WriteIn write_in; // create write object
   
-  write_in.write_ingredient_list(list); // write back to ingredient.txt the new list after updating
+  write_in.write_ingredient_list(list); // write back to ingredient.txt ther  ```hý`` new list after updating
 
   /*write_ingredient_list(list);
 
