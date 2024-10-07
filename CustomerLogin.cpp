@@ -86,7 +86,7 @@ void CustomerLogin::run(int& state_portal) {
 
         do
         {
-          obj.run(this->state_customer_login);
+          obj.run(this->state_customer_login); // Runs the next interface consisting of menu.
         } while (obj.get_state_customer() == 1);
 
         return;
