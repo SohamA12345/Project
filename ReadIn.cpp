@@ -5,6 +5,7 @@
 // default constructor
 ReadIn::ReadIn() {}
 
+// read in the ingredient list
 IngredientList ReadIn::read_ingredient_list() {
   std::ifstream inFile("ingredientlist.txt");
   vector<Ingredient> list;
@@ -25,6 +26,7 @@ IngredientList ReadIn::read_ingredient_list() {
   return ingredient_list;
 }
 
+// read in menu items name, price and size
 void ReadIn::read_menu_item(MenuItem* item, std::ifstream* inFile) {
   int line_count = 0;
   std::string current_line;
@@ -48,6 +50,23 @@ void ReadIn::read_menu_item(MenuItem* item, std::ifstream* inFile) {
   }
 }
 
+// read in a menu item list
+std::vector<std::string> ReadIn::read_menu_item_list(std::string name) {
+  // read in file with file name given
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(file_name);
+
+std::vector<std::string> list;
+  std::string current_line;
+  // read line until all lines are read
+  while (std::getline(inFile, current_line)) {
+    list.push_back(current_line);
+  }  
+
+  return list;
+}
+
+// read in a pasta from file
 Pasta ReadIn::read_pasta(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
@@ -80,6 +99,7 @@ Pasta ReadIn::read_pasta(std::string name) {
   return pasta;
 }
 
+// read in pizza from a file
 Pizza ReadIn::read_pizza(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
@@ -111,6 +131,7 @@ Pizza ReadIn::read_pizza(std::string name) {
   return pizza;
 }
 
+// read in burger from file
 Burger ReadIn::read_burger(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(name + ".txt");  // opens file with the same file name
