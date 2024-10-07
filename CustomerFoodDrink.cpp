@@ -1,5 +1,6 @@
 #include "CustomerFoodDrink.h"
 #include "MMaker.h"
+#include "Checkout.h"
 
 void CustomerFoodDrink::run(int& state_customer_login) {
   menu CustomerFoodDrink;
@@ -13,6 +14,8 @@ void CustomerFoodDrink::run(int& state_customer_login) {
 
   int choice = CustomerFoodDrink.display();
 
+  Checkout obj;
+
   switch (choice)
   {
   case 1:
@@ -25,7 +28,11 @@ void CustomerFoodDrink::run(int& state_customer_login) {
     break;
   case 3:
     //Check-out
-
+    do
+    {
+      obj.run(this->state_customer);
+    } while (obj.get_state_checkout() == 1);
+    
     break;
   case 4:
       this->state_customer = 0;
