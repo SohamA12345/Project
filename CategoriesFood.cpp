@@ -19,6 +19,27 @@ void CategoriesFood::run(int& state_portal_food) {
   {
   case 1:
     //Pasta
+
+    break;
+  case 2:
+    //Chips
+
+    break;
+  case 3:
+    //Pizza
+
+    break;
+  case 4:
+    //Rice
+
+    break;
+  case 5:
+    //Noodle
+
+    break;
+  case 6:
+    //Burger
+
     break;
   case 7:
     this->state_categories_food = 0;
