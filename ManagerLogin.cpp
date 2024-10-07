@@ -1,5 +1,7 @@
 #include "ManagerLogin.h"
 #include "ManagerMenu.h"
+#include <termios.h>
+#include <unistd.h>
 #include <iostream>
 
 using namespace std;

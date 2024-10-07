@@ -74,30 +74,30 @@ Pasta ReadIn::read_pasta(std::string name) {
   read_menu_item(
       &pasta, &inFile);  // calls general function and should return on line 3
 
-//   // unique to pasta, 2 attributes pasta type and pasta sauce
-//   int index = 4;
-//   int pasta_attributes = 2;
-//   std::string current_line;
-//   for (int i = index; i < index + pasta_attributes; i++) {
-//     std::getline(inFile, current_line);
-//     switch (i) {
-//       case 4:
-//         pasta.set_pasta_type(current_line);
-//         break;
-//       case 5:
-//         pasta.set_pasta_sauce(current_line);
-//         break;
-//       default:
-//         break;
-//     }
-//   }
+  // unique to pasta, 2 attributes pasta type and pasta sauce
+  int index = 4;
+  int pasta_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + pasta_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        pasta.set_pasta_type(current_line);
+        break;
+      case 5:
+        pasta.set_pasta_sauce(current_line);
+        break;
+      default:
+        break;
+    }
+  }
 
-//   // read in ingredient list
-//   IngredientList ingredient_list = read_ingredient_list();
-//   pasta.set_ingredient_list(ingredient_list.get_ingredient_list());
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  pasta.set_ingredient_list(ingredient_list.get_ingredient_list());
 
-//   return pasta;
-// }
+  return pasta;
+}
 
 // read in pizza from a file
 Pizza ReadIn::read_pizza(std::string name) {
@@ -107,29 +107,29 @@ Pizza ReadIn::read_pizza(std::string name) {
   read_menu_item(
       &pizza, &inFile);  // calls general function and should return on line 3
 
-//   // unique to pizza, 2 attributes pizza sauce and pizza cheese
-//   int index = 4;
-//   int pizza_attributes = 2;
-//   std::string current_line;
-//   for (int i = index; i < index + pizza_attributes; i++) {
-//     std::getline(inFile, current_line);
-//     switch (i) {
-//       case 4:
-//         pizza.set_pizza_sauce(current_line);
-//         break;
-//       case 5:
-//         pizza.set_pizza_cheese(current_line);
-//         break;
-//       default:
-//         break;
-//     }
-//   }
-//   // read in ingredient list
-//   IngredientList ingredient_list = read_ingredient_list();
-//   pizza.set_ingredient_list(ingredient_list.get_ingredient_list());
+  // unique to pizza, 2 attributes pizza sauce and pizza cheese
+  int index = 4;
+  int pizza_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + pizza_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        pizza.set_pizza_sauce(current_line);
+        break;
+      case 5:
+        pizza.set_pizza_cheese(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  pizza.set_ingredient_list(ingredient_list.get_ingredient_list());
 
-//   return pizza;
-// }
+  return pizza;
+}
 
 // read in burger from file
 Burger ReadIn::read_burger(std::string name) {
@@ -139,29 +139,29 @@ Burger ReadIn::read_burger(std::string name) {
   read_menu_item(
       &burger, &inFile);  // calls general function and should return on line 3
 
-//   // unique to burger, 2 attributes burger bun and burger meat
-//   int index = 4;
-//   int burger_attributes = 2;
-//   std::string current_line;
-//   for (int i = index; i < index + burger_attributes; i++) {
-//     std::getline(inFile, current_line);
-//     switch (i) {
-//       case 4:
-//         burger.set_burger_bun(current_line);
-//         break;
-//       case 5:
-//         burger.set_burger_meat(current_line);
-//         break;
-//       default:
-//         break;
-//     }
-//   }
-//   // read in ingredient list
-//   IngredientList ingredient_list = read_ingredient_list();
-//   burger.set_ingredient_list(ingredient_list.get_ingredient_list());
+  // unique to burger, 2 attributes burger bun and burger meat
+  int index = 4;
+  int burger_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + burger_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        burger.set_burger_bun(current_line);
+        break;
+      case 5:
+        burger.set_burger_meat(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  burger.set_ingredient_list(ingredient_list.get_ingredient_list());
 
-//   return burger;
-// }
+  return burger;
+}
 
 // deconstructor
 ReadIn::~ReadIn() {}
