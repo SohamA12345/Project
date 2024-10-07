@@ -229,7 +229,7 @@ int main() {
 
 
   //list.add_ingredient("Curry", 3.00);
-
+/*
   ReadIn read_in; // create read object
 
   IngredientList list = read_in.read_ingredient_list(); // reads file called ingredientlist.txt and hold the ingredients in list
@@ -245,8 +245,9 @@ int main() {
 
   WriteIn write_in; // create write object
   
-  write_in.write_ingredient_list(list); // write back to ingredient.txt the new list after updating
+  write_in.write_ingredient_list(list); // write back to ingredient.txt ther  ```hý`` new list after updating
 
+*/
   /*write_ingredient_list(list);
 
 
@@ -270,6 +271,19 @@ int main() {
   std::cout << p.get_ingredient_list()[2].get_name() << std::endl;
   std::cout << p.get_ingredient_list()[2].get_price() << std::endl;
   */
+
+ ReadIn read_in;
+ std::string file_name = "pastalist";
+ std::vector<string> pasta_list = read_in.read_menu_item_list(file_name);
+
+for (int i = 0; i < pasta_list.size(); i++) {
+std::cout << pasta_list[i] << std::endl;
+}
+
+pasta_list.push_back("Bobs");
+
+WriteIn write_in;
+write_in.write_menu_item_list(pasta_list, "pastalist");
 
   return 0;
 }
