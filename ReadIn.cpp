@@ -163,5 +163,130 @@ Burger ReadIn::read_burger(std::string name) {
   return burger;
 }
 
+// read in burger from file
+Burger ReadIn::read_burger(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Burger burger;
+  read_menu_item(
+      &burger, &inFile);  // calls general function and should return on line 3
+
+  // unique to burger, 2 attributes burger bun and burger meat
+  int index = 4;
+  int burger_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + burger_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        burger.set_burger_bun(current_line);
+        break;
+      case 5:
+        burger.set_burger_meat(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  burger.set_ingredient_list(ingredient_list.get_ingredient_list());
+
+  return burger;
+}
+
+// read in noodle from file
+Noodle ReadIn::read_noodle(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Noodle noodle;
+  read_menu_item(
+      &noodle, &inFile);  // calls general function and should return on line 3
+
+  // unique to noodle, 2 attributes noodle type and noodle soup
+  int index = 4;
+  int noodle_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + noodle_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        noodle.set_noodle_type(current_line);
+        break;
+      case 5:
+        noodle.set_noodle_soup(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  noodle.set_ingredient_list(ingredient_list.get_ingredient_list());
+
+  return noodle;
+}
+
+// read in chips from file
+Chips ReadIn::read_chips(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Chips chips;
+  read_menu_item(
+      &chips, &inFile);  // calls general function and should return on line 3
+
+  // unique to chips, 2 attributes chips cut and chips seasoning
+  int index = 4;
+  int chips_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + chips_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        chips.set_chips_cut(current_line);
+        break;
+      case 5:
+        chips.set_chips_seasoning(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  chips.set_ingredient_list(ingredient_list.get_ingredient_list());
+
+  return chips;
+}
+
+// read in rice from file
+Rice ReadIn::read_rice(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Rice rice;
+  read_menu_item(
+      &rice, &inFile);  // calls general function and should return on line 3
+
+  // unique to rice, 1 attribute noodle type
+  int index = 4;
+  int rice_attributes = 1;
+  std::string current_line;
+  for (int i = index; i < index + rice_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        rice.set_rice_type(current_line);
+        break;
+      default:
+        break;
+    }
+  }
+  // read in ingredient list
+  IngredientList ingredient_list = read_ingredient_list();
+  rice.set_ingredient_list(ingredient_list.get_ingredient_list());
+
+  return rice;
+}
+
 // deconstructor
 ReadIn::~ReadIn() {}

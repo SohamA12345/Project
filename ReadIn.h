@@ -8,6 +8,9 @@
 #include "Pasta.h"
 #include "Pizza.h"
 #include "Burger.h"
+#include "Noodle.h"
+#include "Chips.h"
+#include "Rice.h"
 
 class ReadIn {
 private:
@@ -25,6 +28,8 @@ void read_menu_item(MenuItem* item, std::ifstream* inFile); // reads in informat
 // read in a menu item list
 std::vector<string> read_menu_item_list(std::string file_name);
 
+
+
 // read in a pasta
 Pasta read_pasta(std::string name);
 
@@ -33,6 +38,15 @@ Pizza read_pizza(std::string name);
 
 // read in burger
 Burger read_burger(std::string name);
+
+// read in noodle
+Noodle read_noodle(std::string name);
+
+// read in chips
+Chips read_chips(std::string name);
+
+// read in rice
+Rice read_rice(std::string name);
 
 // deconstructor
 ~ReadIn();
