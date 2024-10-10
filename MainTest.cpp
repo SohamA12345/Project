@@ -6,8 +6,9 @@
 // #include "CustomerLoginTest.h"
 
 int main() {
+    cout << "This is the main testing file. If there are no words after a test, the test is successful and there's no error.\n" << endl;
 
-    cout << "This is the test for Drink (no text = no error, everything working as intended): " << endl;
+    cout << "This is the test for Drink: " << endl;
     DrinkTest run_drink;
     run_drink.run_tests();
 

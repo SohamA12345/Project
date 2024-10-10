@@ -64,13 +64,15 @@ private:
         if (p2.get_item_size() != 2) {
             cout << "test 2 for pasta size failed, result unexpected" << endl;
         }
+        if (p2.get_ingredient(0).get_name() != "I1") {
+            cout << "test 2 for pasta ingredient 1 name failed, result unexpected" << endl;
+        }
+        if (p2.get_ingredient(0).get_price() != 0.4) {
+            cout << "test 2 for pasta ingredient 1 price failed, result unexpected" << endl;
+        }
         if (p2.calculate_item_price() != (4.4*1.25+0.4)) {
             cout << "test 2 for pasta price calculation failed, result unexpected" << endl;
         }
-        cout << "expected outcome: \nI1 | $0.4" << endl;
-        cout << "actual outcome: \n";
-        p2.print_ingredients_and_price();
-        cout << endl;
     }
 
     // test 3 with changing (setting variables) + multiple ingredients
@@ -86,26 +88,41 @@ private:
         p3.set_pasta_type("Type3");
         p3.set_ingredient_list({I1, I2, I3});
         if (p3.get_pasta_sauce() != "Sauce3") {
-            cout << "test 2 for pasta sauce failed, result unexpected" << endl;
+            cout << "test 3 for pasta sauce failed, result unexpected" << endl;
         }
         if (p3.get_pasta_type() != "Type3") {
-            cout << "test 2 for pasta type failed, result unexpected" << endl;
+            cout << "test 3 for pasta type failed, result unexpected" << endl;
         }
         if (p3.get_item_name() != "Pasta3") {
-            cout << "test 2 for pasta name failed, result unexpected" << endl;
+            cout << "test 3 for pasta name failed, result unexpected" << endl;
         }
         if (p3.get_item_price() != 3.3) {
-            cout << "test 2 for pasta price failed, result unexpected" << endl;
+            cout << "test 3 for pasta price failed, result unexpected" << endl;
         }
         if (p3.get_item_size() != 3) {
-            cout << "test 2 for pasta size failed, result unexpected" << endl;
+            cout << "test 3 for pasta size failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(0).get_name() != "I1") {
+            cout << "test 3 for pasta ingredient 1 name failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(0).get_price() != 0.4) {
+            cout << "test 3 for pasta ingredient 1 price failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(1).get_name() != "NoName") {
+            cout << "test 3 for pasta ingredient 2 name failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(1).get_price() != 0) {
+            cout << "test 3 for pasta ingredient 2 price failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(2).get_name() != "Ingredient3") {
+            cout << "test 3 for pasta ingredient 1 name failed, result unexpected" << endl;
+        }
+        if (p3.get_ingredient(2).get_price() != 0.6) {
+            cout << "test 3 for pasta ingredient 1 price failed, result unexpected" << endl;
         }
         if (p3.calculate_item_price() != (3.3*1.5+0.4+0.6)) {
-            cout << "test 2 for pasta price calculation failed, result unexpected" << endl;
+            cout << "test 3 for pasta price calculation failed, result unexpected" << endl;
         }
-        cout << "expected outcome: \nI1 | $0.4 \nNoName | $0 \nIngredient3 | $0.6 " << endl;
-        cout << "actual outcome: \n";
-        p3.print_ingredients_and_price();
     }
 public:
     void run_tests() {
