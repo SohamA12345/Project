@@ -4,6 +4,10 @@
 #include "IngredientList.h"
 #include "Pasta.h"
 #include "Pizza.h"
+#include "Burger.h"
+#include "Noodle.h"
+#include "Chips.h"
+#include "Rice.h"
 #include "ReadIn.h"
 #include "WriteIn.h"
 

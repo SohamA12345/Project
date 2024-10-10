@@ -29,7 +29,7 @@ vector<Ingredient> FoodItem::get_ingredient_list() {
 }
 
 double FoodItem::calculate_item_price() {
-  double total_price = get_item_price();
+  double total_price = get_item_price() * (1 + 0.25 * (item_size - 1)); // calcualte price based on size
   int vector_length = ingredients.size();
   for (int i = 0; i < vector_length; i++) {
     total_price += ingredients[i].get_price();
