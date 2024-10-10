@@ -10,6 +10,7 @@
 #include "Rice.h"
 #include "ReadIn.h"
 #include "WriteIn.h"
+#include "Drink.h"
 
 
 void write_food_item(Pasta pasta) {  // pizza
@@ -275,7 +276,7 @@ int main() {
   std::cout << p.get_ingredient_list()[2].get_name() << std::endl;
   std::cout << p.get_ingredient_list()[2].get_price() << std::endl;
   */
-
+/*
  ReadIn read_in;
  std::string file_name = "pastalist";
  std::vector<string> pasta_list = read_in.read_menu_item_list(file_name);
@@ -288,6 +289,24 @@ pasta_list.push_back("Bobs");
 
 WriteIn write_in;
 write_in.write_menu_item_list(pasta_list, "pastalist");
+*/
+
+ReadIn read_in;
+std::string file_name = "drinklist";
+std::vector<string> drink_list = read_in.read_menu_item_list(file_name);
+
+for (int i = 0; i < drink_list.size(); i++) {
+std::cout << drink_list[i] << std::endl;
+}
+
+WriteIn write_in;
+
+write_in.write_menu_item_list
+
+drink_list.push_back("Fanta");
+
+
+write_in.write_menu_item_list(drink_list, "drinklist");
 
   return 0;
 }

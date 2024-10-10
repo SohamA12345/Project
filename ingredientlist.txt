@@ -1,6 +1,6 @@
-boo
-1234
-[B[B[A
-3
-sdf
-123
+cheese
+1.50
+spring onion
+0.50
+cucumber
+0.75
