@@ -1,12 +1,17 @@
 #include "CustomerCategoriesFood.h"
-#include "Pasta.h"
+
+#include <algorithm>
+
 #include "Burger.h"
 #include "Chips.h"
-#include "Noodle.h"
-#include "Pizza.h"
-#include "Rice.h"
+#include "Ingredient.h"
+#include "IngredientList.h"
 #include "MMaker.h"
+#include "Noodle.h"
+#include "Pasta.h"
+#include "Pizza.h"
 #include "ReadIn.h"
+#include "Rice.h"
 
 void CustomerCategoriesFood::run(int& state_customer) {
   menu CustomerCategoriesFood;
@@ -25,7 +30,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
   vector<string> pizza_list = obj.read_menu_item_list("pizzalist");
   vector<string> rice_list = obj.read_menu_item_list("ricelist");
 
-  vector<vector<string>> all_lists = {pasta_list, burger_list, chips_list, noodle_list, pizza_list, rice_list};
+  vector<vector<string>> all_lists = {pasta_list,  burger_list, chips_list,
+                                      noodle_list, pizza_list,  rice_list};
 
   for (int j = 0; j < all_lists.size(); j++) {
     for (int i = 0; i < all_lists[j].size(); i++) {
@@ -58,20 +64,55 @@ void CustomerCategoriesFood::run(int& state_customer) {
           ingredient += obj_pasta.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Pasta_menu.add(pasta_list[i], i, "Pasta Type: " + obj_pasta.get_pasta_type() + "\t" + "Pasta Sauce: " + "\nPrice: " + to_string(obj_pasta.calculate_item_price()) + "\nIngredients: " + ingredient + "\nSize: " + obj_pasta.get_string_size(obj_pasta.get_item_size()));
+        Pasta_menu.add(
+            pasta_list[i], i,
+            "Pasta Type: " + obj_pasta.get_pasta_type() + "\t" +
+                "Pasta Sauce: " + "\nPrice: " +
+                to_string(obj_pasta.calculate_item_price()) +
+                "\nIngredients: " + ingredient + "\nSize: " +
+                obj_pasta.get_string_size(obj_pasta.get_item_size()));
       }
 
       int choice = Pasta_menu.display();
+
+      if (choice > 0) {
+        IngredientList obj_ingredients;
+
+        cout << "None\t";
+
+        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+          cout << obj_ingredients.get_ingredient_list()[i].get_name() << "$("
+               << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
+        }
+
+        cout << endl;
+
+        cout << "Add ingredient? (Type the exactly shown in list above): \n";
+
+        string chosen_ingredient;
+
+        cin >> chosen_ingredient;
+
+        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+          if (chosen_ingredient == obj_ingredients.get_ingredient_list()[i].get_name()) {
+          } else {
+            cout << "Doesn't match any "
+          }
+        }
+
+        Pasta obj_pasta = obj.read_pasta(pasta_list[choice]);
+        obj_pasta.add_ingredient("jj");
+        obj_pasta.get_ingredient_list().erase();
+      }
 
       break;
     }
     case 2:
 
-      {
+    {
+    }
 
-      }
-      
-      break;
+    break;
     case 3:
       break;
     case 4:
@@ -81,7 +122,11 @@ void CustomerCategoriesFood::run(int& state_customer) {
     case 6:
       break;
     case 7:
-      break;
+      this->state_categories = 0;
+
+      state_customer = 1;
+
+      return;
     default:
       break;
   }
