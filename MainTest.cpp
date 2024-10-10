@@ -4,6 +4,7 @@
 #include "NoodleTest.h"
 #include "RiceTest.h"
 #include "ChipsTest.h"
+#include "BurgerTest.h"
 // #include "AddToCartTest.h"
 // #include "CustomerLoginTest.h"
 
@@ -33,6 +34,10 @@ int main() {
     cout << "\nThis is the test for Chips: " << endl;
     ChipsTest run_chips;
     run_chips.run_tests();
+
+    cout << "\nThis is the test for Burgers: " << endl;
+    BurgerTest run_Burger;
+    run_Burger.run_tests();
 
     // AddToCartTest A_T_C_T;
     // A_T_C_T.run_tests();
