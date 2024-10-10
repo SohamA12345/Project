@@ -38,7 +38,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           ingredient += obj_pasta.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Pasta_menu.add(pasta_list[i], i, "\nPrice: " + to_string(obj_pasta.calculate_item_price()) + "\nIngredients: " + ingredient + "\nSize: " + );
+        Pasta_menu.add(pasta_list[i], i, "Pasta Type: " + obj_pasta.get_pasta_type() + "\t" + "Pasta Sauce: " + "\nPrice: " + to_string(obj_pasta.calculate_item_price()) + "\nIngredients: " + ingredient + "\nSize: " + obj_pasta.get_string_size(obj_pasta.get_item_size()));
       }
 
       int choice = Pasta_menu.display();
