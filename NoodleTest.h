@@ -106,7 +106,7 @@ private:
         if (n3.get_ingredient(0).get_price() != 0.3) {
             cout << "test 3 for noodle ingredient 1 price failed, result unexpected" << endl;
         }
-        if (n3.get_ingredient(1).get_name() != "NoName") {
+        if (n3.get_ingredient(1).get_name() != "N/A") {
             cout << "test 3 for noodle ingredient 2 name failed, result unexpected" << endl;
         }
         if (n3.get_ingredient(1).get_price() != 0) {
