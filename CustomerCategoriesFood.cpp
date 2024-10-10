@@ -49,6 +49,11 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   int choice = CustomerCategoriesFood.display();
 
+  Ingredient none;
+
+  none.set_name("None");
+  none.set_price(0);
+
   switch (choice) {
     case 1:
 
@@ -79,6 +84,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         IngredientList obj_ingredients;
 
         cout << "None\t";
+        obj_ingredients.add_ingredient(none);
 
         for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
           cout << obj_ingredients.get_ingredient_list()[i].get_name() << "$("
@@ -90,19 +96,69 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cout << "Add ingredient? (Type the exactly shown in list above): \n";
 
         string chosen_ingredient;
+        int i = 0;
 
         cin >> chosen_ingredient;
 
-        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+        while(i <= obj_ingredients.get_ingredient_list().size()) {
           if (chosen_ingredient == obj_ingredients.get_ingredient_list()[i].get_name()) {
-          } else {
-            cout << "Doesn't match any "
+            break;
+          } else if(i == obj_ingredients.get_ingredient_list().size()) {
+            cout << "Doesn't match any ingredients\n";
+            cout << "Try Again: ";
+            cin >> chosen_ingredient;
+            i = 0;
           }
+          i++;
         }
 
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice]);
-        obj_pasta.add_ingredient("jj");
-        obj_pasta.get_ingredient_list().erase();
+        obj_pasta.add_ingredient(obj_ingredients.get_ingredient_list()[i]);
+
+        cout << "None\t";
+
+        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+          cout << obj_ingredients.get_ingredient_list()[i].get_name() << "$("
+               << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
+        }
+
+        cout << endl;
+
+        cout << "Remove ingredient? (Type the exactly shown in list above): \n";
+
+        string chosen_ingredient_removal;
+        int j = 0;
+
+        cin >> chosen_ingredient_removal;
+
+        while(j <= obj_ingredients.get_ingredient_list().size()) {
+          if (chosen_ingredient == obj_ingredients.get_ingredient_list()[i].get_name()) {
+            break;
+          } else if(j == obj_ingredients.get_ingredient_list().size()) {
+            cout << "Doesn't match any ingredients\n";
+            cout << "Try Again: ";
+            cin >> chosen_ingredient_removal;
+            j = 0;
+          }
+          j++;
+        }
+
+        Pasta obj_pasta = obj.read_pasta(pasta_list[choice]);
+        obj_pasta.get_ingredient_list().erase(obj_pasta.get_ingredient_list().begin() + j);
+
+        cout << "Successfully costomised the order. Add to Cart(y/n): ";
+
+        string add_to_cart;
+        cin >> add_to_cart;
+
+        if (add_to_cart == "y") {
+
+        } else if (add_to_cart == "n") {
+          // Code continue to close the menu gui.
+        } else {cout << "Invalid input. Press ENTER to continue."; cin.get();}
+
+        state_customer = 1;
+        return;
       }
 
       break;
