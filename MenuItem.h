@@ -25,6 +25,7 @@ public:
     string get_item_name();
     double get_item_price();
     int get_item_size();
+    string get_string_size(int int_size);
 
     // a virtual function for calculating the item price - 
     // this will be different based on whether the item is a food or drink

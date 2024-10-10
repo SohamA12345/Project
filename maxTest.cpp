@@ -1,17 +1,16 @@
 #include <fstream>
 #include <iostream>
 
+#include "Burger.h"
+#include "Chips.h"
+#include "Drink.h"
 #include "IngredientList.h"
+#include "Noodle.h"
 #include "Pasta.h"
 #include "Pizza.h"
-#include "Burger.h"
-#include "Noodle.h"
-#include "Chips.h"
-#include "Rice.h"
 #include "ReadIn.h"
+#include "Rice.h"
 #include "WriteIn.h"
-#include "Drink.h"
-
 
 void write_food_item(Pasta pasta) {  // pizza
   std::string file_name = pasta.get_item_name() + ".txt";
@@ -230,29 +229,28 @@ int main() {
 
   */
 
+  // list.add_ingredient("Curry", 3.00);
+  /*
+    ReadIn read_in; // create read object
 
+    IngredientList list = read_in.read_ingredient_list(); // reads file called
+    ingredientlist.txt and hold the ingredients in list
+    list.add_ingredient("Curry", 2.5); // this function will add ingredient with
+    input name and price list.add_ingredient("Bacon", 1.5);
+    list.remove_ingredient("Curry");  // will remove ingredient by name
 
+    // you can use this to check everything is right
+    for (int i = 0; i < list.get_ingredient_list().size(); i++) {
+      std::cout << list.get_ingredient_list()[i].get_name() << std::endl;
+      std::cout << list.get_ingredient_list()[i].get_price() << std::endl;
+    }
 
-  //list.add_ingredient("Curry", 3.00);
-/*
-  ReadIn read_in; // create read object
+    WriteIn write_in; // create write object
 
-  IngredientList list = read_in.read_ingredient_list(); // reads file called ingredientlist.txt and hold the ingredients in list
-  list.add_ingredient("Curry", 2.5); // this function will add ingredient with input name and price
-  list.add_ingredient("Bacon", 1.5);
-  list.remove_ingredient("Curry");  // will remove ingredient by name
+    write_in.write_ingredient_list(list); // write back to ingredient.txt ther
+    ```hý`` new list after updating
 
-  // you can use this to check everything is right
-  for (int i = 0; i < list.get_ingredient_list().size(); i++) {
-    std::cout << list.get_ingredient_list()[i].get_name() << std::endl;
-    std::cout << list.get_ingredient_list()[i].get_price() << std::endl;
-  }
-
-  WriteIn write_in; // create write object
-  
-  write_in.write_ingredient_list(list); // write back to ingredient.txt ther  ```hý`` new list after updating
-
-*/
+  */
   /*write_ingredient_list(list);
 
 
@@ -276,37 +274,40 @@ int main() {
   std::cout << p.get_ingredient_list()[2].get_name() << std::endl;
   std::cout << p.get_ingredient_list()[2].get_price() << std::endl;
   */
-/*
- ReadIn read_in;
- std::string file_name = "pastalist";
- std::vector<string> pasta_list = read_in.read_menu_item_list(file_name);
 
-for (int i = 0; i < pasta_list.size(); i++) {
-std::cout << pasta_list[i] << std::endl;
-}
+  ReadIn read_in;
 
-pasta_list.push_back("Bobs");
+  std::vector<string> pasta_list = read_in.read_menu_item_list("pastalist");
 
-WriteIn write_in;
-write_in.write_menu_item_list(pasta_list, "pastalist");
-*/
+      for (int i = 0; i < pasta_list.size(); i++) {
+    Pasta obj_pasta = read_in.read_pasta(pasta_list[i]);
+    std::cout << obj_pasta.calculate_item_price() << std::endl;
+      std::cout << obj_pasta.get_item_name() << " | " << obj_pasta.get_item_price() << std::endl;
+    
+      for (int j = 0; j < obj_pasta.get_ingredient_list().size(); j++) {
+          std::cout << obj_pasta.get_ingredient_list()[j].get_name() << " | " << obj_pasta.get_ingredient_list()[j].get_price() << std::endl;;
+        }
 
-ReadIn read_in;
-std::string file_name = "drinklist";
-std::vector<string> drink_list = read_in.read_menu_item_list(file_name);
-
-for (int i = 0; i < drink_list.size(); i++) {
-std::cout << drink_list[i] << std::endl;
-}
-
-WriteIn write_in;
-
-write_in.write_menu_item_list
-
-drink_list.push_back("Fanta");
+      }
 
 
-write_in.write_menu_item_list(drink_list, "drinklist");
+  /*
+  ReadIn read_in;
+  std::string file_name = "drinklist";
+  std::vector<string> drink_list = read_in.read_menu_item_list(file_name);
 
+  for (int i = 0; i < drink_list.size(); i++) {
+  std::cout << drink_list[i] << std::endl;
+  }
+
+  WriteIn write_in;
+
+  write_in.write_menu_item_list
+
+  drink_list.push_back("Fanta");
+
+
+  write_in.write_menu_item_list(drink_list, "drinklist");
+  */
   return 0;
 }
