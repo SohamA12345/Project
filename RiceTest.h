@@ -71,34 +71,47 @@ private:
     // test case 3 for rice, with multiple ingredients and setting the values for variables
     void test_rice_case3() {
         Ingredient i1 = Ingredient("i1", 0.1);
-        Ingredient I2 = Ingredient();
-        Ingredient I3 = Ingredient("Ingredient3", 0.9);
+        Ingredient i2 = Ingredient();
+        Ingredient i3 = Ingredient("Ingredient3", 0.9);
         Rice r3 = Rice("rice2", 4.4, 2, "type2", {i1});  
         r3.set_item_name("rice3");
         r3.set_item_price(10);
         r3.set_item_size("large");
         r3.set_rice_type("type3");
-        r3.set_ingredient_list({I1, I2, I3});  
+        r3.set_ingredient_list({i1, i2});  
+        r3.add_ingredient(i3);
         if (r3.get_rice_type() != "type3") {
             cout << "test 3 for rice type failed, result unexpected" << endl;
         }
-        if (r3.get_item_name() != "rice2") {
-            cout << "test 2 for rice name failed, result unexpected" << endl;
+        if (r3.get_item_name() != "rice3") {
+            cout << "test 3 for rice name failed, result unexpected" << endl;
         }
-        if (r3.get_item_price() != 4.4) {
-            cout << "test 2 for rice price failed, result unexpected" << endl;
+        if (r3.get_item_price() != 10) {
+            cout << "test 3 for rice price failed, result unexpected" << endl;
         }
-        if (r3.get_item_size() != 2) {
-            cout << "test 2 for rice size failed, result unexpected" << endl;
+        if (r3.get_item_size() != 3) {
+            cout << "test 3 for rice size failed, result unexpected" << endl;
         }     
         if (r3.get_ingredient(0).get_name() != "i1") {
-            cout << "test 2 for rice ingredient 1 name failed, result unexpected" << endl;
+            cout << "test 3 for rice ingredient 1 name failed, result unexpected" << endl;
         }
         if (r3.get_ingredient(0).get_price() != 0.1) {
-            cout << "test 2 for rice ingredient 1 price failed, result unexpected" << endl;
+            cout << "test 3 for rice ingredient 1 price failed, result unexpected" << endl;
         }
-        if (r3.calculate_item_price() != (4.4*1.25+0.1+0.9)) {
-            cout << "test 2 for rice price calculation failed, result unexpected" << endl;
+        if (r3.get_ingredient(1).get_name() != "NoName") {
+            cout << "test 3 for rice ingredient 2 name failed, result unexpected" << endl;
+        }
+        if (r3.get_ingredient(1).get_price() != 0) {
+            cout << "test 3 for rice ingredient 2 price failed, result unexpected" << endl;
+        }
+        if (r3.get_ingredient(2).get_name() != "Ingredient3") {
+            cout << "test 3 for rice ingredient 3 name failed, result unexpected" << endl;
+        }
+        if (r3.get_ingredient(2).get_price() != 0.9) {
+            cout << "test 3 for rice ingredient 3 price failed, result unexpected" << endl;
+        }
+        if (r3.calculate_item_price() != (10*1.5+0.1+0.9)) {
+            cout << "test 3 for rice price calculation failed, result unexpected" << endl;
         }
     }
 public:
