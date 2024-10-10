@@ -67,8 +67,8 @@ private:
         if (p2.calculate_item_price() != (4.4*1.25+0.4)) {
             cout << "test 2 for pasta price calculation failed, result unexpected" << endl;
         }
-        cout << "expected outcome: I1 | $0.4" << endl;
-        cout << "actual outcome: ";
+        cout << "expected outcome: \nI1 | $0.4" << endl;
+        cout << "actual outcome: \n";
         p2.print_ingredients_and_price();
         cout << endl;
     }
@@ -103,8 +103,8 @@ private:
         if (p3.calculate_item_price() != (3.3*1.5+0.4+0.6)) {
             cout << "test 2 for pasta price calculation failed, result unexpected" << endl;
         }
-        cout << "expected outcome: I1 | $0.4 \nNoName | $0 \nIngredient3 | $0.6 " << endl;
-        cout << "actual outcome: ";
+        cout << "expected outcome: \nI1 | $0.4 \nNoName | $0 \nIngredient3 | $0.6 " << endl;
+        cout << "actual outcome: \n";
         p3.print_ingredients_and_price();
     }
 public:
