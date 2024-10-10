@@ -163,38 +163,6 @@ Burger ReadIn::read_burger(std::string name) {
   return burger;
 }
 
-// read in burger from file
-Burger ReadIn::read_burger(std::string name) {
-  std::string file_name = name + ".txt";
-  std::ifstream inFile(name + ".txt");  // opens file with the same file name
-  Burger burger;
-  read_menu_item(
-      &burger, &inFile);  // calls general function and should return on line 3
-
-  // unique to burger, 2 attributes burger bun and burger meat
-  int index = 4;
-  int burger_attributes = 2;
-  std::string current_line;
-  for (int i = index; i < index + burger_attributes; i++) {
-    std::getline(inFile, current_line);
-    switch (i) {
-      case 4:
-        burger.set_burger_bun(current_line);
-        break;
-      case 5:
-        burger.set_burger_meat(current_line);
-        break;
-      default:
-        break;
-    }
-  }
-  // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  burger.set_ingredient_list(ingredient_list.get_ingredient_list());
-
-  return burger;
-}
-
 // read in noodle from file
 Noodle ReadIn::read_noodle(std::string name) {
   std::string file_name = name + ".txt";
