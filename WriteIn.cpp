@@ -55,11 +55,31 @@ void WriteIn::write_pasta(Pasta pasta) {
 
   write_menu_item(&pasta, &out_file);
 
+  out_file << pasta.get_pasta_type() << std::endl;
   out_file << pasta.get_pasta_sauce() << std::endl;
+
   int no_ingredients = pasta.get_ingredient_list().size();
   out_file << no_ingredients << std::endl;
   for (int i = 0; i < no_ingredients; i++) {
     out_file << pasta.get_ingredient(i).get_name() << std::endl;
+  }
+
+  out_file.close();
+}
+
+// write in pizza
+void WriteIn::write_pizza(Pizza pizza) {
+  std::string file_name = pizza.get_item_name() + ".txt";
+  std::ofstream out_file(file_name);  // make write file object
+
+  write_menu_item(&pizza, &out_file);
+
+  out_file << pizza.get_pizza_sauce() << std::endl;
+  out_file << pizza.get_pizza_cheese() << std::endl;
+  int no_ingredients = pizza.get_ingredient_list().size();
+  out_file << no_ingredients << std::endl;
+  for (int i = 0; i < no_ingredients; i++) {
+    out_file << pizza.get_ingredient(i).get_name() << std::endl;
   }
 
   out_file.close();
