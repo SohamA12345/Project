@@ -25,7 +25,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
     do
     {
       obj1.run(this->state_customer);
-    } while (obj.get_state_checkout() == 1);
+    } while (obj1.get_state_categories() == 1);
 
     break;
   case 2:

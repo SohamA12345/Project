@@ -4,7 +4,7 @@
 class CustomerCategoriesFood
 {
 private:
-  int state_categories;
+  int state_categories = 0;
 public:
   void run(int& state_customer);
   int get_state_categories();

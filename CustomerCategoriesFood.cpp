@@ -20,7 +20,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   ReadIn obj;
 
-  vector<string> item_strg;
+  vector<string> item_strg(6);
   string ingredient;
 
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
@@ -39,12 +39,12 @@ void CustomerCategoriesFood::run(int& state_customer) {
     }
   }
 
-  CustomerCategoriesFood.add("Pasta", 1, item_strg[1]);
-  CustomerCategoriesFood.add("Burger", 2, item_strg[2]);
-  CustomerCategoriesFood.add("Chips", 3, item_strg[3]);
-  CustomerCategoriesFood.add("Noodles", 4, item_strg[4]);
-  CustomerCategoriesFood.add("Pizza", 5, item_strg[5]);
-  CustomerCategoriesFood.add("Rice", 6, item_strg[6]);
+  CustomerCategoriesFood.add("Pasta", 1, item_strg[0]);
+  CustomerCategoriesFood.add("Burger", 2, item_strg[1]);
+  CustomerCategoriesFood.add("Chips", 3, item_strg[2]);
+  CustomerCategoriesFood.add("Noodles", 4, item_strg[3]);
+  CustomerCategoriesFood.add("Pizza", 5, item_strg[4]);
+  CustomerCategoriesFood.add("Rice", 6, item_strg[5]);
   CustomerCategoriesFood.add("Back", 7, "Returns Food/Drinks");
 
   int choice = CustomerCategoriesFood.display();
@@ -83,11 +83,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
       if (choice > 0) {
         IngredientList obj_ingredients;
 
-        cout << "None\t";
         obj_ingredients.add_ingredient(none);
 
         for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
-          cout << obj_ingredients.get_ingredient_list()[i].get_name() << "$("
+          cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
         }
 
@@ -112,7 +111,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           i++;
         }
 
-        Pasta obj_pasta = obj.read_pasta(pasta_list[choice]);
+        Pasta obj_pasta = obj.read_pasta(pasta_list[choice+1]);
         obj_pasta.add_ingredient(obj_ingredients.get_ingredient_list()[i]);
 
         cout << "None\t";
@@ -143,7 +142,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
           j++;
         }
 
-        Pasta obj_pasta = obj.read_pasta(pasta_list[choice]);
         obj_pasta.get_ingredient_list().erase(obj_pasta.get_ingredient_list().begin() + j);
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
@@ -168,7 +166,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
     {
     }
 
-    break;
+      break;
     case 3:
       break;
     case 4:
@@ -178,8 +176,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
     case 6:
       break;
     case 7:
-      this->state_categories = 0;
 
+      this->state_categories = 0;
       state_customer = 1;
 
       return;
