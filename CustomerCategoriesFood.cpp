@@ -1,7 +1,57 @@
 #include "CustomerCategoriesFood.h"
+#include "Pasta.h"
+#include "MMaker.h"
+#include "ReadIn.h"
 
-void CustomerCategoriesFood::run(int& state_customer) {}
-int CustomerCategoriesFood::get_state_categories() {return this->state_categories;}
+void CustomerCategoriesFood::run(int& state_customer) {
+  menu CustomerCategoriesFood;
+
+  ReadIn obj;
+
+  string item_strg;
+  string ingredient;
+
+  vector<string> pasta_list = obj.read_menu_item_list("pastalist");
+
+  CustomerCategoriesFood.menu_head("Cuisine Types: ");
+
+  for (int i = 0; i < pasta_list.size(); i++) {
+    item_strg += pasta_list[i] + ", ";
+  }
+
+  CustomerCategoriesFood.add("Pasta", 1, item_strg);
+
+  int choice = CustomerCategoriesFood.display();
+
+  switch (choice) {
+    case 1:
+
+    {
+      menu Pasta_menu;
+
+      for (int i = 0; i < pasta_list.size(); i++) {
+        Pasta obj_pasta = obj.read_pasta(pasta_list[i]);
+
+        for (int j = 0; j < obj_pasta.get_ingredient_list().size(); j++) {
+          ingredient += obj_pasta.get_ingredient_list()[j].get_name() + ", ";
+        }
+
+        Pasta_menu.add(pasta_list[i], i, "Price: " + to_string(obj_pasta.calculate_item_price()) + "\nIngredients: " + ingredient);
+      }
+
+      int choice = Pasta_menu.display();
+
+      break;
+    }
+
+    default:
+      break;
+  }
+}
+
+int CustomerCategoriesFood::get_state_categories() {
+  return this->state_categories;
+}
 
 CustomerCategoriesFood::CustomerCategoriesFood() {}
 CustomerCategoriesFood::~CustomerCategoriesFood() {}
