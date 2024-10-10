@@ -1,25 +1,45 @@
 #include "CustomerCategoriesFood.h"
 #include "Pasta.h"
+#include "Burger.h"
+#include "Chips.h"
+#include "Noodle.h"
+#include "Pizza.h"
+#include "Rice.h"
 #include "MMaker.h"
 #include "ReadIn.h"
 
 void CustomerCategoriesFood::run(int& state_customer) {
   menu CustomerCategoriesFood;
 
+  CustomerCategoriesFood.menu_head("Cuisine Types: ");
+
   ReadIn obj;
 
-  string item_strg;
+  vector<string> item_strg;
   string ingredient;
 
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
+  vector<string> burger_list = obj.read_menu_item_list("burgerlist");
+  vector<string> chips_list = obj.read_menu_item_list("chipslist");
+  vector<string> noodle_list = obj.read_menu_item_list("noodlelist");
+  vector<string> pizza_list = obj.read_menu_item_list("pizzalist");
+  vector<string> rice_list = obj.read_menu_item_list("ricelist");
 
-  CustomerCategoriesFood.menu_head("Cuisine Types: ");
+  vector<vector<string>> all_lists = {pasta_list, burger_list, chips_list, noodle_list, pizza_list, rice_list};
 
-  for (int i = 0; i < pasta_list.size(); i++) {
-    item_strg += pasta_list[i] + ", ";
+  for (int j = 0; j < all_lists.size(); j++) {
+    for (int i = 0; i < all_lists[j].size(); i++) {
+      item_strg[j] += all_lists[j][i] + ", ";
+    }
   }
 
-  CustomerCategoriesFood.add("Pasta", 1, item_strg);
+  CustomerCategoriesFood.add("Pasta", 1, item_strg[1]);
+  CustomerCategoriesFood.add("Burger", 2, item_strg[2]);
+  CustomerCategoriesFood.add("Chips", 3, item_strg[3]);
+  CustomerCategoriesFood.add("Noodles", 4, item_strg[4]);
+  CustomerCategoriesFood.add("Pizza", 5, item_strg[5]);
+  CustomerCategoriesFood.add("Rice", 6, item_strg[6]);
+  CustomerCategoriesFood.add("Back", 7, "Returns Food/Drinks");
 
   int choice = CustomerCategoriesFood.display();
 
@@ -45,7 +65,23 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
       break;
     }
+    case 2:
 
+      {
+
+      }
+      
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+    case 6:
+      break;
+    case 7:
+      break;
     default:
       break;
   }
