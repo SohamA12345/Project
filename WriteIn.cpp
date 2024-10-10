@@ -74,8 +74,8 @@ void WriteIn::write_pizza(Pizza pizza) {
 
   write_menu_item(&pizza, &out_file);
 
-  out_file << pizza.get_pizza_type() << std::endl;
   out_file << pizza.get_pizza_sauce() << std::endl;
+  out_file << pizza.get_pizza_cheese() << std::endl;
   int no_ingredients = pizza.get_ingredient_list().size();
   out_file << no_ingredients << std::endl;
   for (int i = 0; i < no_ingredients; i++) {
