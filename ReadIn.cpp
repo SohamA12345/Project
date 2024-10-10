@@ -56,12 +56,12 @@ std::vector<std::string> ReadIn::read_menu_item_list(std::string name) {
   std::string file_name = name + ".txt";
   std::ifstream inFile(file_name);
 
-std::vector<std::string> list;
+  std::vector<std::string> list;
   std::string current_line;
   // read line until all lines are read
   while (std::getline(inFile, current_line)) {
     list.push_back(current_line);
-  }  
+  }
 
   return list;
 }
@@ -254,6 +254,17 @@ Rice ReadIn::read_rice(std::string name) {
   rice.set_ingredient_list(ingredient_list.get_ingredient_list());
 
   return rice;
+}
+
+// read drink in from file
+Drink ReadIn::read_drink(std::string name) {
+  std::string file_name = name + ".txt";
+  std::ifstream inFile(name + ".txt");  // opens file with the same file name
+  Drink drink;
+  read_menu_item(
+      &drink, &inFile);  // calls general function and should return on line 3
+
+  return drink;
 }
 
 // deconstructor
