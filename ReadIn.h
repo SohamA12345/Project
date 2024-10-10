@@ -11,6 +11,7 @@
 #include "Noodle.h"
 #include "Chips.h"
 #include "Rice.h"
+#include "Drink.h"
 
 class ReadIn {
 private:
@@ -47,6 +48,9 @@ Chips read_chips(std::string name);
 
 // read in rice
 Rice read_rice(std::string name);
+
+// read in drink
+Drink read_drink(std::string name);
 
 // deconstructor
 ~ReadIn();

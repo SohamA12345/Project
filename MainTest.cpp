@@ -1,12 +1,15 @@
 #include "DrinkTest.h"
 #include "PizzaTest.h"
 #include "PastaTest.h"
+#include "NoodleTest.h"
+#include "RiceTest.h"
 // #include "AddToCartTest.h"
 // #include "CustomerLoginTest.h"
 
 int main() {
+    cout << "This is the main testing file. If there are no words after a test, the test is successful and there's no error.\n" << endl;
 
-    cout << "This is the test for Drink (no text = no error, everything working as intended): " << endl;
+    cout << "This is the test for Drink: " << endl;
     DrinkTest run_drink;
     run_drink.run_tests();
 
@@ -18,6 +21,13 @@ int main() {
     PastaTest run_pasta;
     run_pasta.run_tests();
 
+    cout << "\nThis is the test for Noodle: " << endl;
+    NoodleTest run_noodle;
+    run_noodle.run_tests();
+
+    cout << "\nThis is the test for Rice: " << endl;
+    RiceTest run_rice;
+    run_rice.run_tests();
 
     // AddToCartTest A_T_C_T;
     // A_T_C_T.run_tests();
