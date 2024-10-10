@@ -1,7 +1,7 @@
 #include "Ingredient.h"
 
 // default constructor
-Ingredient::Ingredient() : name("NoName"), price(0.00) {}
+Ingredient::Ingredient() : name("N/A"), price(0.00) {}
 
 // constructor
 Ingredient::Ingredient(std::string name, double price) : name(name), price(price) {}

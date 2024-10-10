@@ -98,7 +98,7 @@ private:
         if (r3.get_ingredient(0).get_price() != 0.1) {
             cout << "test 3 for rice ingredient 1 price failed, result unexpected" << endl;
         }
-        if (r3.get_ingredient(1).get_name() != "NoName") {
+        if (r3.get_ingredient(1).get_name() != "N/A") {
             cout << "test 3 for rice ingredient 2 name failed, result unexpected" << endl;
         }
         if (r3.get_ingredient(1).get_price() != 0) {
