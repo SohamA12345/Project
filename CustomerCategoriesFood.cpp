@@ -85,6 +85,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         obj_ingredients.add_ingredient(none);
 
+        cout << "Available Ingredients:\t";
+
         for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
           cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
@@ -95,26 +97,33 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cout << "Add ingredient? (Type the exactly shown in list above): \n";
 
         string chosen_ingredient;
-        int i = 0;
+        int i;
+        bool ingredient_found = false;
 
         cin >> chosen_ingredient;
 
-        while(i <= obj_ingredients.get_ingredient_list().size()) {
-          if (chosen_ingredient == obj_ingredients.get_ingredient_list()[i].get_name()) {
-            break;
-          } else if(i == obj_ingredients.get_ingredient_list().size()) {
-            cout << "Doesn't match any ingredients\n";
-            cout << "Try Again: ";
-            cin >> chosen_ingredient;
-            i = 0;
+        while (true) {
+          for (i = 0; i < obj_ingredients.get_ingredient_list().size(); ++i) {
+            if (chosen_ingredient ==
+              obj_ingredients.get_ingredient_list()[i].get_name()) {
+              ingredient_found = true;
+              break;
+            }
           }
-          i++;
+
+          if (ingredient_found) {
+            cout << "Ingredient added: " << chosen_ingredient << endl;
+            break;
+          } else {
+            cout << "Doesn't match any ingredients. Try Again: ";
+            cin >> chosen_ingredient;
+          }
         }
 
-        Pasta obj_pasta = obj.read_pasta(pasta_list[choice+1]);
+        Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
         obj_pasta.add_ingredient(obj_ingredients.get_ingredient_list()[i]);
 
-        cout << "None\t";
+        cout << "Available Ingredients:\t";
 
         for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
           cout << obj_ingredients.get_ingredient_list()[i].get_name() << "$("
@@ -122,18 +131,20 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         cout << endl;
-
-        cout << "Remove ingredient? (Type the exactly shown in list above): \n";
+        // Copy the same mechanic as the before this to implement remove.
+        cout << "Remove ingredient? (Type the exactly shown in list above): "
+                "\n";
 
         string chosen_ingredient_removal;
         int j = 0;
 
         cin >> chosen_ingredient_removal;
 
-        while(j <= obj_ingredients.get_ingredient_list().size()) {
-          if (chosen_ingredient == obj_ingredients.get_ingredient_list()[i].get_name()) {
+        while (j <= obj_ingredients.get_ingredient_list().size()) {
+          if (chosen_ingredient ==
+              obj_ingredients.get_ingredient_list()[i].get_name()) {
             break;
-          } else if(j == obj_ingredients.get_ingredient_list().size()) {
+          } else if (j == obj_ingredients.get_ingredient_list().size()) {
             cout << "Doesn't match any ingredients\n";
             cout << "Try Again: ";
             cin >> chosen_ingredient_removal;
@@ -142,7 +153,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
           j++;
         }
 
-        obj_pasta.get_ingredient_list().erase(obj_pasta.get_ingredient_list().begin() + j);
+        obj_pasta.get_ingredient_list().erase(
+            obj_pasta.get_ingredient_list().begin() + j);
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
@@ -150,10 +162,12 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cin >> add_to_cart;
 
         if (add_to_cart == "y") {
-
         } else if (add_to_cart == "n") {
           // Code continue to close the menu gui.
-        } else {cout << "Invalid input. Press ENTER to continue."; cin.get();}
+        } else {
+          cout << "Invalid input. Press ENTER to continue.";
+          cin.get();
+        }
 
         state_customer = 1;
         return;
@@ -166,7 +180,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
     {
     }
 
-      break;
+    break;
     case 3:
       break;
     case 4:
