@@ -27,6 +27,8 @@ class FoodItem : public MenuItem {
   // adder functions
   void add_ingredient(Ingredient i);
 
+  void remove_ingredient(int j);
+
   // getter functions
   Ingredient get_ingredient(int index);
 

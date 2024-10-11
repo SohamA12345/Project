@@ -147,13 +147,12 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cin >> chosen_ingredient_removal;
 
         while (true) {
-          for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
+          for (int i = 0; i < obj_pasta.get_ingredient_list().size();
                ++i) {
             if (chosen_ingredient_removal ==
-                obj_ingredients.get_ingredient_list()[i].get_name()) {
+                obj_pasta.get_ingredient_list()[i].get_name()) {
               ingredient_removed = true;
               j = i;
-              cout << j;
               break;
             }
           }
@@ -166,6 +165,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cin >> chosen_ingredient;
           }
         }
+
+        obj_pasta.remove_ingredient(j);
+
 
         // if (j < obj_pasta.get_ingredient_list().size()) {
         // } else {

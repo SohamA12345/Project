@@ -19,6 +19,8 @@ void FoodItem::set_ingredient_list(vector<Ingredient> list) {
   this->ingredients = list;
 }
 
+void FoodItem::remove_ingredient(int i) {ingredients.erase(ingredients.begin() + i);}
+
 // getter functions
 Ingredient FoodItem::get_ingredient(int index) {
   return ingredients[index];
