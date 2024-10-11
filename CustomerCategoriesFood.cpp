@@ -1,8 +1,5 @@
 #include "CustomerCategoriesFood.h"
-
-#include <algorithm>
-#include <vector>
-
+#include "AddToCart.h"
 #include "Burger.h"
 #include "Chips.h"
 #include "Ingredient.h"
@@ -54,6 +51,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   none.set_name("None");
   none.set_price(0);
+
+  AddToCart cart;
 
   switch (choice) {
     case 1:
@@ -147,8 +146,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cin >> chosen_ingredient_removal;
 
         while (true) {
-          for (int i = 0; i < obj_pasta.get_ingredient_list().size();
-               ++i) {
+          for (int i = 0; i < obj_pasta.get_ingredient_list().size(); ++i) {
             if (chosen_ingredient_removal ==
                 obj_pasta.get_ingredient_list()[i].get_name()) {
               ingredient_removed = true;
@@ -168,34 +166,34 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         obj_pasta.remove_ingredient(j);
 
+        if (j < obj_pasta.get_ingredient_list().size()) {
+        } else {
+          cout << "Invalid ingredient index. Unable to remove." << endl;
+        }
 
-        // if (j < obj_pasta.get_ingredient_list().size()) {
-        // } else {
-        //   cout << "Invalid ingredient index. Unable to remove." << endl;
-        // }
+        // Display remaining ingredients in obj_ingredients
+        cout << "Updated Ingredients:\t";
+        for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
+          cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
+               << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
+        }
+        cout << endl;
 
-        // // Display remaining ingredients in obj_ingredients
-        // cout << "Updated Ingredients:\t";
-        // for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
-        //   cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
-        //        << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
-        // }
-        // cout << endl;
+        cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
-        // cout << "Successfully costomised the order. Add to Cart(y/n): ";
+        string add_to_cart;
+        cin >> add_to_cart;
 
-        // string add_to_cart;
-        // cin >> add_to_cart;
-
-        // if (add_to_cart == "y") {
-        // } else if (add_to_cart == "n") {
-        //   // Code continue to close the menu gui.
-        // } else {
-        //   cout << "Invalid input. Press ENTER to continue.";
-        //   cin.get();
-        //   this->state_categories = 1;
-        //   return;
-        // }
+        if (add_to_cart == "y") {
+          cart.run(state_customer, obj_pasta);
+        } else if (add_to_cart == "n") {
+          // Code continue to close the menu gui.
+        } else {
+          cout << "Invalid input. Press ENTER to continue.";
+          cin.get();
+          this->state_categories = 1;
+          return;
+        }
 
         state_customer = 1;
         return;
