@@ -97,7 +97,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cout << "Add ingredient? (Type the exactly shown in list above): \n";
 
         string chosen_ingredient;
-        int i;
+        int i = 0;
         bool ingredient_found = false;
 
         cin >> chosen_ingredient;
@@ -131,26 +131,32 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         cout << endl;
-        // Copy the same mechanic as the before this to implement remove.
+        // Copy the same mechanic as the above code to implement ingredient removal.
         cout << "Remove ingredient? (Type the exactly shown in list above): "
                 "\n";
 
         string chosen_ingredient_removal;
         int j = 0;
+        bool ingredient_removed;
 
         cin >> chosen_ingredient_removal;
 
-        while (j <= obj_ingredients.get_ingredient_list().size()) {
-          if (chosen_ingredient ==
-              obj_ingredients.get_ingredient_list()[i].get_name()) {
-            break;
-          } else if (j == obj_ingredients.get_ingredient_list().size()) {
-            cout << "Doesn't match any ingredients\n";
-            cout << "Try Again: ";
-            cin >> chosen_ingredient_removal;
-            j = 0;
+        while (true) {
+          for (j = 0; j < obj_ingredients.get_ingredient_list().size(); ++j) {
+            if (chosen_ingredient_removal ==
+              obj_ingredients.get_ingredient_list()[j].get_name()) {
+              ingredient_removed = true;
+              break;
+            }
           }
-          j++;
+
+          if (ingredient_removed) {
+            cout << "Ingredient removed: " << chosen_ingredient << endl;
+            break;
+          } else {
+            cout << "Doesn't match any ingredients. Try Again: ";
+            cin >> chosen_ingredient;
+          }
         }
 
         obj_pasta.get_ingredient_list().erase(
@@ -167,6 +173,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
         } else {
           cout << "Invalid input. Press ENTER to continue.";
           cin.get();
+          this->state_categories = 1;
+          return;
         }
 
         state_customer = 1;
