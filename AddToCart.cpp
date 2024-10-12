@@ -1,31 +1,31 @@
 #include "AddToCart.h"
 
-void AddToCart::run(int& state_categories, Pasta& obj) {
+void AddToCart::run(int& state_categories, Pasta obj) {
   cart.push_back(obj);
   state_categories = 1;
 }
 
-void AddToCart::run(int& state_categories, Noodle& obj) {
+void AddToCart::run(int& state_categories, Noodle obj) {
   cart.push_back(obj);
   state_categories = 1;
 }
 
-void AddToCart::run(int& state_categories, Rice& obj) {
+void AddToCart::run(int& state_categories, Rice obj) {
   cart.push_back(obj);
   state_categories = 1;
 }
 
-void AddToCart::run(int& state_categories, Chips& obj) {
+void AddToCart::run(int& state_categories, Chips obj) {
   cart.push_back(obj);
   state_categories = 1;
 }
 
-void AddToCart::run(int& state_categories, Pizza& obj) {
+void AddToCart::run(int& state_categories, Pizza obj) {
   cart.push_back(obj);
   state_categories = 1;
 }
 
-void AddToCart::run(int& state_categories, Burger& obj) {
+void AddToCart::run(int& state_categories, Burger obj) {
   cart.push_back(obj);
   state_categories = 1;
 }

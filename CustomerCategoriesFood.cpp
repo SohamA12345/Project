@@ -1,4 +1,5 @@
 #include "CustomerCategoriesFood.h"
+
 #include "AddToCart.h"
 #include "Burger.h"
 #include "Chips.h"
@@ -156,7 +157,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (ingredient_removed) {
-            cout << "Ingredient removed: " << chosen_ingredient << j << endl;
+            cout << "Ingredient removed: " << chosen_ingredient_removal << endl;
             break;
           } else {
             cout << "Doesn't match any ingredients. Try Again: ";
@@ -165,11 +166,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         obj_pasta.remove_ingredient(j);
-
-        if (j < obj_pasta.get_ingredient_list().size()) {
-        } else {
-          cout << "Invalid ingredient index. Unable to remove." << endl;
-        }
 
         // Display remaining ingredients in obj_ingredients
         cout << "Updated Ingredients:\t";
@@ -186,6 +182,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         if (add_to_cart == "y") {
           cart.run(state_customer, obj_pasta);
+          cout << "Succesfully Added to the cart: " << obj_pasta.get_item_name()
+               << '\t' << obj_pasta.calculate_item_price() << "\tPress ENTER to continue";
+          cin.ignore();
+          cin.get();
         } else if (add_to_cart == "n") {
           // Code continue to close the menu gui.
         } else {

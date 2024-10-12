@@ -14,7 +14,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
 
   for(int i = 0; i < cart.get_cart().size(); i++) {
     cart_content += cart.get_cart()[i].get_item_name() + '\t';
-    total_price += cart.get_cart()[i].get_item_price();
+    total_price += cart.get_cart()[i].calculate_item_price();
   }
 
   CustomerFoodDrink.add("Food", 1, "Wide range of cuisines categorised under Burger, Chips, Noodles, Pasta, Pizza, Rice.");
@@ -53,8 +53,12 @@ void CustomerFoodDrink::run(int& state_customer_login) {
       this->state_customer = 0;
       state_customer_login = 1;
 
+      cart.get_cart().clear();
+
       return;
     break;
+  case 5:
+  // clears cart.
   default:
     break;
   }
