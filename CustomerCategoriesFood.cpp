@@ -1,6 +1,5 @@
 #include "CustomerCategoriesFood.h"
 
-#include "AddToCart.h"
 #include "Burger.h"
 #include "Chips.h"
 #include "Ingredient.h"
@@ -11,6 +10,7 @@
 #include "Pizza.h"
 #include "ReadIn.h"
 #include "Rice.h"
+#include "WriteIn.h"
 
 void CustomerCategoriesFood::run(int& state_customer) {
   menu CustomerCategoriesFood;
@@ -179,9 +179,11 @@ void CustomerCategoriesFood::run(int& state_customer) {
         cin >> add_to_cart;
 
         if (add_to_cart == "y") {
-          cart.push_back(&obj_pasta);
+          CustomerFoodDrink::cart.push_back(obj_pasta);
           cout << "Succesfully Added to the cart: " << obj_pasta.get_item_name()
                << '\t' << obj_pasta.calculate_item_price() << "\tPress ENTER to continue";
+          cin.ignore();
+          cin.get();
         } else if (add_to_cart == "n") {
           // Code continue to close the menu gui.
         } else {

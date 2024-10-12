@@ -1,6 +1,8 @@
 #ifndef CUSTOMER_LOGIN_H
 #define CUSTOMER_LOGIN_H
 
+#include "FoodItem.h"
+
 class CustomerLogin{
  private:
   int state_customer_login =

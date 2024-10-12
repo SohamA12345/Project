@@ -1,7 +1,6 @@
 #ifndef CUSTOMER_CATEGORIES_FOOD_H
 #define CUSTOMER_CATEGORIES_FOOD_H
 
-#include "AddToCart.h"
 #include "CustomerFoodDrink.h"
 
 class CustomerCategoriesFood : public CustomerFoodDrink

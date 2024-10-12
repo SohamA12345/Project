@@ -3,22 +3,25 @@
 #include "Checkout.h"
 #include "CustomerCategoriesFood.h"
 
+std::vector<FoodItem> CustomerFoodDrink::cart;
+
 void CustomerFoodDrink::run(int& state_customer_login) {
   menu CustomerFoodDrink;
   string cart_content = "";
   int total_price = 0;
 
-  CustomerFoodDrink.menu_head("What do you want to order today?");
-
-  for(int i = 0; i < cart.size(); i++) {
-    cart_content += cart[i]->get_item_name();
-    total_price += cart[i]->calculate_item_price();
+  for (int i = 0; i < cart.size(); i++) {
+    cart_content += cart[i].get_item_name() + '\t';
+    total_price += cart[i].calculate_item_price();
   }
+
+  CustomerFoodDrink.menu_head("What do you want to order today?");
 
   CustomerFoodDrink.add("Food", 1, "Wide range of cuisines categorised under Burger, Chips, Noodles, Pasta, Pizza, Rice.");
   CustomerFoodDrink.add("Drink", 2, "Drinks Menu");
-  CustomerFoodDrink.add("Check-out", 3, cart_content); //cart_content + '\t' + to_string(total_price)
-  CustomerFoodDrink.add("Log-out", 4, "Returns to the login page.");
+  CustomerFoodDrink.add("Check-out", 3, "Cart has: " + cart_content + " | Total Price: $" + to_string(total_price));
+  CustomerFoodDrink.add("Clear cart", 4, "Clears whatever is in the cart");
+  CustomerFoodDrink.add("Log-out", 5, "Returns to the login page.");
 
   int choice = CustomerFoodDrink.display();
 
@@ -48,15 +51,21 @@ void CustomerFoodDrink::run(int& state_customer_login) {
     
     break;
   case 4:
-      this->state_customer = 0;
-      state_customer_login = 1;
 
-      cart.clear();
+    cart.clear();
+    cout << "Cart cleared. Press ENTER to continue.";
+    cin.get();
 
-      return;
+    this->state_customer = 1;
+
     break;
   case 5:
-  // clears cart.
+    this->state_customer = 0;
+    state_customer_login = 1;
+
+    cart.clear();
+
+    return;
   default:
     break;
   }

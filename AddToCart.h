@@ -13,15 +13,9 @@ class AddToCart
 {
 private:
   int state_checkout;
-  Pasta empty;
-  vector<FoodItem*> cart;
+
 public:
-  void run(int& state_categories, Pasta& obj);
-  void run(int& state_categories, Noodle& obj);
-  void run(int& state_categories, Rice& obj);
-  void run(int& state_categories, Chips& obj);
-  void run(int& state_categories, Pizza& obj);
-  void run(int& state_categories, Burger& obj);
+  void add_to_cart(FoodItem obj);
 
   int get_state_checkout();
   vector<FoodItem*> get_cart();
