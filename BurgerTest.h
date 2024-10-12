@@ -4,6 +4,8 @@ class BurgerTest {
 private:
     // this is the default test case for burger
     void test_Burger_default() {
+        // Create a burger via the default constructor, 
+        // then compare the values against the expected bun/meat/name/price/size
         Burger b;
         if (b.get_burger_bun() != "N/A") {
             cout << "default test for burger bun failed, result unexpected" << endl;
@@ -24,6 +26,8 @@ private:
 
     // this is test case 1 for burger, no ingredient
     void test_Burger_case1() {
+        // Create a burger with parameters (excluding ingredient), 
+        // then compare the values against the expected bun/meat/name/price/size
         Burger b1 = Burger("burger1", 3.1, 1, "bun1", "meat1");
         if (b1.get_burger_bun() != "bun1") {
             cout << "test 1 for burger bun failed, result unexpected" << endl;
@@ -44,6 +48,8 @@ private:
 
     // test case 2 for burger, with ingredient
     void test_Burger_case2() {
+        // Create a burger with parameters (including 1 ingredient), 
+        // then compare the ingredient and final price against the expected ingredient/price
         Ingredient i1 = Ingredient("i1", 1);
         Burger b2 = Burger("burger2", 3.3, 2, "bun1", "meat1", {i1});
         if (b2.get_ingredient(0).get_name() != "i1") {
@@ -59,6 +65,9 @@ private:
 
     // test case 3 for burger, with multiple ingredient and changing variables
     void test_Burger_case3() {
+        // Create a burger with parameters (including multiple ingredients), 
+        // change the parameters with set functions, 
+        // then compare the parameters, ingredients, and final price against the expected ingredient/price
         Ingredient i1 = Ingredient("i1", 1);
         Ingredient i2 = Ingredient("i2", 2);
         Ingredient i3 = Ingredient("i3", 3);
@@ -109,6 +118,7 @@ private:
     }
 
 public:
+    // run_tests runs the test cases created above. 
     void run_tests() {
         test_Burger_default();
         test_Burger_case1();
