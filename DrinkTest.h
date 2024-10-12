@@ -6,6 +6,7 @@ class DrinkTest {
 private:
     // default case with no input
     void test_drink_default() {
+        // create a drink via the default constructor, compare value against expected sugar/ice/size/name/price
         Drink d;
         if(d.get_sugar() != 0) {
             cout << "default test sugar failed, result unexpected" << endl;
@@ -26,8 +27,9 @@ private:
 
     // 2nd case with input
     void test_drink_case1() {
-        Drink d1;
-        d1 = Drink(2, "Coke", 2.2);
+        // create a drink with parameters, compare value against expected sugar/ice/size/name/price values,
+        // as well as the expected item price after calculation
+        Drink d1 = Drink(2, "Coke", 2.2);
         if(d1.get_sugar() != 0) {
             cout << "test 1 sugar failed, result unexpected" << endl;
         }
@@ -50,6 +52,8 @@ private:
 
     // 3rd case that alters the inputs
     void test_drink_case2() {
+        // Create a drink with default constructor, then change the parameters with set functions, 
+        // compare the parameters and final price against the expected values
         Drink d2;
         d2.set_item_size("medium");
         d2.set_item_name("Sprite");
@@ -76,6 +80,7 @@ private:
         }
     }
 public:
+    // run_tests runs the test cases created above. 
     void run_tests() {
         test_drink_default();
         test_drink_case1();
