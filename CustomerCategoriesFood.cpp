@@ -1,5 +1,7 @@
 #include "CustomerCategoriesFood.h"
 
+#include <cstdlib>
+
 #include "Burger.h"
 #include "Chips.h"
 #include "Ingredient.h"
@@ -48,11 +50,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   int choice = CustomerCategoriesFood.display();
 
-  Ingredient none;
-
-  none.set_name("None");
-  none.set_price(0);
-
   switch (choice) {
     case 1:
 
@@ -81,108 +78,128 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
       if (choice > 0) {
         IngredientList obj_ingredients;
+        Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
 
-        obj_ingredients.add_ingredient(none);
+        system("clear");
 
-        cout << "Available Ingredients:\t";
+        bool finish_adding = false;
 
-        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
-          cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
-               << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
-        }
+        while (!finish_adding) {
+          cout << "Available Ingredients:\t";
 
-        cout << endl;
-
-        cout << "Add ingredient? (Type the exactly shown in list above): \n";
-
-        string chosen_ingredient;
-        int k = 0;
-        bool ingredient_found = false;
-
-        cin >> chosen_ingredient;
-
-        while (true) {
           for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
-               ++i) {
-            if (chosen_ingredient ==
-                obj_ingredients.get_ingredient_list()[i].get_name()) {
-              ingredient_found = true;
-              k = i;
+               i++) {
+            cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
+                 << obj_ingredients.get_ingredient_list()[i].get_price()
+                 << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "Add ingredient? (Type the exactly shown in list above or "
+                  "'done' to stop adding ingredients): \n";
+
+          string chosen_ingredient;
+          int k = 0;
+          bool ingredient_found = false;
+
+          getline(cin, chosen_ingredient);
+
+          while (true) {
+            for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
+                 ++i) {
+              if (chosen_ingredient ==
+                  obj_ingredients.get_ingredient_list()[i].get_name()) {
+                ingredient_found = true;
+                k = i;
+                break;
+              }
+            }
+
+            if (ingredient_found) {
+              cout << "Ingredient added: " << chosen_ingredient << endl;
               break;
+            } else if (chosen_ingredient == "done") {
+              k = -1;
+              finish_adding = true;
+              break;
+            } else {
+              cout << "Doesn't match any ingredients. Caution it is "
+                      "case-sensitive. Try Again: ";
+              getline(cin, chosen_ingredient);
             }
           }
 
-          if (ingredient_found) {
-            cout << "Ingredient added: " << chosen_ingredient << endl;
-            break;
-          } else {
-            cout << "Doesn't match any ingredients. Try Again: ";
-            cin >> chosen_ingredient;
+          if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
+            obj_pasta.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
           }
         }
-
-        Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
-        obj_pasta.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
 
         // Copy the same mechanic as the above code to implement ingredient
         // removal.
-        cout << "Available Ingredients:\t";
+        system("clear");
 
-        for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
-          cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
-               << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
-        }
+        bool finish_removing = false;
 
-        cout << endl;
+        while (!finish_removing) {
+          cout << "Available Ingredients:\t";
 
-        cout << "Remove ingredient? (Type the exactly shown in list above): "
-                "\n";
+          for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
+            cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
+                << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
+          }
 
-        string chosen_ingredient_removal;
-        int j = 0;
-        bool ingredient_removed = false;
+          cout << endl;
 
-        cin >> chosen_ingredient_removal;
+          cout << "Remove ingredient? (Type the exactly shown in list above or "
+                  "'done' to stop removing ingredients)): "
+                  "\n";
 
-        while (true) {
-          for (int i = 0; i < obj_pasta.get_ingredient_list().size(); ++i) {
-            if (chosen_ingredient_removal ==
-                obj_pasta.get_ingredient_list()[i].get_name()) {
-              ingredient_removed = true;
-              j = i;
+          string chosen_ingredient_removal;
+          int j = 0;
+          bool ingredient_removed = false;
+
+          getline(cin, chosen_ingredient_removal);
+
+          while (true) {
+            for (int i = 0; i < obj_pasta.get_ingredient_list().size(); ++i) {
+              if (chosen_ingredient_removal ==
+                  obj_pasta.get_ingredient_list()[i].get_name()) {
+                ingredient_removed = true;
+                j = i;
+                break;
+              }
+            }
+
+            if (ingredient_removed) {
+              cout << "Ingredient removed: " << chosen_ingredient_removal << endl;
               break;
+            } else if (chosen_ingredient_removal == "done") {
+              j = -1;
+              finish_removing = true;
+              break;
+            } else {
+              cout << "Doesn't match any ingredients. Try Again: ";
+              getline(cin, chosen_ingredient_removal);
             }
           }
 
-          if (ingredient_removed) {
-            cout << "Ingredient removed: " << chosen_ingredient_removal << endl;
-            break;
-          } else {
-            cout << "Doesn't match any ingredients. Try Again: ";
-            cin >> chosen_ingredient;
+          if (j >= 0) {
+            obj_pasta.remove_ingredient(j);
           }
-        }
 
-        obj_pasta.remove_ingredient(j);
-
-        // Display remaining ingredients in obj_ingredients
-        cout << "Updated Ingredients:\t";
-        for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
-          cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
-               << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
         }
-        cout << endl;
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
         string add_to_cart;
-        cin >> add_to_cart;
+        getline(cin, add_to_cart);
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_pasta);
           cout << "Succesfully Added to the cart: " << obj_pasta.get_item_name()
-               << '\t' << obj_pasta.calculate_item_price() << "\tPress ENTER to continue";
-          cin.ignore();
+               << "\t$" << obj_pasta.calculate_item_price()
+               << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
           // Code continue to close the menu gui.
