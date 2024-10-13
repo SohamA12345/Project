@@ -28,6 +28,7 @@ void Drink::remove_sugar(int num_spoon) {
 
 // function for changing whether ice is added to the drink or not
 void Drink::change_ice() {
+    // change ice to false if it is currently yes, and vice versa. 
     if (ice == false) {
         ice = true;
     } else if (ice == true) {
@@ -36,11 +37,7 @@ void Drink::change_ice() {
 }
 
 // function for getting the current amount of sugar
-int Drink::get_sugar() {
-    return sugar;
-}
+int Drink::get_sugar() { return sugar; }
 
 // function for showing whether ice has been added currently
-bool Drink::show_ice() {
-    return ice;
-}
+bool Drink::show_ice() { return ice; }

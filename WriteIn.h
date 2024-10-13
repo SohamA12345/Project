@@ -24,7 +24,7 @@ class WriteIn {
 
   // write to a menu item list
   void write_menu_item_list(std::vector<string> list, std::string name); // by string vector 
-  void write_menu_item_list(std::vector<MenuItem> list, std::string name); // by menu item vector
+  void write_menu_item_list(std::vector<MenuItem*> list, std::string name); // by menu item vector
 
   // write to ingredient list text file
   void write_ingredient_list(IngredientList ingredient_list);

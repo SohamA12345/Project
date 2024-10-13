@@ -12,34 +12,34 @@
 #include "Rice.h"
 #include "WriteIn.h"
 
-void write_food_item(Pasta pasta) {  // pizza
-  std::string file_name = pasta.get_item_name() + ".txt";
-  std::ofstream outFile(file_name);  // make write file object
+// void write_food_item(Pasta pasta) {  // pizza
+//   std::string file_name = pasta.get_item_name() + ".txt";
+//   std::ofstream outFile(file_name);  // make write file object
 
-  outFile << pasta.get_item_name() << std::endl;
-  outFile << pasta.get_item_price() << std::endl;
-  int item_size_number = pasta.get_item_size();
-  std::string item_size;
-  if (item_size_number == 1) {
-    item_size = "small";
-  } else if (item_size_number == 2) {
-    item_size = "medium";
-  } else if (item_size_number == 3) {
-    item_size = "large";
-  } else {
-    cout << "invalid input, size set to small" << endl;
-    item_size = "small";
-  }
-  outFile << item_size << std::endl;
-  outFile << pasta.get_pasta_sauce() << std::endl;
-  int no_ingredients = pasta.get_ingredient_list().size();
-  outFile << no_ingredients << std::endl;
-  for (int i = 0; i < no_ingredients; i++) {
-    outFile << pasta.get_ingredient(i).get_name() << std::endl;
-  }
+//   outFile << pasta.get_item_name() << std::endl;
+//   outFile << pasta.get_item_price() << std::endl;
+//   int item_size_number = pasta.get_item_size();
+//   std::string item_size;
+//   if (item_size_number == 1) {
+//     item_size = "small";
+//   } else if (item_size_number == 2) {
+//     item_size = "medium";
+//   } else if (item_size_number == 3) {
+//     item_size = "large";
+//   } else {
+//     cout << "invalid input, size set to small" << endl;
+//     item_size = "small";
+//   }
+//   outFile << item_size << std::endl;
+//   outFile << pasta.get_pasta_sauce() << std::endl;
+//   int no_ingredients = pasta.get_ingredient_list().size();
+//   outFile << no_ingredients << std::endl;
+//   for (int i = 0; i < no_ingredients; i++) {
+//     outFile << pasta.get_ingredient(i).get_name() << std::endl;
+//   }
 
-  outFile.close();
-}
+//   outFile.close();
+// }
 /*
 void write_ingredient_list(IngredientList ingredient_list) {
   std::vector<Ingredient> list = ingredient_list.get_ingredient_list();
@@ -276,19 +276,80 @@ int main() {
   */
 
   ReadIn read_in;
+  WriteIn write_in;
 
-  std::vector<string> pasta_list = read_in.read_menu_item_list("pastalist");
 
-      for (int i = 0; i < pasta_list.size(); i++) {
-    Pasta obj_pasta = read_in.read_pasta(pasta_list[i]);
-    std::cout << obj_pasta.calculate_item_price() << std::endl;
-      std::cout << obj_pasta.get_item_name() << " | " << obj_pasta.get_item_price() << std::endl;
-    
-      for (int j = 0; j < obj_pasta.get_ingredient_list().size(); j++) {
-          std::cout << obj_pasta.get_ingredient_list()[j].get_name() << " | " << obj_pasta.get_ingredient_list()[j].get_price() << std::endl;;
-        }
+  std::vector<string> pizza_list = read_in.read_menu_item_list("pizzalist");
+  std::vector<string> burger_list = read_in.read_menu_item_list("burgerlist");
+  std::vector<string> noodle_list = read_in.read_menu_item_list("noodlelist");
+  std::vector<string> chips_list = read_in.read_menu_item_list("chipslist");
+  std::vector<string> rice_list = read_in.read_menu_item_list("ricelist");
+  std::vector<string> drinks_list = read_in.read_menu_item_list("drinkslist");
 
-      }
+// make the menu item vectors using the string vectors
+
+ std::vector<MenuItem*> obj_pizza_list;
+//   for (int i = 0; i < pizza_list.size(); i++) {
+//       Pizza pizza = read_in.read_pizza(pizza_list[i]);
+//         obj_pizza_list.push_back(&pizza);
+//   }
+   std::vector<MenuItem*> obj_burger_list;
+//   for (int i = 0; i < burger_list.size(); i++) {
+//         Burger burger = read_in.read_burger(burger_list[i]);
+//         obj_burger_list.push_back(&burger);
+//   }
+
+   std::vector<MenuItem*> obj_noodle_list;
+//   for (int i = 0; i < noodle_list.size(); i++) {
+//         Noodle noodle = read_in.read_noodle(noodle_list[i]);
+//         obj_noodle_list.push_back(&noodle);
+//   }
+  std::vector<MenuItem*> obj_chips_list;
+//   for (int i = 0; i < chips_list.size(); i++) {
+//     Chips chips = read_in.read_chips(chips_list[i]);
+//         obj_chips_list.push_back(&chips);
+//   }
+
+   std::vector<MenuItem*> obj_rice_list;
+//   for (int i = 0; i < rice_list.size(); i++) 
+//   {
+//     Rice rice = read_in.read_rice(rice_list[i]);
+//         obj_rice_list.push_back(&rice);
+//   }
+
+     std::vector<MenuItem*> obj_drinks_list;
+//   for (int i = 0; i < drinks_list.size(); i++) {
+//     Drink drink = read_in.read_drink(drinks_list[i]);
+//         obj_drinks_list.push_back(&drink);
+//   }
+
+
+
+Pizza p("PizzaTest2", 1, 1, "SauceTest","CheeseTest"); // create object
+write_in.write_pizza(p);    // create own txt file
+  obj_pizza_list.push_back(&p);
+  write_in.write_menu_item_list(obj_pizza_list, "pizzalist");
+Burger b("BurgerTest2", 1, 1, "BunTest","meatTest"); // create object
+write_in.write_burger(b); // create own txt file
+obj_burger_list.push_back(&b);
+  write_in.write_menu_item_list(obj_burger_list, "burgerlist");
+Noodle n("NoodleTst", 1 , 1, "typetest", "souptest"); // create object
+write_in.write_noodle(n); // create own txt file
+obj_noodle_list.push_back(&n);
+  write_in.write_menu_item_list(obj_noodle_list, "noodlelist");
+Chips c("Chipstest", 2, 3, "cuttest", "seasoningtest"); // create object
+write_in.write_chips(c);  // create own txt file
+obj_chips_list.push_back(&c);
+  write_in.write_menu_item_list(obj_chips_list, "chipslist");
+Rice r("ricetest", 234, 2, "typetest"); // create object
+write_in.write_rice(r); // create own txt file  
+obj_rice_list.push_back(&r);
+  write_in.write_menu_item_list(obj_rice_list, "ricelist");
+Drink d(1, "drinktest", 2.50 ); // create object
+write_in.write_drink(d);  // create own txt file
+obj_drinks_list.push_back(&d);
+  write_in.write_menu_item_list(obj_drinks_list, "drinksist");
+
 
 
   /*

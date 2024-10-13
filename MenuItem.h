@@ -21,14 +21,14 @@ public:
     void set_item_price(double price);
     void set_item_size(string str_size);
 
-    // getter functions
+    // getter functions for name, price, size, and size (in string)
     string get_item_name();
     double get_item_price();
     int get_item_size();
     string get_string_size(int int_size);
 
     // a virtual function for calculating the item price - 
-    // this will be different based on whether the item is a food or drink
+    // this will be different based on whether the item is a food or drink 
     virtual double calculate_item_price()=0;
 };
 

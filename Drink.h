@@ -14,7 +14,7 @@ public:
     Drink(int size, string name, double price);
     Drink();
 
-    // increase the amount of sugar
+    // increase/decrease the amount of sugar
     void add_sugar(int num_spoon);
     void remove_sugar(int num_spoon);
 
