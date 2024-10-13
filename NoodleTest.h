@@ -27,7 +27,7 @@ private:
 
     // test case 1 for noodles, no ingredient
     void test_noodle_case1() {
-        // Create a noodle with parameters (excluding ingredient),
+        // Create a noodle with parameters (excluding ingredient)
         Noodle n1 = Noodle("noodle1", 1.1, 1, "type1", "soup1");
 
         // compare the values against the expected soup/type/name/price/size
@@ -50,7 +50,7 @@ private:
 
     // test case 2 with 1 ingredient
     void test_noodle_case2() {
-        // Create a noodle with parameters (including 1 ingredient), 
+        // Create a noodle with parameters (including 1 ingredient)
         Ingredient I1 = Ingredient("i1", 0.1);
         Noodle n2 = Noodle("noodle2", 2.2, 2, "type2", "soup2", {I1});
 

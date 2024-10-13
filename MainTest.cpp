@@ -5,8 +5,6 @@
 #include "RiceTest.h"
 #include "ChipsTest.h"
 #include "BurgerTest.h"
-// #include "AddToCartTest.h"
-// #include "CustomerLoginTest.h"
 
 int main() {
     cout << "This is the main testing file. If there are no words after a test, the test is successful and there's no error.\n" << endl;
@@ -45,12 +43,6 @@ int main() {
     cout << "\nThis is the test for Burger: " << endl;
     BurgerTest run_Burger;
     run_Burger.run_tests();
-
-    // AddToCartTest A_T_C_T;
-    // A_T_C_T.run_tests();
-
-    // CustomerLoginTest C_L_T;
-    // C_L_T.run_tests();
 
     return 0;
 }
