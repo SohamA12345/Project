@@ -5,8 +5,9 @@ private:
     // this is the default test case for burger
     void test_Burger_default() {
         // Create a burger via the default constructor, 
-        // then compare the values against the expected bun/meat/name/price/size
         Burger b;
+
+        // compare the values against the expected bun/meat/name/price/size
         if (b.get_burger_bun() != "N/A") {
             cout << "default test for burger bun failed, result unexpected" << endl;
         }
@@ -26,9 +27,10 @@ private:
 
     // this is test case 1 for burger, no ingredient
     void test_Burger_case1() {
-        // Create a burger with parameters (excluding ingredient), 
-        // then compare the values against the expected bun/meat/name/price/size
+        // Create a burger with parameters (excluding ingredient)
         Burger b1 = Burger("burger1", 3.1, 1, "bun1", "meat1");
+
+        // compare the values against the expected bun/meat/name/price/size
         if (b1.get_burger_bun() != "bun1") {
             cout << "test 1 for burger bun failed, result unexpected" << endl;
         }
@@ -48,9 +50,10 @@ private:
 
     // test case 2 for burger, with ingredient
     void test_Burger_case2() {
-        // Create a burger with parameters (including 1 ingredient), 
-        // then compare the ingredient and final price against the expected ingredient/price
+        // Create a burger with parameters (including 1 ingredient)
         Ingredient i1 = Ingredient("i1", 1);
+
+        // compare the ingredient and final price against the expected ingredient/price
         Burger b2 = Burger("burger2", 3.3, 2, "bun1", "meat1", {i1});
         if (b2.get_ingredient(0).get_name() != "i1") {
             cout << "test 2 for burger ingredient 1 name failed, result unexpected" << endl;
@@ -66,12 +69,12 @@ private:
     // test case 3 for burger, with multiple ingredient and changing variables
     void test_Burger_case3() {
         // Create a burger with parameters (including multiple ingredients), 
-        // change the parameters with set functions, 
-        // then compare the parameters, ingredients, and final price against the expected ingredient/price
         Ingredient i1 = Ingredient("i1", 1);
         Ingredient i2 = Ingredient("i2", 2);
         Ingredient i3 = Ingredient("i3", 3);
         Burger b3 = Burger("burger2", 3.3, 2, "bun1", "meat1", {i1});
+
+        // change the parameters with set functions, 
         b3.set_ingredient_list({i1,i2});
         b3.add_ingredient(i3);
         b3.set_burger_bun("bun3");
@@ -79,6 +82,8 @@ private:
         b3.set_item_name("burger3");
         b3.set_item_price(5.5);
         b3.set_item_size("large");
+
+        // compare the parameters, ingredients, and final price against the expected ingredient/price
         if (b3.get_burger_bun() != "bun3") {
             cout << "test 3 for burger bun failed, result unexpected" << endl;
         }

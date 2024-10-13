@@ -42,7 +42,7 @@ int main() {
     run_chips.run_tests();
 
     // test for burger
-    cout << "\nThis is the test for Burgers: " << endl;
+    cout << "\nThis is the test for Burger: " << endl;
     BurgerTest run_Burger;
     run_Burger.run_tests();
 
