@@ -668,9 +668,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
           getline(cin, chosen_ingredient_removal);
 
           while (true) {
-            for (int i = 0; i < obj_burger.get_ingredient_list().size(); ++i) {
+            for (int i = 0; i < obj_noodle.get_ingredient_list().size(); ++i) {
               if (chosen_ingredient_removal ==
-                  obj_burger.get_ingredient_list()[i].get_name()) {
+                  obj_noodle.get_ingredient_list()[i].get_name()) {
                 ingredient_removed = true;
                 j = i;
                 break;
@@ -692,7 +692,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (j >= 0) {
-            obj_burger.remove_ingredient(j);
+            obj_noodle.remove_ingredient(j);
           }
         }
 
@@ -702,10 +702,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
         getline(cin, add_to_cart);
 
         if (add_to_cart == "y") {
-          CustomerFoodDrink::cart.push_back(obj_burger);
+          CustomerFoodDrink::cart.push_back(obj_noodle);
           cout << "Succesfully Added to the cart: "
-               << obj_burger.get_item_name() << "\t$"
-               << obj_burger.calculate_item_price()
+               << obj_noodle.get_item_name() << "\t$"
+               << obj_noodle.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
@@ -729,31 +729,31 @@ void CustomerCategoriesFood::run(int& state_customer) {
     {
       menu Pizza_menu;
 
-      Burger_menu.menu_head("Different Types of Burgers:");
+      Pizza_menu.menu_head("Different Types of Burgers:");
 
-      for (int i = 0; i < burger_list.size(); i++) {
-        Burger obj_burger = obj.read_burger(burger_list[i]);
+      for (int i = 0; i < pizza_list.size(); i++) {
+        Pizza obj_pizza = obj.read_pizza(pizza_list[i]);
 
         string ingredient;
 
-        for (int j = 0; j < obj_burger.get_ingredient_list().size(); j++) {
-          ingredient += obj_burger.get_ingredient_list()[j].get_name() + ", ";
+        for (int j = 0; j < obj_pizza.get_ingredient_list().size(); j++) {
+          ingredient += obj_pizza.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Burger_menu.add(
-            pasta_list[i], i,
-            "Burger Bun: " + obj_burger.get_burger_bun() + " | " +
-                "Burger meat: " + obj_burger.get_burger_meat() +
-                "\nPrice: " + to_string(obj_burger.calculate_item_price()) +
+        Pizza_menu.add(
+            pizza_list[i], i,
+            "Pizza cheese: " + obj_pizza.get_pizza_cheese() + " | " +
+                "Pizza sauce: " + obj_pizza.get_pizza_sauce() +
+                "\nPrice: " + to_string(obj_pizza.calculate_item_price()) +
                 "\nIngredients: " + ingredient + "\nSize: " +
-                obj_burger.get_string_size(obj_burger.get_item_size()));
+                obj_pizza.get_string_size(obj_pizza.get_item_size()));
       }
 
-      int choice = Burger_menu.display();
+      int choice = Pizza_menu.display();
 
       if (choice > 0) {
         IngredientList obj_ingredients;
-        Burger obj_burger = obj.read_burger(pasta_list[choice - 1]);
+        Pizza obj_pizza = obj.read_pizza(pizza_list[choice - 1]);
 
         system("clear");
 
@@ -806,7 +806,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
-            obj_burger.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+            obj_pizza.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
           }
         }
 
@@ -819,9 +819,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
         while (!finish_removing) {
           cout << "Available Ingredients:\t";
 
-          for (int i = 0; i < obj_burger.get_ingredient_list().size(); i++) {
-            cout << obj_burger.get_ingredient_list()[i].get_name() << " $("
-                 << obj_burger.get_ingredient_list()[i].get_price() << ")\t";
+          for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
+            cout << obj_pizza.get_ingredient_list()[i].get_name() << " $("
+                 << obj_pizza.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -837,9 +837,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
           getline(cin, chosen_ingredient_removal);
 
           while (true) {
-            for (int i = 0; i < obj_burger.get_ingredient_list().size(); ++i) {
+            for (int i = 0; i < obj_pizza.get_ingredient_list().size(); ++i) {
               if (chosen_ingredient_removal ==
-                  obj_burger.get_ingredient_list()[i].get_name()) {
+                  obj_pizza.get_ingredient_list()[i].get_name()) {
                 ingredient_removed = true;
                 j = i;
                 break;
@@ -861,7 +861,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (j >= 0) {
-            obj_burger.remove_ingredient(j);
+            obj_pizza.remove_ingredient(j);
           }
         }
 
@@ -871,10 +871,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
         getline(cin, add_to_cart);
 
         if (add_to_cart == "y") {
-          CustomerFoodDrink::cart.push_back(obj_burger);
+          CustomerFoodDrink::cart.push_back(obj_pizza);
           cout << "Succesfully Added to the cart: "
-               << obj_burger.get_item_name() << "\t$"
-               << obj_burger.calculate_item_price()
+               << obj_pizza.get_item_name() << "\t$"
+               << obj_pizza.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
@@ -898,31 +898,30 @@ void CustomerCategoriesFood::run(int& state_customer) {
     {
       menu Rice_menu;
 
-      Burger_menu.menu_head("Different Types of Burgers:");
+      Rice_menu.menu_head("Different Types of Burgers:");
 
-      for (int i = 0; i < burger_list.size(); i++) {
-        Burger obj_burger = obj.read_burger(burger_list[i]);
+      for (int i = 0; i < rice_list.size(); i++) {
+        Rice obj_rice = obj.read_rice(rice_list[i]);
 
         string ingredient;
 
-        for (int j = 0; j < obj_burger.get_ingredient_list().size(); j++) {
-          ingredient += obj_burger.get_ingredient_list()[j].get_name() + ", ";
+        for (int j = 0; j < obj_rice.get_ingredient_list().size(); j++) {
+          ingredient += obj_rice.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Burger_menu.add(
-            pasta_list[i], i,
-            "Burger Bun: " + obj_burger.get_burger_bun() + " | " +
-                "Burger meat: " + obj_burger.get_burger_meat() +
-                "\nPrice: " + to_string(obj_burger.calculate_item_price()) +
+        Rice_menu.add(
+            rice_list[i], i,
+            "Rice type: " + obj_rice.get_rice_type() +
+                "\nPrice: " + to_string(obj_rice.calculate_item_price()) +
                 "\nIngredients: " + ingredient + "\nSize: " +
-                obj_burger.get_string_size(obj_burger.get_item_size()));
+                obj_rice.get_string_size(obj_rice.get_item_size()));
       }
 
-      int choice = Burger_menu.display();
+      int choice = Rice_menu.display();
 
       if (choice > 0) {
         IngredientList obj_ingredients;
-        Burger obj_burger = obj.read_burger(pasta_list[choice - 1]);
+        Rice obj_rice = obj.read_rice(rice_list[choice - 1]);
 
         system("clear");
 
@@ -975,7 +974,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
-            obj_burger.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+            obj_rice.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
           }
         }
 
@@ -988,9 +987,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
         while (!finish_removing) {
           cout << "Available Ingredients:\t";
 
-          for (int i = 0; i < obj_burger.get_ingredient_list().size(); i++) {
-            cout << obj_burger.get_ingredient_list()[i].get_name() << " $("
-                 << obj_burger.get_ingredient_list()[i].get_price() << ")\t";
+          for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
+            cout << obj_rice.get_ingredient_list()[i].get_name() << " $("
+                 << obj_rice.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -1006,9 +1005,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
           getline(cin, chosen_ingredient_removal);
 
           while (true) {
-            for (int i = 0; i < obj_burger.get_ingredient_list().size(); ++i) {
+            for (int i = 0; i < obj_rice.get_ingredient_list().size(); ++i) {
               if (chosen_ingredient_removal ==
-                  obj_burger.get_ingredient_list()[i].get_name()) {
+                  obj_rice.get_ingredient_list()[i].get_name()) {
                 ingredient_removed = true;
                 j = i;
                 break;
@@ -1030,7 +1029,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
 
           if (j >= 0) {
-            obj_burger.remove_ingredient(j);
+            obj_rice.remove_ingredient(j);
           }
         }
 
@@ -1040,10 +1039,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
         getline(cin, add_to_cart);
 
         if (add_to_cart == "y") {
-          CustomerFoodDrink::cart.push_back(obj_burger);
+          CustomerFoodDrink::cart.push_back(obj_rice);
           cout << "Succesfully Added to the cart: "
-               << obj_burger.get_item_name() << "\t$"
-               << obj_burger.calculate_item_price()
+               << obj_rice.get_item_name() << "\t$"
+               << obj_rice.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
