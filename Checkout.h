@@ -1,7 +1,10 @@
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
 
-class Checkout
+#include "CustomerFoodDrink.h"
+#include "CustomerLogin.h"
+
+class Checkout : public CustomerFoodDrink, public CustomerLogin
 {
 private:
   int state_checkout;
