@@ -75,7 +75,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_pasta.get_string_size(obj_pasta.get_item_size()));
       }
 
+      Pasta_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Pasta_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
@@ -242,7 +250,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_burger.get_string_size(obj_burger.get_item_size()));
       }
 
+      Burger_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Burger_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
@@ -411,7 +427,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_chips.get_string_size(obj_chips.get_item_size()));
       }
 
+      Chips_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Chips_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
@@ -580,7 +604,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_noodle.get_string_size(obj_noodle.get_item_size()));
       }
 
+      Noodle_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Noodle_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
@@ -749,7 +781,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_pizza.get_string_size(obj_pizza.get_item_size()));
       }
 
+      Pizza_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Pizza_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
@@ -917,7 +957,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_rice.get_string_size(obj_rice.get_item_size()));
       }
 
+      Rice_menu.add("Back", -1, "Returns to differnt food categories page.");
+
       int choice = Rice_menu.display();
+
+      if (choice == -1) {
+        state_customer = 1;
+        this->state_categories = 0;
+        return;
+      }
 
       if (choice > 0) {
         IngredientList obj_ingredients;
