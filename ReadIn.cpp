@@ -38,7 +38,8 @@ void ReadIn::read_menu_item(MenuItem* item, std::ifstream* inFile) {
         item->set_item_name(current_line);  // set the name to the first line
         break;
       case 2:
-        item->set_item_price(stod(current_line));  // set the price to the first line
+        item->set_item_price(
+            stod(current_line));  // set the price to the first line
         break;
       case 3:
         item->set_item_size(current_line);  // set the size to the first line

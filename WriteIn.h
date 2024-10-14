@@ -35,8 +35,6 @@ class WriteIn {
   // write in pasta
   void write_pasta(Pasta pasta);
 
-  // 
-
   // write in pizza
   void write_pizza(Pizza pizza);
 
