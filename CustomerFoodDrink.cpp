@@ -11,11 +11,13 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   string cart_content = "";
   float total_price = 0;
 
+  // use a loop to find the total price and print out all the items in a string
   for (int i = 0; i < cart.size(); i++) {
     cart_content += cart[i].get_item_name() + ", ";
     total_price += cart[i].calculate_item_price();
   }
 
+  // options for the customer (food, drink, checkout, clear cart, log out)
   CustomerFoodDrink.menu_head("What do you want to order today?");
 
   CustomerFoodDrink.add("Food", 1,
@@ -33,13 +35,25 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   Checkout obj;
   CustomerCategoriesFood obj1;
 
+<<<<<<< HEAD
   switch (choice) {
     case 1:
+=======
+  switch (choice)
+  {
+  case 1:
+    // food
+    do
+    {
+      obj1.run(this->state_customer);
+    } while (obj1.get_state_categories() == 1);
+>>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
       do {
         obj1.run(this->state_customer);
       } while (obj1.get_state_categories() == 1);
 
+<<<<<<< HEAD
       break;
     case 2:
       // Drink
@@ -50,13 +64,37 @@ void CustomerFoodDrink::run(int& state_customer_login) {
       do {
         obj.run(this->state_customer);
       } while (obj.get_state_checkout() == 1);
+=======
+    break;
+  case 3:
+    //Check-out
+    do
+    {
+      obj.run(this->state_customer);
+    } while (obj.get_state_checkout() == 1);
+    
+    break;
+  case 4:
+    // clear cart
+    cart.clear();
+    cout << "Cart cleared. Press ENTER to continue.";
+    cin.get();
+>>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
       break;
     case 4:
 
+<<<<<<< HEAD
       cart.clear();
       cout << "Cart cleared. Press ENTER to continue.";
       cin.get();
+=======
+    break;
+  case 5:
+    // log out
+    this->state_customer = 0;
+    state_customer_login = 1;
+>>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
       this->state_customer = 1;
 

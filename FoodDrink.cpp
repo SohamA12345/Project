@@ -8,6 +8,7 @@
 void FoodDrink::run(int& state_portal_manager) {
   menu FoodDrink;
 
+  // add ingredient/food/drink to the menu
   FoodDrink.menu_head("Menu Updating Suite");
   FoodDrink.add(
       "Ingredients", 1,
@@ -24,6 +25,7 @@ void FoodDrink::run(int& state_portal_manager) {
   CategoriesFood obj2;
   ManagerDrink obj3;
 
+<<<<<<< HEAD
   switch (choice) {
     case 1:
 
@@ -36,6 +38,32 @@ void FoodDrink::run(int& state_portal_manager) {
       do {
         obj2.run(this->state_portal_food);
       } while (obj2.get_state_categories_food() == 1);
+=======
+  switch (choice)
+  {
+  // case 1 goes to add ingredient
+  case 1:
+    
+    do
+    {
+      obj1.run(this->state_portal_food);
+    } while (obj1.get_add_ingredient() == 1);
+    
+    break;
+  // case 2 goes to add food
+  case 2:
+    do
+    {
+      obj2.run(this->state_portal_food);
+    } while (obj2.get_state_categories_food() == 1);
+
+    break;
+  // case 3 goes to add drink
+  case 3:
+    break;
+  // case 4 goes back
+  case 4:
+>>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
       break;
     case 3:
