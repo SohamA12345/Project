@@ -98,13 +98,22 @@ void CustomerCategoriesFood::run(int& state_customer) {
         bool finish_adding = false;
 
         while (!finish_adding) {
-          cout << "Available Ingredients:\t";
+          cout << "Available new Ingredients:\t";
 
           for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
                i++) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "Pasta's Ingredients:\t";
+
+          for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
+            cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
+                 << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -155,7 +164,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         bool finish_removing = false;
 
         while (!finish_removing) {
-          cout << "Available Ingredients:\t";
+          cout << "Pasta's Ingredients:\t";
 
           for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
             cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
