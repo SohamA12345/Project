@@ -119,9 +119,7 @@ Pasta ReadIn::read_pasta(std::string name) {
         break;
     }
   }
-
-
-
+// read in ingredient list
   pasta.set_ingredient_list(find_ingredients(pasta_attributes, &inFile));
 
   return pasta;
@@ -152,9 +150,9 @@ Pizza ReadIn::read_pizza(std::string name) {
         break;
     }
   }
+
   // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  pizza.set_ingredient_list(ingredient_list.get_ingredient_list());
+  pizza.set_ingredient_list(find_ingredients(pizza_attributes, &inFile));
 
   return pizza;
 }
@@ -185,8 +183,7 @@ Burger ReadIn::read_burger(std::string name) {
     }
   }
   // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  burger.set_ingredient_list(ingredient_list.get_ingredient_list());
+  burger.set_ingredient_list(find_ingredients(burger_attributes, &inFile));
 
   return burger;
 }
@@ -217,8 +214,7 @@ Noodle ReadIn::read_noodle(std::string name) {
     }
   }
   // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  noodle.set_ingredient_list(ingredient_list.get_ingredient_list());
+  noodle.set_ingredient_list(find_ingredients(noodle_attributes, &inFile));
 
   return noodle;
 }
@@ -249,8 +245,7 @@ Chips ReadIn::read_chips(std::string name) {
     }
   }
   // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  chips.set_ingredient_list(ingredient_list.get_ingredient_list());
+  chips.set_ingredient_list(find_ingredients(chips_attributes, &inFile));
 
   return chips;
 }
@@ -278,8 +273,7 @@ Rice ReadIn::read_rice(std::string name) {
     }
   }
   // read in ingredient list
-  IngredientList ingredient_list = read_ingredient_list();
-  rice.set_ingredient_list(ingredient_list.get_ingredient_list());
+  rice.set_ingredient_list(find_ingredients(rice_attributes, &inFile));
 
   return rice;
 }
