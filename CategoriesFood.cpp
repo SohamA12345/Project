@@ -1,6 +1,9 @@
 #include "CategoriesFood.h"
 #include "Pasta.h"
 #include "MMaker.h"
+#include "WriteIn.h"
+#include "ReadIn.h"
+
 void CategoriesFood::run(int& state_portal_food) {
   menu CategoriesFood;
 
@@ -22,8 +25,26 @@ void CategoriesFood::run(int& state_portal_food) {
     {
     //Pasta
     // ask for name, price, size, special ones
-    Pasta obj;
-    
+    Pasta obj("boo", 2.50, 1, "black", "black");
+
+    Ingredient goo("lemon", 1.00);
+    obj.add_ingredient(goo);
+
+    WriteIn obj2;
+
+    ReadIn obj3;
+
+    obj2.write_pasta(obj);
+
+    vector<string> obj4 = obj3.read_menu_item_list("pastalist");
+
+    obj4.push_back(obj.get_item_name());
+
+    obj2.write_menu_item_list(obj4, "pastalist");
+
+    cout << "Readched here";
+    cin.get();
+
     }
 
     break;

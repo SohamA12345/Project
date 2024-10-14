@@ -71,7 +71,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Pasta_menu.add(
-            pasta_list[i], i,
+            pasta_list[i], i+1,
             "Pasta Type: " + obj_pasta.get_pasta_type() + " | " +
                 "Pasta Sauce: " + obj_pasta.get_pasta_sauce() +
                 "\nPrice: " + to_string(obj_pasta.calculate_item_price()) +
@@ -92,6 +92,9 @@ void CustomerCategoriesFood::run(int& state_customer) {
       if (choice > 0) {
 
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
+
+        cout << obj_pasta.get_item_name() << endl;
+        cin.get();
 
         system("clear");
 
