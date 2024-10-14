@@ -30,6 +30,7 @@ void IngredientList::add_ingredient(std::string name,
 void IngredientList::remove_ingredient(std::string name) {
   int index = 0;
   bool found_ingredient = false;
+  // search thorugh vector and delete first instance with name
   while (index < ingredients.size() && found_ingredient == false) {
     if (ingredients[index].get_name() == name) {
       ingredients.erase(ingredients.begin() +
