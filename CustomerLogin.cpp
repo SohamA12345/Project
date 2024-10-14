@@ -104,6 +104,15 @@ void CustomerLogin::run(int& state_portal) {
     case 2:
       cout << "Username: ";
       cin >> username;
+      bool username_exist = true;
+
+      while (username_exist) {
+        while (getline(i_usernames_file, read_line)) {
+          if () {
+            
+          }
+        }
+      }
 
       if (o_usernames_file.is_open()) {
         o_usernames_file << username << endl;
