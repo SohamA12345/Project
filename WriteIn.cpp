@@ -6,12 +6,12 @@ WriteIn::WriteIn() {}
 // write to a menu item list
 void WriteIn::write_menu_item_list(std::vector<string> list,
                                    std::string name) {  // by string vector
-  std::string file_name = name + ".txt";
-  std::ofstream outFile(file_name);
+  std::string file_name = name + ".txt";  // append .txt to end of string
+  std::ofstream outFile(file_name); // open file with name
 
   int list_length = list.size();
   for (int i = 0; i < list_length; i++) {
-    outFile << list[i] << std::endl;
+    outFile << list[i] << std::endl;  //
   }
 }
 
