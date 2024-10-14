@@ -80,6 +80,20 @@ int menu::display()
                 entries[i].display();
         }
         cout << "\n\n\n\n\n\n\n";
+
+        // Clear the description area by moving the cursor down and clearing lines
+        for (int j = 0; j < 15; j++) { // Adjust 15 to fit your actual description line count
+            cout << "\033[2K"; // Clear the line
+            cout << "\033[1B"; // Move cursor one line down
+        }
+        
+        cout << "\033[2K"; // Clear the final line
+
+        // Move the cursor back to the correct position
+        for (int j = 0; j < 15; j++) { // Adjust 15 to fit your actual description line count
+            std::cout << "\033[1A"; // Move cursor one line up
+        }
+
         cout << "Description: " << entries[selected].desc;
         int previous = (opt == 66) ? (selected - 1) : (selected + 1);
         if (previous < 0)

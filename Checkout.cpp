@@ -28,7 +28,7 @@ void Checkout::run(int& state) {
 
   int choice = Checkout.display();
 
-  if (choice > -1 && cart.size() > 0) {
+  if (choice > -1 && cart.size() > 0 && choice != code) {
     cart.erase(cart.begin() + choice);
     this->state_checkout = 1;
     return;
@@ -40,8 +40,8 @@ void Checkout::run(int& state) {
       code_menu.menu_head("Give this code to counter to get food and pay:" +
                           to_string(code));
 
-      code_menu.add("Print code", 1, "Prints the above code.");
-      code_menu.add("Log-out", 2, "Logs out to login page.");
+      code_menu.add("Print code", 1, "Prints the above code and returns to previous file");
+      code_menu.add("Back", 2, "Returns to food or drink page");
 
       int choice = code_menu.display();
 
