@@ -13,6 +13,7 @@
 #include "Drink.h"
 #include "Rice.h"
 #include "Drink.h"
+#include "ReadIn.h"
 
 
 class WriteIn {
@@ -52,6 +53,27 @@ class WriteIn {
 
     // write in drink
   void write_drink(Drink drink);
+
+// create pasta
+void create_pasta(Pasta pasta);
+
+// create pizza
+void create_pizza(Pizza pizza);
+
+// create burger
+void create_burger(Burger burger);
+
+// create noodle
+void create_noodle(Noodle noodle);
+
+// create chips
+void create_chips(Chips chips);
+
+// create rice
+void create_rice(Rice rice);
+
+// create drink
+void create_drink(Drink drink);
 
   // deconstructor
   ~WriteIn();

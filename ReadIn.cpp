@@ -92,9 +92,30 @@ Pasta ReadIn::read_pasta(std::string name) {
     }
   }
 
-  // read in ingredient list
   IngredientList ingredient_list = read_ingredient_list();
-  pasta.set_ingredient_list(ingredient_list.get_ingredient_list());
+  std::vector<Ingredient> pasta_ingredient_list;
+
+  std::string number_of_ingredients_string;
+  std::getline(inFile, number_of_ingredients_string);
+  int number_of_ingredients = stoi(number_of_ingredients_string);
+  bool was_found = false;
+
+  for (int i = 5; i < 5 + pasta_attributes + number_of_ingredients; i++) {
+    index = 0;
+    was_found = false;
+    std::getline(inFile, current_line);
+    while (index < number_of_ingredients && was_found == false) {
+      std::cout << "Try find: " << ingredient_list.get_ingredient_list()[index].get_name() << " Current: " << current_line << std::endl;
+      if (ingredient_list.get_ingredient_list()[index].get_name() == current_line) {
+        std::cout << "found\n";
+          pasta_ingredient_list.push_back(ingredient_list.get_ingredient_list()[index]);
+          was_found = true;
+        }
+        index++;
+      }
+    }
+
+  pasta.set_ingredient_list(pasta_ingredient_list);
 
   return pasta;
 }
@@ -266,6 +287,7 @@ Drink ReadIn::read_drink(std::string name) {
 
   return drink;
 }
+
 
 // deconstructor
 ReadIn::~ReadIn() {}

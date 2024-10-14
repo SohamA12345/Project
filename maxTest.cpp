@@ -278,6 +278,7 @@ int main() {
   ReadIn read_in;
   WriteIn write_in;
 
+/*
   std::vector<string> pizza_list = read_in.read_menu_item_list("pizzalist");
   std::vector<string> burger_list = read_in.read_menu_item_list("burgerlist");
   std::vector<string> noodle_list = read_in.read_menu_item_list("noodlelist");
@@ -347,6 +348,24 @@ int main() {
   obj_drinks_list.push_back(&d);
   write_in.write_menu_item_list(obj_drinks_list, "drinksist");
 
+*/
+/*
+std::vector<string> pasta_list = read_in.read_menu_item_list("pastalist");
+
+Pasta pasta = read_in.read_pasta(pasta_list[0]);
+
+std::cout << pasta.get_item_name() << std::endl;
+
+for (int i = 0; i < pasta.get_ingredient_list().size(); i++) {
+  std::cout << pasta.get_ingredient_list()[i].get_name() << " " << pasta.get_ingredient_list()[i].get_price() << endl;
+}
+*/
+
+Pasta pasta("SecondTestPasta", 1.5, 1, "curly", "tomato");
+pasta.add_ingredient(Ingredient("cheese", 1.50));
+pasta.add_ingredient(Ingredient("lemon", 1.00));
+
+write_in.create_pasta(pasta);
   /*
   ReadIn read_in;
   std::string file_name = "drinklist";

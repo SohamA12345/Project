@@ -6,3 +6,5 @@ cucumber
 0.75
 lemon
 1.00
+orange
+2.50

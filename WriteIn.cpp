@@ -176,5 +176,69 @@ void WriteIn::write_drink(Drink drink) {
   out_file.close();
 }
 
+// create pasta
+  void WriteIn::create_pasta(Pasta pasta) {
+    write_pasta(pasta); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("pastalist");
+    list.push_back(pasta.get_item_name());
+    write_menu_item_list(list,"pastalist");
+  }
+
+  // create pizza
+  void WriteIn::create_pizza(Pizza pizza) {
+    write_pizza(pizza); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("pizzalist");
+    list.push_back(pizza.get_item_name());
+    write_menu_item_list(list,"pizzalist");
+  }
+
+
+  // create burger
+  void WriteIn::create_burger(Burger burger) {
+    write_burger(burger); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("burgerlist");
+    list.push_back(burger.get_item_name());
+    write_menu_item_list(list,"burgerlist");
+  }
+
+    // create noodle
+  void WriteIn::create_noodle(Noodle noodle) {
+    write_noodle(noodle); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("noodlelist");
+    list.push_back(noodle.get_item_name());
+    write_menu_item_list(list,"noodlelist");
+  }
+
+    // create chips
+  void WriteIn::create_chips(Chips chips) {
+    write_chips(chips); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("chipslist");
+    list.push_back(chips.get_item_name());
+    write_menu_item_list(list,"chips");
+  }
+
+    // create rice
+  void WriteIn::create_rice(Rice rice) {
+    write_rice(rice); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("ricelist");
+    list.push_back(rice.get_item_name());
+    write_menu_item_list(list,"ricelist");
+  }
+
+      // create drink
+  void WriteIn::create_drink(Drink drink) {
+    write_drink(drink); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("drinklist");
+    list.push_back(drink.get_item_name());
+    write_menu_item_list(list,"drinlklist");
+  }
+
 // deconstructor
 WriteIn::~WriteIn() {}
