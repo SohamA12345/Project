@@ -13,5 +13,9 @@ class Portal {
   Portal();
   ~Portal();
 };
+//To-do
+// Change size of food in customer menu
+// Drink menu
+// Print recipt go to log out page
 
 #endif

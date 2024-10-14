@@ -24,7 +24,7 @@ void Checkout::run(int& state) {
                      "\nIngredients: " + ingredient);
   }
 
-  Checkout.add("Proceed/Back", code, "Continue with checkout.");
+  Checkout.add("Proceed/Back", code, "Continue checking out.");
 
   int choice = Checkout.display();
 
@@ -48,7 +48,8 @@ void Checkout::run(int& state) {
       switch (choice) {
         case 1:
 
-          this->state_checkout = 1;
+          this->state_checkout = 0;
+          this->state_customer_login = 1;
 
           cout << "Recipt Printed! Press enter to continue";
           cin.get();
