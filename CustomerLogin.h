@@ -4,7 +4,7 @@
 #include "FoodItem.h"
 
 class CustomerLogin{
- private:
+ protected:
   int state_customer_login =
       0;  // 0 mean no need to run customer login again, 1 means need to run again.
  public:

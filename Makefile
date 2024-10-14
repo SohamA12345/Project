@@ -1,3 +1,6 @@
 Start: MenuSystem.cpp MMaker.cpp Func.cpp Portal.cpp ManagerLogin.cpp ManagerMenu.cpp CustomerLogin.cpp FoodDrink.cpp CategoriesFood.cpp ManagerDrink.cpp CustomerDrink.cpp AddIngredient.cpp CustomerFoodDrink.cpp Checkout.cpp CustomerCategoriesFood.cpp IngredientList.cpp Ingredient.cpp ReadIn.cpp WriteIn.cpp MenuItem.cpp Pasta.cpp Pizza.cpp Burger.cpp FoodItem.cpp Chips.cpp Noodle.cpp Rice.cpp Drink.cpp
 	@g++ MenuSystem.cpp MMaker.cpp Func.cpp Portal.cpp ManagerLogin.cpp ManagerMenu.cpp CustomerLogin.cpp FoodDrink.cpp CategoriesFood.cpp ManagerDrink.cpp CustomerDrink.cpp AddIngredient.cpp CustomerFoodDrink.cpp Checkout.cpp CustomerCategoriesFood.cpp IngredientList.cpp Ingredient.cpp ReadIn.cpp WriteIn.cpp MenuItem.cpp Pasta.cpp Pizza.cpp Burger.cpp FoodItem.cpp Chips.cpp Noodle.cpp Rice.cpp Drink.cpp -o ResturantManagementSuite.exe
 	@./ResturantManagementSuite.exe
+Testing: MainTest.cpp Drink.cpp MenuItem.cpp Pizza.cpp FoodItem.cpp Ingredient.cpp Pasta.cpp Noodle.cpp Rice.cpp Chips.cpp Burger.cpp
+	@g++ MainTest.cpp Drink.cpp MenuItem.cpp Pizza.cpp FoodItem.cpp Ingredient.cpp Pasta.cpp Noodle.cpp Rice.cpp Chips.cpp Burger.cpp -o test.exe 
+	@./test.exe
