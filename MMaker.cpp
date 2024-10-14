@@ -94,6 +94,8 @@ int menu::display()
             std::cout << "\033[1A"; // Move cursor one line up
         }
 
+        cout << "\033[2K";
+
         cout << "Description: " << entries[selected].desc;
         int previous = (opt == 66) ? (selected - 1) : (selected + 1);
         if (previous < 0)
