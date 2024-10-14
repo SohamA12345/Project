@@ -48,15 +48,15 @@ void ManagerMenu::run(int& state_portal) {
     case 3:
 
       if (remove(username_file) == 0) {
-        cout << "File deleted successfully.\n";
+        cout << "Username file deleted successfully.\n";
       } else {
-        cout << "Error deleting file\n";
+        cout << "Error deleting username file. File already deleted\n";
       }
 
       if (remove(password_file) == 0) {
-        cout << "File deleted successfully.\n";
+        cout << "Password file deleted successfully.\n";
       } else {
-        cout << "Error deleting file\n";
+        cout << "Error deleting password file. File already deleted\n";
       }
 
       cout << "Press ENTER to continue";
