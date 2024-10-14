@@ -29,6 +29,9 @@ class ReadIn {
   // read in a menu item list
   std::vector<string> read_menu_item_list(std::string file_name);
 
+// find ingredients
+std::vector<Ingredient> find_ingredients(int item_attributes, std::ifstream* inFile);
+
   // read in a pasta
   Pasta read_pasta(std::string name);
 

@@ -66,6 +66,34 @@ std::vector<std::string> ReadIn::read_menu_item_list(std::string name) {
   return list;
 }
 
+// find the ingredients
+std::vector<Ingredient> ReadIn::find_ingredients(int item_attributes, std::ifstream* inFile) {
+  int index = 0;
+  std::string current_line;
+  IngredientList ingredient_list = read_ingredient_list();
+  std::vector<Ingredient> item_ingredient_list;
+
+  std::string number_of_ingredients_string;
+  std::getline(*inFile, number_of_ingredients_string);
+  int number_of_ingredients = stoi(number_of_ingredients_string);
+  bool was_found = false;
+
+  for (int i = 5; i < 5 + item_attributes + number_of_ingredients; i++) {
+    index = 0;
+    was_found = false;
+    std::getline(*inFile, current_line);
+    while (index < number_of_ingredients && was_found == false) {
+      if (ingredient_list.get_ingredient_list()[index].get_name() == current_line) {
+        std::cout << "found\n";
+          item_ingredient_list.push_back(ingredient_list.get_ingredient_list()[index]);
+          was_found = true;
+        }
+        index++;
+      }
+    }
+    return item_ingredient_list;
+}
+
 // read in a pasta from file
 Pasta ReadIn::read_pasta(std::string name) {
   std::string file_name = name + ".txt";
@@ -92,30 +120,9 @@ Pasta ReadIn::read_pasta(std::string name) {
     }
   }
 
-  IngredientList ingredient_list = read_ingredient_list();
-  std::vector<Ingredient> pasta_ingredient_list;
 
-  std::string number_of_ingredients_string;
-  std::getline(inFile, number_of_ingredients_string);
-  int number_of_ingredients = stoi(number_of_ingredients_string);
-  bool was_found = false;
 
-  for (int i = 5; i < 5 + pasta_attributes + number_of_ingredients; i++) {
-    index = 0;
-    was_found = false;
-    std::getline(inFile, current_line);
-    while (index < number_of_ingredients && was_found == false) {
-      std::cout << "Try find: " << ingredient_list.get_ingredient_list()[index].get_name() << " Current: " << current_line << std::endl;
-      if (ingredient_list.get_ingredient_list()[index].get_name() == current_line) {
-        std::cout << "found\n";
-          pasta_ingredient_list.push_back(ingredient_list.get_ingredient_list()[index]);
-          was_found = true;
-        }
-        index++;
-      }
-    }
-
-  pasta.set_ingredient_list(pasta_ingredient_list);
+  pasta.set_ingredient_list(find_ingredients(pasta_attributes, &inFile));
 
   return pasta;
 }

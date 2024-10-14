@@ -361,7 +361,7 @@ for (int i = 0; i < pasta.get_ingredient_list().size(); i++) {
 }
 */
 
-Pasta pasta("SecondTestPasta", 1.5, 1, "curly", "tomato");
+Pasta pasta("thirdTestPasta", 3.99, 1, "curly", "tomato");
 pasta.add_ingredient(Ingredient("cheese", 1.50));
 pasta.add_ingredient(Ingredient("lemon", 1.00));
 
