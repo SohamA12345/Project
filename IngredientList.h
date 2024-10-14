@@ -1,13 +1,15 @@
 #ifndef INGREDIENT_LIST_H
 #define INGREDIENT_LIST_H
 
-#include "Ingredient.h"
 #include <vector>
 
+#include "Ingredient.h"
+
 class IngredientList {
-private:
+ private:
   std::vector<Ingredient> ingredients;
-public:
+
+ public:
   // default constructor
   IngredientList();
 
@@ -20,15 +22,14 @@ public:
   std::vector<Ingredient> get_ingredient_list();
 
   // add ingredient
-void add_ingredient(Ingredient ingredient); // by ingredient
-void add_ingredient(std::string name, double price); // by name and price
+  void add_ingredient(Ingredient ingredient);           // by ingredient
+  void add_ingredient(std::string name, double price);  // by name and price
 
-// remove ingredient
-void remove_ingredient(std::string name);
+  // remove ingredient
+  void remove_ingredient(std::string name);
 
   // deconstructor
   ~IngredientList();
-
 };
 
 #endif

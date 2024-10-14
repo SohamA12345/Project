@@ -1,6 +1,7 @@
 #include "CategoriesFood.h"
-#include "Pasta.h"
+
 #include "MMaker.h"
+#include "Pasta.h"
 void CategoriesFood::run(int& state_portal_food) {
   menu CategoriesFood;
 
@@ -16,48 +17,48 @@ void CategoriesFood::run(int& state_portal_food) {
 
   int choice = CategoriesFood.display();
 
-  switch (choice)
-  {
-  case 1:
-    {
-    //Pasta
-    // ask for name, price, size, special ones
-    Pasta obj;
-    
+  switch (choice) {
+    case 1: {
+      // Pasta
+      //  ask for name, price, size, special ones
+      Pasta obj;
+
     }
 
     break;
-  case 2:
-    //Chips
+    case 2:
+      // Chips
 
-    break;
-  case 3:
-    //Pizza
+      break;
+    case 3:
+      // Pizza
 
-    break;
-  case 4:
-    //Rice
+      break;
+    case 4:
+      // Rice
 
-    break;
-  case 5:
-    //Noodle
+      break;
+    case 5:
+      // Noodle
 
-    break;
-  case 6:
-    //Burger
+      break;
+    case 6:
+      // Burger
 
-    break;
-  case 7:
-    this->state_categories_food = 0;
-    state_portal_food = 1;
+      break;
+    case 7:
+      this->state_categories_food = 0;
+      state_portal_food = 1;
 
-    return;
-  default:
-    break;
+      return;
+    default:
+      break;
   }
 }
 
-int CategoriesFood::get_state_categories_food() {return this->state_categories_food;}
+int CategoriesFood::get_state_categories_food() {
+  return this->state_categories_food;
+}
 
 CategoriesFood::CategoriesFood() {}
 CategoriesFood::~CategoriesFood() {}

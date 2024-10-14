@@ -10,7 +10,7 @@ class ManagerMenu {
   // runs the portal
   void run(int& state_portal);
 
-  // gets the state of portal manager, returns 1 if running, 0 if not. 
+  // gets the state of portal manager, returns 1 if running, 0 if not.
   int get_state_portal_manager();
 
   // default constructor and destructor

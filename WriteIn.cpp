@@ -3,26 +3,29 @@
 // default contructor
 WriteIn::WriteIn() {}
 
-// write to a menu item list
+// write to a menu item list by string of ingredient names
 void WriteIn::write_menu_item_list(std::vector<string> list,
                                    std::string name) {  // by string vector
   std::string file_name = name + ".txt";  // append .txt to end of string
-  std::ofstream outFile(file_name); // open file with name
+  std::ofstream outFile(file_name);
 
   int list_length = list.size();
   for (int i = 0; i < list_length; i++) {
-    outFile << list[i] << std::endl;  //
+    outFile << list[i]
+            << std::endl;  // write ingredient name to corresponding line
   }
 }
 
+// write to a menu item list by ingredients
 void WriteIn::write_menu_item_list(std::vector<MenuItem*> list,
                                    std::string name) {  // by menu item vector
-                                     std::string file_name = name + ".txt";
-  std::ofstream outFile(file_name);
+  std::string file_name = name + ".txt";  // append .txt to end of string
+  std::ofstream outFile(file_name);       // open file with name
 
   int list_length = (list).size();
   for (int i = 0; i < list_length; i++) {
-    outFile << list[0][i].get_item_name() << std::endl;
+    outFile << list[0][i].get_item_name()
+            << std::endl;  // write ingredient name to corresponding line
   }
 }
 

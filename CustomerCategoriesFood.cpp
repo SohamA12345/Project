@@ -90,7 +90,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
       }
 
       if (choice > 0) {
-
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
 
         system("clear");
@@ -570,9 +569,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_chip);
-          cout << "Succesfully Added to the cart: "
-               << obj_chip.get_item_name() << "\t$"
-               << obj_chip.calculate_item_price()
+          cout << "Succesfully Added to the cart: " << obj_chip.get_item_name()
+               << "\t$" << obj_chip.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
@@ -590,7 +588,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
       break;
     }
-    
+
     case 4:
 
     {
@@ -924,9 +922,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_pizza);
-          cout << "Succesfully Added to the cart: "
-               << obj_pizza.get_item_name() << "\t$"
-               << obj_pizza.calculate_item_price()
+          cout << "Succesfully Added to the cart: " << obj_pizza.get_item_name()
+               << "\t$" << obj_pizza.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
@@ -961,12 +958,11 @@ void CustomerCategoriesFood::run(int& state_customer) {
           ingredient += obj_rice.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Rice_menu.add(
-            rice_list[i], i,
-            "Rice type: " + obj_rice.get_rice_type() +
-                "\nPrice: " + to_string(obj_rice.calculate_item_price()) +
-                "\nIngredients: " + ingredient + "\nSize: " +
-                obj_rice.get_string_size(obj_rice.get_item_size()));
+        Rice_menu.add(rice_list[i], i,
+                      "Rice type: " + obj_rice.get_rice_type() + "\nPrice: " +
+                          to_string(obj_rice.calculate_item_price()) +
+                          "\nIngredients: " + ingredient + "\nSize: " +
+                          obj_rice.get_string_size(obj_rice.get_item_size()));
       }
 
       Rice_menu.add("Back", -1, "Returns to differnt food categories page.");
@@ -1100,9 +1096,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_rice);
-          cout << "Succesfully Added to the cart: "
-               << obj_rice.get_item_name() << "\t$"
-               << obj_rice.calculate_item_price()
+          cout << "Succesfully Added to the cart: " << obj_rice.get_item_name()
+               << "\t$" << obj_rice.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {

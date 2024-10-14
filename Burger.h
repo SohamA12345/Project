@@ -3,22 +3,22 @@
 
 #include "FoodItem.h"
 
-class Burger : public FoodItem{
-   private:
-    std::string burger_bun;
-    std::string burger_meat;
+class Burger : public FoodItem {
+ private:
+  std::string burger_bun;
+  std::string burger_meat;
 
-   public:
-   // default constructor
+ public:
+  // default constructor
   Burger();
 
   // constructor without ingredient list
   Burger(std::string name, double price, int size, std::string burger_bun,
-        std::string burger_meat);
+         std::string burger_meat);
 
   // constructor with ingredient list
   Burger(std::string name, double price, int size, std::string burger_bun,
-        std::string burger_meat, std::vector<Ingredient> ingredientList);
+         std::string burger_meat, std::vector<Ingredient> ingredientList);
 
   // getter functions
   std::string get_burger_bun();

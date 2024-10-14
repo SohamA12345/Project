@@ -20,9 +20,8 @@ std::vector<Ingredient> IngredientList::get_ingredient_list() {
 void IngredientList::add_ingredient(Ingredient ingredient) {
   ingredients.push_back(ingredient);
 }
-//add ingredient by name and price
-void IngredientList::add_ingredient(std::string name,
-                                    double price) {
+// add ingredient by name and price
+void IngredientList::add_ingredient(std::string name, double price) {
   ingredients.push_back(Ingredient(name, price));
 }
 

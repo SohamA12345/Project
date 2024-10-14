@@ -1,12 +1,10 @@
-  #include "ManagerDrink.h"
-  #include "ManagerMenu.h"
+#include "ManagerDrink.h"
 
-  
-  void ManagerDrink::run(int& state_portal_food) {
-    
-  }
+#include "ManagerMenu.h"
 
-  int ManagerDrink::get_state_portal_drink() {}
+void ManagerDrink::run(int& state_portal_food) {}
 
-  ManagerDrink::ManagerDrink() {}
-  ManagerDrink::~ManagerDrink() {}
+int ManagerDrink::get_state_portal_drink() {}
+
+ManagerDrink::ManagerDrink() {}
+ManagerDrink::~ManagerDrink() {}

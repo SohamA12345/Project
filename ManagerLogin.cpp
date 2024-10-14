@@ -1,8 +1,11 @@
 #include "ManagerLogin.h"
-#include "ManagerMenu.h"
+
 #include <termios.h>
 #include <unistd.h>
+
 #include <iostream>
+
+#include "ManagerMenu.h"
 
 using namespace std;
 
@@ -13,7 +16,8 @@ void ManagerLogin::run(int& state_portal) {
   ManagerMenu obj;
 
   cout << "Manager Username: ";
-  getline(cin, username); // Ensures when the user presses enter doesn't effect once returned to portal.
+  getline(cin, username);  // Ensures when the user presses enter doesn't effect
+                           // once returned to portal.
 
   if (this->username == username) {
     cout << "Username matches\n";
@@ -26,12 +30,11 @@ void ManagerLogin::run(int& state_portal) {
 
   cout << "Manager Password: ";
   getline(cin, password);
-  
+
   if (this->password == password) {
     cout << "Login Successful\n";
 
-    do
-    {
+    do {
       obj.run(state_portal);
     } while (obj.get_state_portal_manager() == 1);
 

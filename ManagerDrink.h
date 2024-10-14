@@ -4,7 +4,7 @@
 class ManagerDrink {
  private:
   int state_portal_drink = 0;  // 0 mean no need to run portal again, 1 means
-                              // need to run again.
+                               // need to run again.
  public:
   void run(int& state_portal_food);
   int get_state_portal_drink();

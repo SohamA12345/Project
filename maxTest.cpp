@@ -278,7 +278,6 @@ int main() {
   ReadIn read_in;
   WriteIn write_in;
 
-
   std::vector<string> pizza_list = read_in.read_menu_item_list("pizzalist");
   std::vector<string> burger_list = read_in.read_menu_item_list("burgerlist");
   std::vector<string> noodle_list = read_in.read_menu_item_list("noodlelist");
@@ -286,71 +285,67 @@ int main() {
   std::vector<string> rice_list = read_in.read_menu_item_list("ricelist");
   std::vector<string> drinks_list = read_in.read_menu_item_list("drinkslist");
 
-// make the menu item vectors using the string vectors
+  // make the menu item vectors using the string vectors
 
- std::vector<MenuItem*> obj_pizza_list;
-//   for (int i = 0; i < pizza_list.size(); i++) {
-//       Pizza pizza = read_in.read_pizza(pizza_list[i]);
-//         obj_pizza_list.push_back(&pizza);
-//   }
-   std::vector<MenuItem*> obj_burger_list;
-//   for (int i = 0; i < burger_list.size(); i++) {
-//         Burger burger = read_in.read_burger(burger_list[i]);
-//         obj_burger_list.push_back(&burger);
-//   }
+  std::vector<MenuItem*> obj_pizza_list;
+  //   for (int i = 0; i < pizza_list.size(); i++) {
+  //       Pizza pizza = read_in.read_pizza(pizza_list[i]);
+  //         obj_pizza_list.push_back(&pizza);
+  //   }
+  std::vector<MenuItem*> obj_burger_list;
+  //   for (int i = 0; i < burger_list.size(); i++) {
+  //         Burger burger = read_in.read_burger(burger_list[i]);
+  //         obj_burger_list.push_back(&burger);
+  //   }
 
-   std::vector<MenuItem*> obj_noodle_list;
-//   for (int i = 0; i < noodle_list.size(); i++) {
-//         Noodle noodle = read_in.read_noodle(noodle_list[i]);
-//         obj_noodle_list.push_back(&noodle);
-//   }
+  std::vector<MenuItem*> obj_noodle_list;
+  //   for (int i = 0; i < noodle_list.size(); i++) {
+  //         Noodle noodle = read_in.read_noodle(noodle_list[i]);
+  //         obj_noodle_list.push_back(&noodle);
+  //   }
   std::vector<MenuItem*> obj_chips_list;
-//   for (int i = 0; i < chips_list.size(); i++) {
-//     Chips chips = read_in.read_chips(chips_list[i]);
-//         obj_chips_list.push_back(&chips);
-//   }
+  //   for (int i = 0; i < chips_list.size(); i++) {
+  //     Chips chips = read_in.read_chips(chips_list[i]);
+  //         obj_chips_list.push_back(&chips);
+  //   }
 
-   std::vector<MenuItem*> obj_rice_list;
-//   for (int i = 0; i < rice_list.size(); i++) 
-//   {
-//     Rice rice = read_in.read_rice(rice_list[i]);
-//         obj_rice_list.push_back(&rice);
-//   }
+  std::vector<MenuItem*> obj_rice_list;
+  //   for (int i = 0; i < rice_list.size(); i++)
+  //   {
+  //     Rice rice = read_in.read_rice(rice_list[i]);
+  //         obj_rice_list.push_back(&rice);
+  //   }
 
-     std::vector<MenuItem*> obj_drinks_list;
-//   for (int i = 0; i < drinks_list.size(); i++) {
-//     Drink drink = read_in.read_drink(drinks_list[i]);
-//         obj_drinks_list.push_back(&drink);
-//   }
+  std::vector<MenuItem*> obj_drinks_list;
+  //   for (int i = 0; i < drinks_list.size(); i++) {
+  //     Drink drink = read_in.read_drink(drinks_list[i]);
+  //         obj_drinks_list.push_back(&drink);
+  //   }
 
-
-
-Pizza p("PizzaTest2", 1, 1, "SauceTest","CheeseTest"); // create object
-write_in.write_pizza(p);    // create own txt file
+  Pizza p("PizzaTest2", 1, 1, "SauceTest", "CheeseTest");  // create object
+  write_in.write_pizza(p);  // create own txt file
   obj_pizza_list.push_back(&p);
   write_in.write_menu_item_list(obj_pizza_list, "pizzalist");
-Burger b("BurgerTest2", 1, 1, "BunTest","meatTest"); // create object
-write_in.write_burger(b); // create own txt file
-obj_burger_list.push_back(&b);
+  Burger b("BurgerTest2", 1, 1, "BunTest", "meatTest");  // create object
+  write_in.write_burger(b);                              // create own txt file
+  obj_burger_list.push_back(&b);
   write_in.write_menu_item_list(obj_burger_list, "burgerlist");
-Noodle n("NoodleTst", 1 , 1, "typetest", "souptest"); // create object
-write_in.write_noodle(n); // create own txt file
-obj_noodle_list.push_back(&n);
+  Noodle n("NoodleTst", 1, 1, "typetest", "souptest");  // create object
+  write_in.write_noodle(n);                             // create own txt file
+  obj_noodle_list.push_back(&n);
   write_in.write_menu_item_list(obj_noodle_list, "noodlelist");
-Chips c("Chipstest", 2, 3, "cuttest", "seasoningtest"); // create object
-write_in.write_chips(c);  // create own txt file
-obj_chips_list.push_back(&c);
+  Chips c("Chipstest", 2, 3, "cuttest", "seasoningtest");  // create object
+  write_in.write_chips(c);  // create own txt file
+  obj_chips_list.push_back(&c);
   write_in.write_menu_item_list(obj_chips_list, "chipslist");
-Rice r("ricetest", 234, 2, "typetest"); // create object
-write_in.write_rice(r); // create own txt file  
-obj_rice_list.push_back(&r);
+  Rice r("ricetest", 234, 2, "typetest");  // create object
+  write_in.write_rice(r);                  // create own txt file
+  obj_rice_list.push_back(&r);
   write_in.write_menu_item_list(obj_rice_list, "ricelist");
-Drink d(1, "drinktest", 2.50 ); // create object
-write_in.write_drink(d);  // create own txt file
-obj_drinks_list.push_back(&d);
+  Drink d(1, "drinktest", 2.50);  // create object
+  write_in.write_drink(d);        // create own txt file
+  obj_drinks_list.push_back(&d);
   write_in.write_menu_item_list(obj_drinks_list, "drinksist");
-
-
 
   /*
   ReadIn read_in;
