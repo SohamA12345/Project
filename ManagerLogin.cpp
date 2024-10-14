@@ -12,9 +12,11 @@ void ManagerLogin::run(int& state_portal) {
 
   ManagerMenu obj;
 
+  // Prompt for username, Ensures when the user presses enter doesn't effect once returned to portal.
   cout << "Manager Username: ";
-  getline(cin, username); // Ensures when the user presses enter doesn't effect once returned to portal.
+  getline(cin, username); 
 
+  // determine if username is matching
   if (this->username == username) {
     cout << "Username matches\n";
   } else {
@@ -24,9 +26,11 @@ void ManagerLogin::run(int& state_portal) {
     return;
   }
 
+  // Prompt for password, Ensures when the user presses enter doesn't effect once returned to portal.
   cout << "Manager Password: ";
   getline(cin, password);
-  
+
+  // determine if password is matching
   if (this->password == password) {
     cout << "Login Successful\n";
 
