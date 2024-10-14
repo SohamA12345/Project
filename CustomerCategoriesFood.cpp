@@ -23,6 +23,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   vector<string> item_strg(6);
 
+  IngredientList obj_ingredients;
+
+  obj_ingredients = obj.read_ingredient_list();
+
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
   vector<string> burger_list = obj.read_menu_item_list("burgerlist");
   vector<string> chips_list = obj.read_menu_item_list("chipslist");
@@ -86,7 +90,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
       }
 
       if (choice > 0) {
-        IngredientList obj_ingredients;
+
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
 
         system("clear");
@@ -261,7 +265,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
       }
 
       if (choice > 0) {
-        IngredientList obj_ingredients;
         Burger obj_burger = obj.read_burger(burger_list[choice - 1]);
 
         system("clear");

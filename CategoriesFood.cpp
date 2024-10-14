@@ -1,4 +1,5 @@
 #include "CategoriesFood.h"
+#include "Pasta.h"
 #include "MMaker.h"
 void CategoriesFood::run(int& state_portal_food) {
   menu CategoriesFood;
@@ -18,7 +19,12 @@ void CategoriesFood::run(int& state_portal_food) {
   switch (choice)
   {
   case 1:
+    {
     //Pasta
+    // ask for name, price, size, special ones
+    Pasta obj;
+    
+    }
 
     break;
   case 2:
