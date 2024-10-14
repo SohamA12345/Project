@@ -15,6 +15,7 @@ private:
   int state_checkout;
 
 public:
+  // 
   void add_to_cart(FoodItem obj);
 
   int get_state_checkout();
