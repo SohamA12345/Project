@@ -8,8 +8,7 @@
 
 using namespace std;
 
-class item
-{
+class item {
     public:
         string name, desc;
         int ret;
@@ -20,8 +19,7 @@ class item
         void disp_selected();
 };
 
-class menu
-{
+class menu {
     item head;
     vector<item> entries;
     int num;

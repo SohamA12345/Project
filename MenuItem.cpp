@@ -48,6 +48,8 @@ int MenuItem::get_item_size() { return item_size; }
 
 // Getter function that return the size as a string. 
 string MenuItem::get_string_size(int int_size) {
+  // create a new string item_size, then determine the item_size based on the item_size (as an int) 
+  // if size isn't 1-3, the item size would be invalid
   string item_size;
   if (int_size == 1) {
     item_size = "small";
