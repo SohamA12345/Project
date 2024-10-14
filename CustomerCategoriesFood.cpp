@@ -27,6 +27,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   obj_ingredients = obj.read_ingredient_list();
 
+  // create 6 arrays for the 6 different food type, then create another array containing the 6 arrays
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
   vector<string> burger_list = obj.read_menu_item_list("burgerlist");
   vector<string> chips_list = obj.read_menu_item_list("chipslist");
@@ -37,12 +38,14 @@ void CustomerCategoriesFood::run(int& state_customer) {
   vector<vector<string>> all_lists = {pasta_list,  burger_list, chips_list,
                                       noodle_list, pizza_list,  rice_list};
 
+  // add a comma for all contents in the array
   for (int j = 0; j < all_lists.size(); j++) {
     for (int i = 0; i < all_lists[j].size(); i++) {
       item_strg[j] += all_lists[j][i] + ", ";
     }
   }
 
+  // add the 6 different food types + back option
   CustomerCategoriesFood.add("Pasta", 1, item_strg[0]);
   CustomerCategoriesFood.add("Burger", 2, item_strg[1]);
   CustomerCategoriesFood.add("Chips", 3, item_strg[2]);
@@ -53,9 +56,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   int choice = CustomerCategoriesFood.display();
 
+  // each case refers to a food type (pasta, burger, chips, noodles, pizza, rice), with the option of going back
+  // the customer will have the ability to add/remove ingredients, change the size, purchase more foods. 
   switch (choice) {
     case 1:
-
     {
       menu Pasta_menu;
 
@@ -238,8 +242,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
       break;
     }
-    case 2:
 
+    case 2:
     {
       menu Burger_menu;
 
@@ -415,7 +419,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
     }
 
     case 3:
-
     {
       menu Chips_menu;
 

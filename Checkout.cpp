@@ -13,6 +13,7 @@ void Checkout::run(int& state) {
 
   Checkout.menu_head("Remove an item from cart by pressing ENTER on it");
 
+  // loop to create ingredients for each item
   for (int i = 0; i < cart.size(); i++) {
     string ingredient;
     for (int j = 0; j < cart[i].get_ingredient_list().size(); j++) {
@@ -33,7 +34,8 @@ void Checkout::run(int& state) {
     this->state_checkout = 1;
     return;
 
-  } else if (choice = code) {
+  } else if (choice = code) { 
+    // checking out
     if (cart.size() > 0) {
       menu code_menu;
 
@@ -45,6 +47,7 @@ void Checkout::run(int& state) {
 
       int choice = code_menu.display();
 
+      // print receipt/ go back
       switch (choice) {
         case 1:
 
