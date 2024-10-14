@@ -23,6 +23,10 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   vector<string> item_strg(6);
 
+  IngredientList obj_ingredients;
+
+  obj_ingredients = obj.read_ingredient_list();
+
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
   vector<string> burger_list = obj.read_menu_item_list("burgerlist");
   vector<string> chips_list = obj.read_menu_item_list("chipslist");
@@ -86,7 +90,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
       }
 
       if (choice > 0) {
-        IngredientList obj_ingredients;
+
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
 
         system("clear");
@@ -94,13 +98,22 @@ void CustomerCategoriesFood::run(int& state_customer) {
         bool finish_adding = false;
 
         while (!finish_adding) {
-          cout << "Available Ingredients:\t";
+          cout << "Available new Ingredients:\t";
 
           for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
                i++) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "Pasta's Ingredients:\t";
+
+          for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
+            cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
+                 << obj_pasta.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -151,7 +164,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         bool finish_removing = false;
 
         while (!finish_removing) {
-          cout << "Available Ingredients:\t";
+          cout << "Pasta's Ingredients:\t";
 
           for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
             cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
@@ -261,7 +274,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
       }
 
       if (choice > 0) {
-        IngredientList obj_ingredients;
         Burger obj_burger = obj.read_burger(burger_list[choice - 1]);
 
         system("clear");
