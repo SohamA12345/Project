@@ -10,11 +10,17 @@ private:
   int state_customer = 0;
 
 protected:
+  // cart which has a array of items
   static vector<FoodItem> cart;
 
 public:
+  // runs the portal
   void run(int& state_customer_login);
+
+  // acquires the state of state_customer (0 or 1)
   int get_state_customer();
+
+  // default constructor/destructor
   CustomerFoodDrink();
   ~CustomerFoodDrink();
 };

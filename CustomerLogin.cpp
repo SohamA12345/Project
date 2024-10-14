@@ -10,8 +10,11 @@ void CustomerLogin::run(int& state_portal) {
     string username;
     string password;
     string read_line;
+
     int customer_choice = 0;
     int account_created_choice = 0;
+
+    // options for the user (customer)
     customer.menu_head("Login/Create an account.");
     customer.add("Login", 1, "Login if you already have an account.");
     customer.add("Create an account", 2, "If you don't have an account, create using this option.");

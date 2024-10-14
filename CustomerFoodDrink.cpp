@@ -10,11 +10,13 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   string cart_content = "";
   float total_price = 0;
 
+  // use a loop to find the total price and print out all the items in a string
   for (int i = 0; i < cart.size(); i++) {
     cart_content += cart[i].get_item_name() + ", ";
     total_price += cart[i].calculate_item_price();
   }
 
+  // options for the customer (food, drink, checkout, clear cart, log out)
   CustomerFoodDrink.menu_head("What do you want to order today?");
 
   CustomerFoodDrink.add("Food", 1, "Wide range of cuisines categorised under Burger, Chips, Noodles, Pasta, Pizza, Rice.");
@@ -31,7 +33,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   switch (choice)
   {
   case 1:
-    
+    // food
     do
     {
       obj1.run(this->state_customer);
@@ -51,7 +53,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
     
     break;
   case 4:
-
+    // clear cart
     cart.clear();
     cout << "Cart cleared. Press ENTER to continue.";
     cin.get();
@@ -60,6 +62,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
 
     break;
   case 5:
+    // log out
     this->state_customer = 0;
     state_customer_login = 1;
 
