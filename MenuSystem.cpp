@@ -6,8 +6,9 @@
 #include <unistd.h>
 
 int main() {
+  // create a portal, then runs it while the state of portal is = 1
   Portal portal_obj;
-
+  
   do
   {
     portal_obj.run();
