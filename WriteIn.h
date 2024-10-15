@@ -78,28 +78,28 @@ void create_drink(Drink drink);
 
 
 // remove menu item
-void remove_menu_item(std::string name, std::string type);
+int remove_menu_item(std::string name, std::string type);
 
 // remove pasta
-void remove_pasta(std::string name);
+int remove_pasta(std::string name);
 
 // remove pizza
-void remove_pizza(std::string name);
+int remove_pizza(std::string name);
 
 // remove burger
-void remove_burger(std::string name);
+int remove_burger(std::string name);
 
 // remove noodle
-void remove_noodle(std::string name);
+int remove_noodle(std::string name);
 
 // remove chips
-void remove_chips(std::string name);
+int remove_chips(std::string name);
 
 // remove rice
-void remove_rice(std::string name);
+int remove_rice(std::string name);
 
 // remove drink
-void remove_drink(std::string name);
+int remove_drink(std::string name);
 
   // deconstructor
   ~WriteIn();

@@ -89,10 +89,12 @@ void ManagerDrink::run(int& state_portal_food) {
 
   obj2.create_drink(obj);
 
+
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
   cout << "Successfully created an pasta dish. Press ENTER to return.";
   cin.get();
 
-  this->state_portal_drink = 1;
+  state_portal_food = 1;
 
   return;
 }

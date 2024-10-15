@@ -4,7 +4,8 @@
 #include "CustomerCategoriesFood.h"
 #include "MMaker.h"
 
-std::vector<MenuItem> CustomerFoodDrink::cart;
+std::vector<FoodItem> CustomerFoodDrink::cart;
+std::vector<Drink> CustomerFoodDrink::cart_drink;
 
 void CustomerFoodDrink::run(int& state_customer_login) {
   menu CustomerFoodDrink;
@@ -15,6 +16,11 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   for (int i = 0; i < cart.size(); i++) {
     cart_content += cart[i].get_item_name() + ", ";
     total_price += cart[i].calculate_item_price();
+  }
+
+  for (int i = 0; i < cart_drink.size(); i++) {
+    cart_content += cart_drink[i].get_item_name() + ", ";
+    total_price += cart_drink[i].calculate_item_price();
   }
 
   // options for the customer (food, drink, checkout, clear cart, log out)

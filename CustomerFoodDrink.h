@@ -3,6 +3,7 @@
 
 #include "CustomerLogin.h"
 #include "FoodItem.h"
+#include "Drink.h"
 
 class CustomerFoodDrink {
  private:
@@ -13,7 +14,8 @@ class CustomerFoodDrink {
   void run(int& state_customer_login);
 
   // The cart that stores all the food.
-  static vector<MenuItem> cart;
+  static vector<FoodItem> cart;
+  static vector<Drink> cart_drink;
 
   // acquires the state of state_customer (0 or 1)
   int get_state_customer();
