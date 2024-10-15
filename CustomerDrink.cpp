@@ -14,7 +14,7 @@ void CustomerDrink::run(int& state_customer) {
 
   CustomerDrink.menu_head("Drinks");
 
-  vector<string> drink_list = obj.read_menu_item_list("drinklist");
+  vector<string> drink_list = obj.read_menu_item_list("drinkslist");
 
   string size_str;
   char size;
