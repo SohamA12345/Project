@@ -116,7 +116,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "Pasta's Ingredients:\t";
+          cout << "This dishes Ingredients:\t";
 
           for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
             cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
@@ -283,7 +283,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Burger_menu.add(
-            burger_list[i], i,
+            burger_list[i], i + 1,
             "Burger Bun: " + obj_burger.get_burger_bun() + " | " +
                 "Burger meat: " + obj_burger.get_burger_meat() +
                 "\nPrice: " + to_string(obj_burger.calculate_item_price()) +
@@ -316,6 +316,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "This dishes Ingredients:\t";
+
+          for (int i = 0; i < obj_burger.get_ingredient_list().size(); i++) {
+            cout << obj_burger.get_ingredient_list()[i].get_name() << " $("
+                 << obj_burger.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -479,7 +488,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Chips_menu.add(
-            chips_list[i], i,
+            chips_list[i], i + 1,
             "Chips cut: " + obj_chips.get_chips_cut() + " | " +
                 "Chips seosoning: " + obj_chips.get_chips_seasoning() +
                 "\nPrice: " + to_string(obj_chips.calculate_item_price()) +
@@ -513,6 +522,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "This dishes Ingredients:\t";
+
+          for (int i = 0; i < obj_chip.get_ingredient_list().size(); i++) {
+            cout << obj_chip.get_ingredient_list()[i].get_name() << " $("
+                 << obj_chip.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -677,7 +695,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Noodle_menu.add(
-            noodle_list[i], i,
+            noodle_list[i], i + 1,
             "Noodle soup: " + obj_noodle.get_noodle_soup() + " | " +
                 "Noodle type: " + obj_noodle.get_noodle_type() +
                 "\nPrice: " + to_string(obj_noodle.calculate_item_price()) +
@@ -711,6 +729,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "This dishes Ingredients:\t";
+
+          for (int i = 0; i < obj_noodle.get_ingredient_list().size(); i++) {
+            cout << obj_noodle.get_ingredient_list()[i].get_name() << " $("
+                 << obj_noodle.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -876,7 +903,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Pizza_menu.add(
-            pizza_list[i], i,
+            pizza_list[i], i + 1,
             "Pizza cheese: " + obj_pizza.get_pizza_cheese() + " | " +
                 "Pizza sauce: " + obj_pizza.get_pizza_sauce() +
                 "\nPrice: " + to_string(obj_pizza.calculate_item_price()) +
@@ -910,6 +937,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "This dishes Ingredients:\t";
+
+          for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
+            cout << obj_pizza.get_ingredient_list()[i].get_name() << " $("
+                 << obj_pizza.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
@@ -1073,7 +1109,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
           ingredient += obj_rice.get_ingredient_list()[j].get_name() + ", ";
         }
 
-        Rice_menu.add(rice_list[i], i,
+        Rice_menu.add(rice_list[i], i + 1,
                       "Rice type: " + obj_rice.get_rice_type() + "\nPrice: " +
                           to_string(obj_rice.calculate_item_price()) +
                           "\nIngredients: " + ingredient + "\nSize: " +
@@ -1106,6 +1142,15 @@ void CustomerCategoriesFood::run(int& state_customer) {
             cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
+          }
+
+          cout << endl;
+
+          cout << "This dishes Ingredients:\t";
+
+          for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
+            cout << obj_rice.get_ingredient_list()[i].get_name() << " $("
+                 << obj_rice.get_ingredient_list()[i].get_price() << ")\t";
           }
 
           cout << endl;
