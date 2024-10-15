@@ -43,6 +43,11 @@ void FoodDrink::run(int& state_portal_manager) {
       break;
     // case 3 goes to add drink
     case 3:
+      do
+      {
+        obj3.run(this->state_portal_food);
+      } while (obj3.get_state_portal_drink() == 1);
+      
       break;
     // case 4 goes back
     case 4:
