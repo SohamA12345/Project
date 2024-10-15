@@ -4,140 +4,139 @@
 #include "ManagerMenu.h"
 
 void ManagerDrink::run(int& state_portal_food) {
-  // system("clear");
+  system("clear");
 
-  // string name;
-  // double price;
-  // char size;
-  // int size_int;
-  // string cut;
-  // string seasoning;
+  string name;
+  double price;
+  char size;
+  int sugar;
+  bool ice;
 
-  // cout << "Name of chips: ";
+  cout << "Name of drink: ";
 
-  // getline(cin, name);
+  getline(cin, name);
 
-  // while (true) {
-  //   cout << "Price: ";
-  //   cin >> price;
+  while (true) {
+    cout << "Price: ";
+    cin >> price;
 
-  //   if (cin.fail()) {
-  //     cin.clear();  // clear the error flag
-  //     cin.ignore(numeric_limits<streamsize>::max(),
-  //                '\n');  // ignore invalid input
-  //     cout << "Invalid input. Please enter a numeric value for the "
-  //             "price.\n";
-  //   } else {
-  //     break;  // valid input
-  //   }
-  // }
+    if (cin.fail()) {
+      cin.clear();  // clear the error flag
+      cin.ignore(numeric_limits<streamsize>::max(),
+                 '\n');  // ignore invalid input
+      cout << "Invalid input. Please enter a numeric value for the "
+              "price.\n";
+    } else {
+      break;  // valid input
+    }
+  }
 
-  // system("clear");
+  system("clear");
 
-  // while (true) {
-  //   cout << "Size (S for small, M for medium, L for large): ";
-  //   cin >> size;
+  while (true) {
+    cout << "Size (S for small, M for medium, L for large): ";
+    cin >> size;
 
-  //   if (size == 'S') {
-  //     size_int = 1;
-  //     break;
-  //   } else if (size == 'M') {
-  //     size_int = 2;
-  //     break;
-  //   } else if (size == 'L') {
-  //     size_int = 3;
-  //     break;
-  //   } else {
-  //     cout << "Invalid input. Please enter a valid charecter for size.\n";
-  //   }
-  // }
+    if (size == 'S') {
+      size_int = 1;
+      break;
+    } else if (size == 'M') {
+      size_int = 2;
+      break;
+    } else if (size == 'L') {
+      size_int = 3;
+      break;
+    } else {
+      cout << "Invalid input. Please enter a valid charecter for size.\n";
+    }
+  }
 
-  // system("clear");
+  system("clear");
 
-  // cin.ignore(numeric_limits<streamsize>::max(),
-  //            '\n');  // ignore any extra \n
+  cin.ignore(numeric_limits<streamsize>::max(),
+             '\n');  // ignore any extra \n
 
-  // cout << "Enter chip's cut: ";
-  // getline(cin, cut);
+  cout << "Enter chip's cut: ";
+  getline(cin, cut);
 
-  // system("clear");
+  system("clear");
 
-  // cout << "Enter chip's seosoning: ";
-  // getline(cin, seasoning);
+  cout << "Enter chip's seosoning: ";
+  getline(cin, seasoning);
 
-  // Chips obj(name, price, size_int, cut, seasoning);
+  Drink obj(name, price, , cut, seasoning);
 
-  // system("clear");
+  system("clear");
 
-  // bool finish_adding;
+  bool finish_adding;
 
-  // while (!finish_adding) {
-  //   cout << "Available new Ingredients:\t";
+  while (!finish_adding) {
+    cout << "Available new Ingredients:\t";
 
-  //   for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
-  //     cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
-  //          << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
-  //   }
+    for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+      cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
+           << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
+    }
 
-  //   cout << endl;
+    cout << endl;
 
-  //   cout << "Currently added Ingredients:\t";
+    cout << "Currently added Ingredients:\t";
 
-  //   for (int i = 0; i < obj.get_ingredient_list().size(); i++) {
-  //     cout << obj.get_ingredient_list()[i].get_name() << " $("
-  //          << obj.get_ingredient_list()[i].get_price() << ")\t";
-  //   }
+    for (int i = 0; i < obj.get_ingredient_list().size(); i++) {
+      cout << obj.get_ingredient_list()[i].get_name() << " $("
+           << obj.get_ingredient_list()[i].get_price() << ")\t";
+    }
 
-  //   cout << endl;
+    cout << endl;
 
-  //   cout << "Add ingredient? (Type the exactly shown in list above or "
-  //           "'done' to stop adding ingredients): \n";
+    cout << "Add ingredient? (Type the exactly shown in list above or "
+            "'done' to stop adding ingredients): \n";
 
-  //   string chosen_ingredient;
-  //   int k = 0;
-  //   bool ingredient_found = false;
+    string chosen_ingredient;
+    int k = 0;
+    bool ingredient_found = false;
 
-  //   getline(cin, chosen_ingredient);
+    getline(cin, chosen_ingredient);
 
-  //   while (true) {
-  //     for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); ++i) {
-  //       if (chosen_ingredient ==
-  //           obj_ingredients.get_ingredient_list()[i].get_name()) {
-  //         ingredient_found = true;
-  //         k = i;
-  //         break;
-  //       }
-  //     }
+    while (true) {
+      for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); ++i) {
+        if (chosen_ingredient ==
+            obj_ingredients.get_ingredient_list()[i].get_name()) {
+          ingredient_found = true;
+          k = i;
+          break;
+        }
+      }
 
-  //     if (ingredient_found) {
-  //       cout << "Ingredient added: " << chosen_ingredient << endl;
-  //       break;
-  //     } else if (chosen_ingredient == "done") {
-  //       k = -1;
-  //       finish_adding = true;
-  //       break;
-  //     } else {
-  //       cout << "Doesn't match any ingredients. Caution it is "
-  //               "case-sensitive. Try Again: ";
-  //       getline(cin, chosen_ingredient);
-  //     }
-  //   }
+      if (ingredient_found) {
+        cout << "Ingredient added: " << chosen_ingredient << endl;
+        break;
+      } else if (chosen_ingredient == "done") {
+        k = -1;
+        finish_adding = true;
+        break;
+      } else {
+        cout << "Doesn't match any ingredients. Caution it is "
+                "case-sensitive. Try Again: ";
+        getline(cin, chosen_ingredient);
+      }
+    }
 
-  //   if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
-  //     obj.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
-  //   }
-  // }
+    if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
+      obj.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+    }
+  }
 
-  // WriteIn obj2;
+  WriteIn obj2;
 
-  // obj2.create_chips(obj);
+  obj2.create_chips(obj);
 
-  // cout << "Successfully created an pasta dish. Press ENTER to return.";
-  // cin.get();
+  cout << "Successfully created an pasta dish. Press ENTER to return.";
+  cin.get();
 
-  // this->state_categories_food = 1;
+  this->state_categories_food = 1;
 
-  // return;
+  return;
 }
 
 int ManagerDrink::get_state_portal_drink() { return this->state_portal_drink; }
