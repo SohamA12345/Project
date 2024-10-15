@@ -1,10 +1,16 @@
 cheese
-1.50
+1.5
 spring onion
-0.50
+0.5
 cucumber
 0.75
 lemon
-1.00
+1
 orange
-2.50
+2.5
+Meatballs
+2
+Meatballs
+2
+Meatballs
+2

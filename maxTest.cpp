@@ -361,11 +361,20 @@ for (int i = 0; i < pasta.get_ingredient_list().size(); i++) {
 }
 */
 
-Pasta pasta("thirdTestPasta", 3.99, 1, "curly", "tomato");
-pasta.add_ingredient(Ingredient("cheese", 1.50));
-pasta.add_ingredient(Ingredient("lemon", 1.00));
+  // Pasta pasta("Spagetti", 10.0, 1, "tubes", "tomato");
+  // IngredientList list = read_in.read_ingredient_list();
+  // Ingredient ingredient1("Meatballs", 2.0);
+  // list.add_ingredient(ingredient1);
+  // pasta.add_ingredient(ingredient1);
+  // write_in.write_ingredient_list(list);
 
-write_in.create_pasta(pasta);
+  // write_in.create_pasta(pasta);
+
+//write_in.remove_pasta("Spagetti");
+
+Drink drink(1, "Coke", 3.50, 1, false);
+
+  write_in.create_drink(drink);
   /*
   ReadIn read_in;
   std::string file_name = "drinklist";

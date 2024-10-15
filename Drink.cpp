@@ -45,3 +45,8 @@ int Drink::get_sugar() { return sugar; }
 
 // function for showing whether ice has been added currently
 bool Drink::show_ice() { return ice; }
+
+  // set ice
+  void Drink::set_ice(bool has_ice) {
+    this->ice = has_ice;
+  }
