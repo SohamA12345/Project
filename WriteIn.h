@@ -78,7 +78,7 @@ void create_drink(Drink drink);
 
 
 // remove menu item
-void remove_menu_item();
+void remove_menu_item(std::string name, std::string type);
 
 // remove pasta
 void remove_pasta(std::string name);
