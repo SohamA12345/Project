@@ -8,19 +8,11 @@ class CustomerFoodDrink {
  private:
   int state_customer = 0;
 
-<<<<<<< HEAD
  protected:
   static vector<FoodItem> cart;
 
  public:
-=======
-protected:
-  // cart which has a array of items
-  static vector<FoodItem> cart;
-
-public:
   // runs the portal
->>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
   void run(int& state_customer_login);
 
   // acquires the state of state_customer (0 or 1)
