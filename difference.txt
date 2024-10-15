@@ -1,0 +1,31 @@
+Change Log
+
+Resturant Managment System:
+
+Authors:
+-Max Howard
+-Soham Aich
+-Yu Tong Wu
+
+Changes Made:
+
+1. Changed naming convention
+- Justification: Changing the projects naming conventions to a subset of Google convention will allows for improved readability, collaberation and reducing errors.
+
+2. Created Cart Class
+- Justification: Having a cart class instead of having a vector of menu item pointers allows for more modular code and simplifies the implmentation proccess
+
+3. Added calculate final price function to the MenuItem class
+-  Justification: Once the program began development, it was realised that a common chunk of code was reapeated multiple times accross multiple files which calculated the final price,
+so the calcuate final price function was added to be able to reuse code and allow for potential changes in the function to affect all the cases where the final price is calculated
+
+4. Moved read and write functionality into own classes
+- Justification: Allows for more structured code and limits the overall amount of required objects
+
+5. Modified the remove menu item function to return an integer
+- Justification: When an attempt is made to remove an item, if the attempt was unsuccessful, there was no feedback informing the user that it fail.
+Therefore, the return value of this function was changed such that it returned an interger depending on the success of the removal.
+
+6. Added set ice funtion to the Drink class
+- Justification: Before the Drink class just had a method to change if the drink had ice or not to the opposite of what it already was, not a way to set it directly.
+This was a problem when reading and writing from the files, so the set ice function was added such that the writing functions could work with the drink items.
