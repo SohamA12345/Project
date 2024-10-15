@@ -1,6 +1,8 @@
 #include "Drink.h"
 
-// Constructors for a drink.
+// Default Constructor
+Drink::Drink() : Drink(1, "N/A", 0.0) {}
+// Constructor for a drink, not taking ice/sugar
 Drink::Drink(int new_size, string new_name, double new_price) {
   item_size = new_size;
   item_name = new_name;
@@ -8,8 +10,14 @@ Drink::Drink(int new_size, string new_name, double new_price) {
   sugar = 0;
   ice = false;
 }
-// Default Constructor
-Drink::Drink() : Drink(1, "N/A", 0.0) {}
+// Constructor, taking ice/sugar
+Drink::Drink(int new_size, string new_name, double new_price, int new_sugar, bool new_ice) {
+  item_size = new_size;
+  item_name = new_name;
+  item_price_initial = new_price;
+  sugar = new_sugar;
+  ice = new_ice;
+}
 
 // returns the price of the drink, which is based on the item's price and
 // increases based on the item's size

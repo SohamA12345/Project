@@ -12,8 +12,9 @@ class Drink : public MenuItem {
 
  public:
   // constructors:
-  Drink(int size, string name, double price);
   Drink();
+  Drink(int size, string name, double price);
+  Drink(int size, string name, double price, int sugar, bool ice);
 
   // increase/decrease the amount of sugar
   void add_sugar(int num_spoon);
