@@ -35,7 +35,7 @@ void CustomerDrink::run(int& state_customer) {
             obj_drink.get_string_size(obj_drink.get_item_size()));
   }
 
-  CustomerDrink.add("Back", -1, "Returns to differnt food categories page.");
+  CustomerDrink.add("Back", -1, "Returns to previous menu.");
 
   int choice = CustomerDrink.display();
 
@@ -133,7 +133,7 @@ void CustomerDrink::run(int& state_customer) {
       this->state_drink = 1;
       return;
     }
-
+    this->state_drink = 0;
     state_customer = 1;
     return;
   }
