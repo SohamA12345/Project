@@ -6,29 +6,30 @@ using namespace std;
 #include "MenuItem.h"
 
 class Drink : public MenuItem {
-private:
-    int sugar;
-    bool ice;
-public:
-    //constructors: 
-    Drink(int size, string name, double price);
-    Drink();
+ private:
+  int sugar;
+  bool ice;
 
-    // increase/decrease the amount of sugar
-    void add_sugar(int num_spoon);
-    void remove_sugar(int num_spoon);
+ public:
+  // constructors:
+  Drink(int size, string name, double price);
+  Drink();
 
-    // change whether ice is added
-    void change_ice();
+  // increase/decrease the amount of sugar
+  void add_sugar(int num_spoon);
+  void remove_sugar(int num_spoon);
 
-    // show current amount of sugar
-    int get_sugar();
+  // change whether ice is added
+  void change_ice();
 
-    // show whether ice is currently being added
-    bool show_ice();
+  // show current amount of sugar
+  int get_sugar();
 
-    // returns the price of the drink
-    double calculate_item_price();
+  // show whether ice is currently being added
+  bool show_ice();
+
+  // returns the price of the drink
+  double calculate_item_price();
 };
 
 #endif

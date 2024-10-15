@@ -3,11 +3,11 @@
 
 #include "CustomerFoodDrink.h"
 
-class CustomerCategoriesFood : public CustomerFoodDrink
-{
-private:
+class CustomerCategoriesFood : public CustomerFoodDrink {
+ private:
   int state_categories = 0;
-public:
+
+ public:
   void run(int& state_customer);
   int get_state_categories();
 

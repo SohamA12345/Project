@@ -5,14 +5,14 @@ Chips::Chips() : FoodItem(), chips_cut("N/A"), chips_seasoning("N/A") {}
 
 // constructor without ingredient list
 Chips::Chips(std::string name, double price, int size, std::string chips_cut,
-               std::string chips_seasoning)
+             std::string chips_seasoning)
     : FoodItem(name, price, size),
       chips_cut(chips_cut),
       chips_seasoning(chips_seasoning) {}
 
 // constructor with ingredient list
 Chips::Chips(std::string name, double price, int size, std::string chips_cut,
-               std::string chips_seasoning, std::vector<Ingredient> ingredients)
+             std::string chips_seasoning, std::vector<Ingredient> ingredients)
     : FoodItem(name, price, size, ingredients),
       chips_cut(chips_cut),
       chips_seasoning(chips_seasoning) {}

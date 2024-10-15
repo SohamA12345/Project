@@ -36,8 +36,8 @@ class FoodItem : public MenuItem {
 
   double calculate_item_price();
 
- // print ingredients functions
- void print_ingredients_and_price();
+  // print ingredients functions
+  void print_ingredients_and_price();
 
   // deconstructor
   ~FoodItem();

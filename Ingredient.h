@@ -23,7 +23,7 @@ class Ingredient {
   void set_name(std::string name);
   void set_price(double price);
 
-  //Compare operator
+  // Compare operator
   bool operator==(Ingredient& name);
 
   // deconstructor

@@ -3,26 +3,29 @@
 // default contructor
 WriteIn::WriteIn() {}
 
-// write to a menu item list
+// write to a menu item list by string of ingredient names
 void WriteIn::write_menu_item_list(std::vector<string> list,
                                    std::string name) {  // by string vector
-  std::string file_name = name + ".txt";
+  std::string file_name = name + ".txt";  // append .txt to end of string
   std::ofstream outFile(file_name);
 
   int list_length = list.size();
   for (int i = 0; i < list_length; i++) {
-    outFile << list[i] << std::endl;
+    outFile << list[i]
+            << std::endl;  // write ingredient name to corresponding line
   }
 }
 
+// write to a menu item list by ingredients
 void WriteIn::write_menu_item_list(std::vector<MenuItem*> list,
                                    std::string name) {  // by menu item vector
-                                     std::string file_name = name + ".txt";
-  std::ofstream outFile(file_name);
+  std::string file_name = name + ".txt";  // append .txt to end of string
+  std::ofstream outFile(file_name);       // open file with name
 
   int list_length = (list).size();
   for (int i = 0; i < list_length; i++) {
-    outFile << list[0][i].get_item_name() << std::endl;
+    outFile << list[0][i].get_item_name()
+            << std::endl;  // write ingredient name to corresponding line
   }
 }
 
@@ -172,6 +175,70 @@ void WriteIn::write_drink(Drink drink) {
 
   out_file.close();
 }
+
+// create pasta
+  void WriteIn::create_pasta(Pasta pasta) {
+    write_pasta(pasta); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("pastalist");
+    list.push_back(pasta.get_item_name());
+    write_menu_item_list(list,"pastalist");
+  }
+
+  // create pizza
+  void WriteIn::create_pizza(Pizza pizza) {
+    write_pizza(pizza); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("pizzalist");
+    list.push_back(pizza.get_item_name());
+    write_menu_item_list(list,"pizzalist");
+  }
+
+
+  // create burger
+  void WriteIn::create_burger(Burger burger) {
+    write_burger(burger); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("burgerlist");
+    list.push_back(burger.get_item_name());
+    write_menu_item_list(list,"burgerlist");
+  }
+
+    // create noodle
+  void WriteIn::create_noodle(Noodle noodle) {
+    write_noodle(noodle); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("noodlelist");
+    list.push_back(noodle.get_item_name());
+    write_menu_item_list(list,"noodlelist");
+  }
+
+    // create chips
+  void WriteIn::create_chips(Chips chips) {
+    write_chips(chips); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("chipslist");
+    list.push_back(chips.get_item_name());
+    write_menu_item_list(list,"chips");
+  }
+
+    // create rice
+  void WriteIn::create_rice(Rice rice) {
+    write_rice(rice); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("ricelist");
+    list.push_back(rice.get_item_name());
+    write_menu_item_list(list,"ricelist");
+  }
+
+      // create drink
+  void WriteIn::create_drink(Drink drink) {
+    write_drink(drink); // create .txt file
+    ReadIn read_in;
+    std::vector<string> list = read_in.read_menu_item_list("drinklist");
+    list.push_back(drink.get_item_name());
+    write_menu_item_list(list,"drinlklist");
+  }
 
 // deconstructor
 WriteIn::~WriteIn() {}
