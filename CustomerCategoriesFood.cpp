@@ -116,7 +116,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_pasta.get_ingredient_list().size(); i++) {
             cout << obj_pasta.get_ingredient_list()[i].get_name() << " $("
@@ -320,7 +320,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_burger.get_ingredient_list().size(); i++) {
             cout << obj_burger.get_ingredient_list()[i].get_name() << " $("
@@ -526,7 +526,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_chip.get_ingredient_list().size(); i++) {
             cout << obj_chip.get_ingredient_list()[i].get_name() << " $("
@@ -733,7 +733,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_noodle.get_ingredient_list().size(); i++) {
             cout << obj_noodle.get_ingredient_list()[i].get_name() << " $("
@@ -941,7 +941,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
             cout << obj_pizza.get_ingredient_list()[i].get_name() << " $("
@@ -1146,7 +1146,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
           cout << endl;
 
-          cout << "This dishes Ingredients:\t";
+          cout << "Currently added Ingredients:\t";
 
           for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
             cout << obj_rice.get_ingredient_list()[i].get_name() << " $("
