@@ -27,7 +27,8 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   obj_ingredients = obj.read_ingredient_list();
 
-  // create 6 arrays for the 6 different food type, then create another array containing the 6 arrays
+  // create 6 arrays for the 6 different food type, then create another array
+  // containing the 6 arrays
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
   vector<string> burger_list = obj.read_menu_item_list("burgerlist");
   vector<string> chips_list = obj.read_menu_item_list("chipslist");
@@ -56,11 +57,14 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
   int choice = CustomerCategoriesFood.display();
 
-  // each case refers to a food type (pasta, burger, chips, noodles, pizza, rice), with the option of going back
-  // the customer will have the ability to add/remove ingredients, change the size, purchase more foods. 
+  char size;
+  string size_str;
+
+  // each case refers to a food type (pasta, burger, chips, noodles, pizza,
+  // rice), with the option of going back the customer will have the ability to
+  // add/remove ingredients, change the size, purchase more foods.
   switch (choice) {
-    case 1:
-    {
+    case 1: {
       menu Pasta_menu;
 
       Pasta_menu.menu_head("Different Types of Pasta:");
@@ -75,7 +79,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         }
 
         Pasta_menu.add(
-            pasta_list[i], i+1,
+            pasta_list[i], i + 1,
             "Pasta Type: " + obj_pasta.get_pasta_type() + " | " +
                 "Pasta Sauce: " + obj_pasta.get_pasta_sauce() +
                 "\nPrice: " + to_string(obj_pasta.calculate_item_price()) +
@@ -95,9 +99,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
       if (choice > 0) {
         Pasta obj_pasta = obj.read_pasta(pasta_list[choice - 1]);
-
-        cout << obj_pasta.get_item_name() << endl;
-        cin.get();
 
         system("clear");
 
@@ -218,6 +219,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
         }
 
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_pasta.set_item_size(size_str);
+
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
         string add_to_cart;
@@ -245,8 +268,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
       break;
     }
 
-    case 2:
-    {
+    case 2: {
       menu Burger_menu;
 
       Burger_menu.menu_head("Different Types of Burgers:");
@@ -392,6 +414,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
         }
 
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_burger.set_item_size(size_str);
+
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
         string add_to_cart;
@@ -420,8 +464,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
       break;
     }
 
-    case 3:
-    {
+    case 3: {
       menu Chips_menu;
 
       Chips_menu.menu_head("Different Types of Chips:");
@@ -567,6 +610,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
             obj_chip.remove_ingredient(j);
           }
         }
+
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_chip.set_item_size(size_str);
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
@@ -743,6 +808,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
             obj_noodle.remove_ingredient(j);
           }
         }
+
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_noodle.set_item_size(size_str);
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
@@ -921,6 +1008,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
           }
         }
 
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_pizza.set_item_size(size_str);
+
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 
         string add_to_cart;
@@ -1094,6 +1203,28 @@ void CustomerCategoriesFood::run(int& state_customer) {
             obj_rice.remove_ingredient(j);
           }
         }
+
+        system("clear");
+
+        while (true) {
+          cout << "Size (S for small, M for medium, L for large): ";
+          cin >> size;
+
+          if (size == 'S') {
+            size_str = "small";
+            break;
+          } else if (size == 'M') {
+            size_str = "medium";
+            break;
+          } else if (size == 'L') {
+            size_str = "large";
+            break;
+          } else {
+            cout << "Invalid input. Please enter a valid charecter for size.\n";
+          }
+        }
+
+        obj_rice.set_item_size(size_str);
 
         cout << "Successfully costomised the order. Add to Cart(y/n): ";
 

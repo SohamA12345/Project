@@ -89,7 +89,7 @@ void CategoriesFood::run(int& state_portal_food) {
       cout << "Enter pasta sauce name: ";
       getline(cin, sauce);
 
-      Pasta obj(name, price, size, type, sauce);
+      Pasta obj(name, price, size_int, type, sauce);
 
       system("clear");
 
