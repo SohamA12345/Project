@@ -272,7 +272,21 @@ int WriteIn::remove_menu_item(std::string name, std::string item_type) {
   delete list;
 
   return is_deleted;
+}
 
+// create new ingredient
+void WriteIn::add_new_ingredient(Ingredient ingredient) {
+  ReadIn read_in;
+
+  IngredientList* list = new IngredientList();
+
+  *list = read_in.read_ingredient_list();
+  // read in ingredient list
+
+  list->add_ingredient(ingredient);
+  write_ingredient_list(*list);
+
+  delete list;
 }
 
 // remove pasta
