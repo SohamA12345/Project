@@ -66,13 +66,6 @@ void FoodDrink::run(int& state_portal_manager) {
       WriteIn obj_write;
       ReadIn obj;
 
-      vector<string> pasta_list = obj.read_menu_item_list("pastalist");
-      vector<string> burger_list = obj.read_menu_item_list("burgerlist");
-      vector<string> chips_list = obj.read_menu_item_list("chipslist");
-      vector<string> noodle_list = obj.read_menu_item_list("noodlelist");
-      vector<string> pizza_list = obj.read_menu_item_list("pizzalist");
-      vector<string> rice_list = obj.read_menu_item_list("ricelist");
-
       while (true) {
         cout << "Remove what type of dish (pasta, burger, rice, pizza, "
                 "noodles, chips, drinks): ";
@@ -84,19 +77,126 @@ void FoodDrink::run(int& state_portal_manager) {
           cout << "Enter name of the pasta: ";
           cin >> name;
 
-          obj_write.remove_pasta(name);
+          int returns = obj_write.remove_pasta(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "burger") {
-          
+          string name;
+
+          cout << "Enter name of the burger: ";
+          cin >> name;
+
+          int returns = obj_write.remove_burger(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "rice") {
+          string name;
+
+          cout << "Enter name of the rice: ";
+          cin >> name;
+
+          int returns = obj_write.remove_rice(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "pizza") {
+          string name;
+
+          cout << "Enter name of the pizza: ";
+          cin >> name;
+
+          int returns = obj_write.remove_pizza(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "noodles") {
+          string name;
+
+          cout << "Enter name of the noodles: ";
+          cin >> name;
+
+          int returns = obj_write.remove_noodle(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "chips") {
+                    string name;
+
+          cout << "Enter name of the chips: ";
+          cin >> name;
+
+          int returns = obj_write.remove_chips(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+            
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else if (dish_name == "drinks") {
+                    string name;
+
+          cout << "Enter name of the drinks: ";
+          cin >> name;
+
+          int returns = obj_write.remove_drink(name);
+
+          if (returns != -1) {
+            cout << "Succesfully deleted. Press ENTER to continue.";
+            cin.get();
+            break;
+            
+          } else {
+            cout << "Invalid name.";
+          }
+
         } else {
           cout << "Invalid input. Please enter valid dish name\n";
         }
       }
-    } break;
+    } 
+    this->state_portal_food = 1;
+    break;
     default:
       break;
   }
