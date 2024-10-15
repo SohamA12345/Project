@@ -714,18 +714,13 @@ void CustomerCategoriesFood::run(int& state_customer) {
 
     {
       menu Pizza_menu;
-
       Pizza_menu.menu_head("Different Types of Pizzas:");
-
       for (int i = 0; i < pizza_list.size(); i++) {
         Pizza obj_pizza = obj.read_pizza(pizza_list[i]);
-
         string ingredient;
-
         for (int j = 0; j < obj_pizza.get_ingredient_list().size(); j++) {
           ingredient += obj_pizza.get_ingredient_list()[j].get_name() + ", ";
         }
-
         Pizza_menu.add(
             pizza_list[i], i + 1,
             "Pizza cheese: " + obj_pizza.get_pizza_cheese() + " | " +
@@ -735,147 +730,109 @@ void CustomerCategoriesFood::run(int& state_customer) {
                 obj_pizza.get_string_size(obj_pizza.get_item_size()));
       }
 
-      Pizza_menu.add("Back", -1, "Returns to differnt food categories page.");
-
+      Pizza_menu.add("Back", -1, "Returns to different food categories page.");
       int choice = Pizza_menu.display();
-
       if (choice == -1) {
         state_customer = 1;
         this->state_categories = 0;
         return;
       }
-
       if (choice > 0) {
         IngredientList obj_ingredients;
         Pizza obj_pizza = obj.read_pizza(pizza_list[choice - 1]);
-
         system("clear");
 
+        // Adding Ingredients
         bool finish_adding = false;
-
         while (!finish_adding) {
           cout << "Available Ingredients:\t";
-
           for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
                i++) {
-            cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_ingredients.get_ingredient_list()[i].get_name() << " ($"
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
           }
-
           cout << endl;
 
           cout << "Currently added Ingredients:\t";
-
           for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
-            cout << obj_pizza.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_pizza.get_ingredient_list()[i].get_name() << " ($"
                  << obj_pizza.get_ingredient_list()[i].get_price() << ")\t";
           }
-
           cout << endl;
 
-          cout << "Add ingredient? (Type the exactly shown in list above or "
-                  "'done' to stop adding ingredients): \n";
-
+          cout << "Add ingredient? (Type the exact name as shown in the list "
+                  "above or 'done' to stop adding ingredients): \n";
           string chosen_ingredient;
-          int k = 0;
-          bool ingredient_found = false;
+          getline(cin, chosen_ingredient);  // read input
 
-          getline(cin, chosen_ingredient);
-
-          while (true) {
-            for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
-                 ++i) {
-              if (chosen_ingredient ==
-                  obj_ingredients.get_ingredient_list()[i].get_name()) {
-                ingredient_found = true;
-                k = i;
-                break;
-              }
-            }
-
-            if (ingredient_found) {
-              cout << "Ingredient added: " << chosen_ingredient << endl;
-              break;
-            } else if (chosen_ingredient == "done") {
-              k = -1;
-              finish_adding = true;
-              break;
-            } else {
-              cout << "Doesn't match any ingredients. Caution it is "
-                      "case-sensitive. Try Again: ";
-              getline(cin, chosen_ingredient);
-            }
+          if (chosen_ingredient == "done") {
+            finish_adding = true;
+            break;
           }
 
-          if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
-            obj_pizza.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+          bool ingredient_found = false;
+          for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
+               i++) {
+            if (chosen_ingredient ==
+                obj_ingredients.get_ingredient_list()[i].get_name()) {
+              ingredient_found = true;
+              obj_pizza.add_ingredient(
+                  obj_ingredients.get_ingredient_list()[i]);
+              cout << "Ingredient added: " << chosen_ingredient << endl;
+              break;
+            }
+          }
+          if (!ingredient_found) {
+            cout << "Doesn't match any ingredients. Caution: It is "
+                    "case-sensitive. Try Again: ";
           }
         }
 
-        // Copy the same mechanic as the above code to implement ingredient
-        // removal.
+        // Removing Ingredients
         system("clear");
-
         bool finish_removing = false;
-
         while (!finish_removing) {
-          cout << "Available Ingredients:\t";
-
+          cout << "Pizza's Ingredients:\t";
           for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
-            cout << obj_pizza.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_pizza.get_ingredient_list()[i].get_name() << " ($"
                  << obj_pizza.get_ingredient_list()[i].get_price() << ")\t";
           }
-
           cout << endl;
 
-          cout << "Remove ingredient? (Type the exactly shown in list above "
-                  "or "
-                  "'done' to stop removing ingredients)): "
-                  "\n";
-
+          cout << "Remove ingredient? (Type the exact name as shown in the "
+                  "list above or 'done' to stop removing ingredients): \n";
           string chosen_ingredient_removal;
-          int j = 0;
+          getline(cin, chosen_ingredient_removal);  // read input
+
+          if (chosen_ingredient_removal == "done") {
+            finish_removing = true;
+            break;
+          }
+
           bool ingredient_removed = false;
-
-          getline(cin, chosen_ingredient_removal);
-
-          while (true) {
-            for (int i = 0; i < obj_pizza.get_ingredient_list().size(); ++i) {
-              if (chosen_ingredient_removal ==
-                  obj_pizza.get_ingredient_list()[i].get_name()) {
-                ingredient_removed = true;
-                j = i;
-                break;
-              }
-            }
-
-            if (ingredient_removed) {
+          for (int i = 0; i < obj_pizza.get_ingredient_list().size(); i++) {
+            if (chosen_ingredient_removal ==
+                obj_pizza.get_ingredient_list()[i].get_name()) {
+              ingredient_removed = true;
+              obj_pizza.remove_ingredient(i);
               cout << "Ingredient removed: " << chosen_ingredient_removal
                    << endl;
               break;
-            } else if (chosen_ingredient_removal == "done") {
-              j = -1;
-              finish_removing = true;
-              break;
-            } else {
-              cout << "Doesn't match any ingredients. Try Again: ";
-              getline(cin, chosen_ingredient_removal);
             }
           }
-
-          if (j >= 0) {
-            obj_pizza.remove_ingredient(j);
+          if (!ingredient_removed) {
+            cout << "Doesn't match any ingredients. Try Again: ";
           }
         }
 
+        // Setting Size
         system("clear");
-
         while (true) {
           cout << "Size (S for small, M for medium, L for large): ";
           cin >> size;
-          cin.ignore(numeric_limits<streamsize>::max());
-
+          cin.ignore(numeric_limits<streamsize>::max(),
+                     '\n');  // clear any leftover input
           if (size == 'S') {
             size_str = "small";
             break;
@@ -886,55 +843,46 @@ void CustomerCategoriesFood::run(int& state_customer) {
             size_str = "large";
             break;
           } else {
-            cout << "Invalid input. Please enter a valid charecter for "
-                    "size.\n";
+            cout << "Invalid input. Please enter a valid character for size.\n";
           }
         }
-
         obj_pizza.set_item_size(size_str);
 
-        cout << "Successfully costomised the order. Add to Cart(y/n): ";
-
+        // Adding to Cart
+        cout << "Successfully customized the order. Add to Cart(y/n): ";
         string add_to_cart;
-        getline(cin, add_to_cart);
+        getline(cin, add_to_cart);  // read input
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_pizza);
-          cout << "Succesfully Added to the cart: " << obj_pizza.get_item_name()
-               << "\t$" << obj_pizza.calculate_item_price()
+          cout << "Successfully added to the cart: "
+               << obj_pizza.get_item_name() << "\t$"
+               << obj_pizza.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
-          // Code continue to close the menu gui.
+          // Code continues to close the menu GUI.
         } else {
           cout << "Invalid input. Press ENTER to continue.";
           cin.get();
           this->state_categories = 1;
           return;
         }
-
         state_customer = 1;
         return;
       }
-
-      break;
-    } break;
+    }
     case 6:
 
     {
       menu Rice_menu;
-
-      Rice_menu.menu_head("Different Types of Burgers:");
-
+      Rice_menu.menu_head("Different Types of Rice:");
       for (int i = 0; i < rice_list.size(); i++) {
         Rice obj_rice = obj.read_rice(rice_list[i]);
-
         string ingredient;
-
         for (int j = 0; j < obj_rice.get_ingredient_list().size(); j++) {
           ingredient += obj_rice.get_ingredient_list()[j].get_name() + ", ";
         }
-
         Rice_menu.add(rice_list[i], i + 1,
                       "Rice type: " + obj_rice.get_rice_type() + "\nPrice: " +
                           to_string(obj_rice.calculate_item_price()) +
@@ -942,147 +890,108 @@ void CustomerCategoriesFood::run(int& state_customer) {
                           obj_rice.get_string_size(obj_rice.get_item_size()));
       }
 
-      Rice_menu.add("Back", -1, "Returns to differnt food categories page.");
-
+      Rice_menu.add("Back", -1, "Returns to different food categories page.");
       int choice = Rice_menu.display();
-
       if (choice == -1) {
         state_customer = 1;
         this->state_categories = 0;
         return;
       }
-
       if (choice > 0) {
         IngredientList obj_ingredients;
         Rice obj_rice = obj.read_rice(rice_list[choice - 1]);
-
         system("clear");
 
+        // Adding Ingredients
         bool finish_adding = false;
-
         while (!finish_adding) {
           cout << "Available Ingredients:\t";
-
           for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
                i++) {
-            cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_ingredients.get_ingredient_list()[i].get_name() << " ($"
                  << obj_ingredients.get_ingredient_list()[i].get_price()
                  << ")\t";
           }
-
           cout << endl;
 
           cout << "Currently added Ingredients:\t";
-
           for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
-            cout << obj_rice.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_rice.get_ingredient_list()[i].get_name() << " ($"
                  << obj_rice.get_ingredient_list()[i].get_price() << ")\t";
           }
-
           cout << endl;
 
-          cout << "Add ingredient? (Type the exactly shown in list above or "
-                  "'done' to stop adding ingredients): \n";
-
+          cout << "Add ingredient? (Type the exact name as shown in the list "
+                  "above or 'done' to stop adding ingredients): \n";
           string chosen_ingredient;
-          int k = 0;
-          bool ingredient_found = false;
+          getline(cin, chosen_ingredient);  // read input
 
-          getline(cin, chosen_ingredient);
-
-          while (true) {
-            for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
-                 ++i) {
-              if (chosen_ingredient ==
-                  obj_ingredients.get_ingredient_list()[i].get_name()) {
-                ingredient_found = true;
-                k = i;
-                break;
-              }
-            }
-
-            if (ingredient_found) {
-              cout << "Ingredient added: " << chosen_ingredient << endl;
-              break;
-            } else if (chosen_ingredient == "done") {
-              k = -1;
-              finish_adding = true;
-              break;
-            } else {
-              cout << "Doesn't match any ingredients. Caution it is "
-                      "case-sensitive. Try Again: ";
-              getline(cin, chosen_ingredient);
-            }
+          if (chosen_ingredient == "done") {
+            finish_adding = true;
+            break;
           }
 
-          if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
-            obj_rice.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+          bool ingredient_found = false;
+          for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
+               i++) {
+            if (chosen_ingredient ==
+                obj_ingredients.get_ingredient_list()[i].get_name()) {
+              ingredient_found = true;
+              obj_rice.add_ingredient(obj_ingredients.get_ingredient_list()[i]);
+              cout << "Ingredient added: " << chosen_ingredient << endl;
+              break;
+            }
+          }
+          if (!ingredient_found) {
+            cout << "Doesn't match any ingredients. Caution: It is "
+                    "case-sensitive. Try Again: ";
           }
         }
 
-        // Copy the same mechanic as the above code to implement ingredient
-        // removal.
+        // Removing Ingredients
         system("clear");
-
         bool finish_removing = false;
-
         while (!finish_removing) {
-          cout << "Available Ingredients:\t";
-
+          cout << "Rice's Ingredients:\t";
           for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
-            cout << obj_rice.get_ingredient_list()[i].get_name() << " $("
+            cout << obj_rice.get_ingredient_list()[i].get_name() << " ($"
                  << obj_rice.get_ingredient_list()[i].get_price() << ")\t";
           }
-
           cout << endl;
 
-          cout << "Remove ingredient? (Type the exactly shown in list above "
-                  "or "
-                  "'done' to stop removing ingredients)): "
-                  "\n";
-
+          cout << "Remove ingredient? (Type the exact name as shown in the "
+                  "list above or 'done' to stop removing ingredients): \n";
           string chosen_ingredient_removal;
-          int j = 0;
+          getline(cin, chosen_ingredient_removal);  // read input
+
+          if (chosen_ingredient_removal == "done") {
+            finish_removing = true;
+            break;
+          }
+
           bool ingredient_removed = false;
-
-          getline(cin, chosen_ingredient_removal);
-
-          while (true) {
-            for (int i = 0; i < obj_rice.get_ingredient_list().size(); ++i) {
-              if (chosen_ingredient_removal ==
-                  obj_rice.get_ingredient_list()[i].get_name()) {
-                ingredient_removed = true;
-                j = i;
-                break;
-              }
-            }
-
-            if (ingredient_removed) {
+          for (int i = 0; i < obj_rice.get_ingredient_list().size(); i++) {
+            if (chosen_ingredient_removal ==
+                obj_rice.get_ingredient_list()[i].get_name()) {
+              ingredient_removed = true;
+              obj_rice.remove_ingredient(i);
               cout << "Ingredient removed: " << chosen_ingredient_removal
                    << endl;
               break;
-            } else if (chosen_ingredient_removal == "done") {
-              j = -1;
-              finish_removing = true;
-              break;
-            } else {
-              cout << "Doesn't match any ingredients. Try Again: ";
-              getline(cin, chosen_ingredient_removal);
             }
           }
-
-          if (j >= 0) {
-            obj_rice.remove_ingredient(j);
+          if (!ingredient_removed) {
+            cout << "Doesn't match any ingredients. Try Again: ";
           }
         }
 
+        // Setting Size
         system("clear");
-
         while (true) {
           cout << "Size (S for small, M for medium, L for large): ";
           cin >> size;
-          cin.ignore(numeric_limits<streamsize>::max());
-
+          cin.ignore(numeric_limits<streamsize>::max(),
+                     '\n');  // clear any leftover input
           if (size == 'S') {
             size_str = "small";
             break;
@@ -1093,40 +1002,35 @@ void CustomerCategoriesFood::run(int& state_customer) {
             size_str = "large";
             break;
           } else {
-            cout << "Invalid input. Please enter a valid charecter for "
-                    "size.\n";
+            cout << "Invalid input. Please enter a valid character for size.\n";
           }
         }
-
         obj_rice.set_item_size(size_str);
 
-        cout << "Successfully costomised the order. Add to Cart(y/n): ";
-
+        // Adding to Cart
+        cout << "Successfully customized the order. Add to Cart(y/n): ";
         string add_to_cart;
-        getline(cin, add_to_cart);
+        getline(cin, add_to_cart);  // read input
 
         if (add_to_cart == "y") {
           CustomerFoodDrink::cart.push_back(obj_rice);
-          cout << "Succesfully Added to the cart: " << obj_rice.get_item_name()
+          cout << "Successfully added to the cart: " << obj_rice.get_item_name()
                << "\t$" << obj_rice.calculate_item_price()
                << "\tPress ENTER to continue";
           cin.get();
         } else if (add_to_cart == "n") {
-          // Code continue to close the menu gui.
+          // Code continues to close the menu GUI.
         } else {
           cout << "Invalid input. Press ENTER to continue.";
           cin.get();
           this->state_categories = 1;
           return;
         }
-
         state_customer = 1;
         return;
       }
-
-      break;
     }
-
+    break;
     case 7:
 
       this->state_categories = 0;
