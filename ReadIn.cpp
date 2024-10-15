@@ -286,6 +286,24 @@ Drink ReadIn::read_drink(std::string name) {
   read_menu_item(
       &drink, &inFile);  // calls general function and should return on line 3
 
+// unique to drink, 2 attributes ice and sugar
+  int index = 4;
+  int drink_attributes = 2;
+  std::string current_line;
+  for (int i = index; i < index + drink_attributes; i++) {
+    std::getline(inFile, current_line);
+    switch (i) {
+      case 4:
+        drink.add_sugar(stoi(current_line));
+        break;
+      case 5:
+        drink.set_ice(stoi(current_line));
+        break;
+      default:
+        break;
+    }
+  }
+
   return drink;
 }
 

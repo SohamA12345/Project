@@ -29,6 +29,9 @@ class Drink : public MenuItem {
   // show whether ice is currently being added
   bool show_ice();
 
+  // set ice
+  void set_ice(bool has_ice);
+
   // returns the price of the drink
   double calculate_item_price();
 };

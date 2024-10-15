@@ -370,7 +370,11 @@ for (int i = 0; i < pasta.get_ingredient_list().size(); i++) {
 
   // write_in.create_pasta(pasta);
 
-write_in.remove_pasta("Spagetti");
+//write_in.remove_pasta("Spagetti");
+
+Drink drink(1, "Coke", 3.50, 1, false);
+
+  write_in.create_drink(drink);
   /*
   ReadIn read_in;
   std::string file_name = "drinklist";

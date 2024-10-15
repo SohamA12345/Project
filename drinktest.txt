@@ -1,3 +1,0 @@
-drinktest
-2.5
-small

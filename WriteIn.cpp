@@ -173,6 +173,9 @@ void WriteIn::write_drink(Drink drink) {
 
   write_menu_item(&drink, &out_file);
 
+  out_file << drink.get_sugar() << std::endl;
+  out_file << drink.show_ice() << std::endl;
+
   out_file.close();
 }
 
@@ -234,9 +237,9 @@ void WriteIn::create_rice(Rice rice) {
 void WriteIn::create_drink(Drink drink) {
   write_drink(drink);  // create .txt file
   ReadIn read_in;
-  std::vector<string> list = read_in.read_menu_item_list("drinklist");
+  std::vector<string> list = read_in.read_menu_item_list("drinkslist");
   list.push_back(drink.get_item_name());
-  write_menu_item_list(list, "drinlklist");
+  write_menu_item_list(list, "drinkslist");
 }
 
 // remove menu item
