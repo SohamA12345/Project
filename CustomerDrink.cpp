@@ -118,7 +118,7 @@ void CustomerDrink::run(int& state_customer) {
     getline(cin, add_to_cart);
 
     if (add_to_cart == "y") {
-      CustomerFoodDrink::cart.push_back(obj_drink);
+      CustomerFoodDrink::cart_drink.push_back(obj_drink);
       cout << "Succesfully Added to the cart: " << obj_drink.get_item_name()
            << "\t$" << obj_drink.calculate_item_price()
            << "\tPress ENTER to continue";

@@ -2,8 +2,9 @@
 #define CUSTOMER_DRINKS_H
 
 #include "CustomerFoodDrink.h"
+#include "CustomerLogin.h"
 
-class CustomerDrink : public CustomerDrink {
+class CustomerDrink : public CustomerLogin {
  private:
   int state_drink;
 public:

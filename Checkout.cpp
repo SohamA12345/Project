@@ -25,6 +25,10 @@ void Checkout::run(int& state) {
                      "\nIngredients: " + ingredient);
   }
 
+  for (int i = 0; i < cart_drink.size(); i++) {
+    Checkout.add(cart_drink[i].get_item_name(), i, "Price: " + to_string(cart_drink[i].calculate_item_price()) + "No. sugar spoons: " + to_string(cart_drink[i].get_sugar()) + "Ice: " + to_string(cart_drink[i].show_ice()));
+  }
+
   Checkout.add("Proceed/Back", code, "Continue checking out.");
 
   int choice = Checkout.display();
