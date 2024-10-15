@@ -243,7 +243,7 @@ void WriteIn::create_drink(Drink drink) {
 }
 
 // remove menu item
-void WriteIn::remove_menu_item(std::string name, std::string item_type) {
+int WriteIn::remove_menu_item(std::string name, std::string item_type) {
   ReadIn read_in;
   std::vector<string>* list = new std::vector<string>(
       read_in.read_menu_item_list(item_type));  // read in the menu item list
@@ -260,7 +260,9 @@ void WriteIn::remove_menu_item(std::string name, std::string item_type) {
     index++;
   }
   // if found, write back to list file and remove the corresponding txt file
+  int is_deleted = -1;
   if (found_item == true) {
+    is_deleted = 0;
     WriteIn write_in;
     write_in.write_menu_item_list(*list, item_type);
     std::string file_name = name + ".txt";
@@ -268,28 +270,52 @@ void WriteIn::remove_menu_item(std::string name, std::string item_type) {
   }
 
   delete list;
+
+  return is_deleted;
+
 }
 
 // remove pasta
-void WriteIn::remove_pasta(std::string name) { remove_menu_item(name, "pastalist"); }
+int WriteIn::remove_pasta(std::string name) {
+  int is_deleted = remove_menu_item(name, "pastalist");
+  return is_deleted;
+}
 
 // remove pizza
-void WriteIn::remove_pizza(std::string name) { remove_menu_item(name, "pizzalist"); }
+int WriteIn::remove_pizza(std::string name) {
+  int is_deleted = remove_menu_item(name, "pizzalist");
+  return is_deleted;
+}
 
 // remove burger
-void WriteIn::remove_burger(std::string name) { remove_menu_item(name, "burgerlist"); }
+int WriteIn::remove_burger(std::string name) {
+  int is_deleted = remove_menu_item(name, "burgerlist");
+  return is_deleted;
+}
 
 // remove noodle
-void WriteIn::remove_noodle(std::string name) { remove_menu_item(name, "noodlelist"); }
+int WriteIn::remove_noodle(std::string name) {
+  int is_deleted = remove_menu_item(name, "noodlelist");
+  return is_deleted;
+}
 
 // remove chips
-void WriteIn::remove_chips(std::string name) { remove_menu_item(name, "chipslist"); }
+int WriteIn::remove_chips(std::string name) {
+  int is_deleted = remove_menu_item(name, "chipslist");
+  return is_deleted;
+}
 
 // remove rice
-void WriteIn::remove_rice(std::string name) { remove_menu_item(name, "ricelist"); }
+int WriteIn::remove_rice(std::string name) {
+  int is_deleted = remove_menu_item(name, "ricelist");
+  return is_deleted;
+}
 
 // remove drink
-void WriteIn::remove_drink(std::string name) { remove_menu_item(name, "drinkslist"); }
+int WriteIn::remove_drink(std::string name) {
+  int is_deleted = remove_menu_item(name, "drinkslist");
+  return is_deleted;
+}
 
 // deconstructor
 WriteIn::~WriteIn() {}
