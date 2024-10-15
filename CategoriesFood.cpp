@@ -16,12 +16,12 @@ void CategoriesFood::run(int& state_portal_food) {
 
   CategoriesFood.menu_head("What type of food is required to be created?");
 
-  CategoriesFood.add("Pasta", 1, "");
-  CategoriesFood.add("Chips", 2, "");
-  CategoriesFood.add("Pizza", 3, "");
-  CategoriesFood.add("Rice", 4, "");
-  CategoriesFood.add("Noodle", 5, "");
-  CategoriesFood.add("Burger", 6, "");
+  CategoriesFood.add("Pasta", 1, "Create a Pasta");
+  CategoriesFood.add("Chips", 2, "Create a Chips");
+  CategoriesFood.add("Pizza", 3, "Create a Pizza");
+  CategoriesFood.add("Rice", 4, "Create a Rice");
+  CategoriesFood.add("Noodle", 5, "Create a Noodle");
+  CategoriesFood.add("Burger", 6, "Create a Burger");
   CategoriesFood.add("Back", 7, "Returns to Menu Updating Suite");
 
   int choice = CategoriesFood.display();
@@ -455,7 +455,7 @@ void CategoriesFood::run(int& state_portal_food) {
       break;
     case 4:
       // Rice
-            {
+      {
         system("clear");
 
         string name;
@@ -592,7 +592,7 @@ void CategoriesFood::run(int& state_portal_food) {
       break;
     case 5:
       // Noodle
-            {
+      {
         system("clear");
 
         string name;
@@ -735,7 +735,7 @@ void CategoriesFood::run(int& state_portal_food) {
       break;
     case 6:
       // Burger
-            {
+      {
         system("clear");
 
         string name;
