@@ -54,7 +54,7 @@ void ManagerDrink::run(int& state_portal_food) {
   }
 
   while (true) {
-    cout << "Sugar: ";
+    cout << "Sugar (No. of scoops): ";
     cin >> sugar;
 
     if (cin.fail()) {
@@ -69,7 +69,7 @@ void ManagerDrink::run(int& state_portal_food) {
   }
 
     while (true) {
-    cout << "Ice (true or false): ";
+    cout << "Ice (true then enter 1 or false then enter 0): ";
     cin >> ice;
 
     if (cin.fail()) {

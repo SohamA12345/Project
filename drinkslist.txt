@@ -1,6 +1,1 @@
-Fanta
-Coke
-bob
-1234
-Nuke
-Drink1
+NukeCola

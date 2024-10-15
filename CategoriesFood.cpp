@@ -103,14 +103,14 @@ void CategoriesFood::run(int& state_portal_food) {
                << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
         }
 
+        cout << endl;
+
         cout << "Currently added Ingredients:\t";
 
         for (int i = 0; i < obj.get_ingredient_list().size(); i++) {
           cout << obj.get_ingredient_list()[i].get_name() << " $("
                << obj.get_ingredient_list()[i].get_price() << ")\t";
         }
-
-        cout << endl;
 
         cout << endl;
 

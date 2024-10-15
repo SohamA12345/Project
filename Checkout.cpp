@@ -26,7 +26,11 @@ void Checkout::run(int& state) {
   }
 
   for (int i = 0; i < cart_drink.size(); i++) {
-    Checkout.add(cart_drink[i].get_item_name(), i, "Price: " + to_string(cart_drink[i].calculate_item_price()) + "No. sugar spoons: " + to_string(cart_drink[i].get_sugar()) + "Ice: " + to_string(cart_drink[i].show_ice()));
+    Checkout.add(
+        cart_drink[i].get_item_name(), i,
+        "Price: " + to_string(cart_drink[i].calculate_item_price()) +
+            "\nNo. sugar spoons: " + to_string(cart_drink[i].get_sugar()) +
+            "\nIce: " + to_string(cart_drink[i].show_ice()));
   }
 
   Checkout.add("Proceed/Back", code, "Continue checking out.");
@@ -38,9 +42,14 @@ void Checkout::run(int& state) {
     this->state_checkout = 1;
     return;
 
-  } else if (choice = code) { 
+  } else if (choice > -1 && cart_drink.size() > 0 && choice != code) {
+    cart_drink.erase(cart_drink.begin() + (choice-cart.size()));
+    this->state_checkout = 1;
+    return;
+
+  } else if (choice = code) {
     // checking out
-    if (cart.size() > 0) {
+    if (cart.size() > 0 || cart_drink.size() > 0) {
       menu code_menu;
 
       code_menu.menu_head("Give this code to counter to get food and pay:" +
