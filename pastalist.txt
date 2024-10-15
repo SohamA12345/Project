@@ -1,8 +1,8 @@
 MacandCheese
-<<<<<<< HEAD
 boo
-=======
 TestPasta
 SecondTestPasta
 thirdTestPasta
->>>>>>> a307f034e13cb43d47ac289b8144fa9c114de353
+Cheese
+CheeseL
+CheeseS

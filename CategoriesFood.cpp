@@ -1,11 +1,18 @@
 #include "CategoriesFood.h"
 
+#include <limits>
+
+#include "IngredientList.h"
 #include "MMaker.h"
-#include "WriteIn.h"
 #include "ReadIn.h"
+#include "WriteIn.h"
 
 void CategoriesFood::run(int& state_portal_food) {
   menu CategoriesFood;
+
+  ReadIn obj_read;
+
+  IngredientList obj_ingredients = obj_read.read_ingredient_list();
 
   CategoriesFood.menu_head("What type of food is required to be created?");
 
@@ -19,23 +26,134 @@ void CategoriesFood::run(int& state_portal_food) {
 
   int choice = CategoriesFood.display();
 
-  switch (choice)
-  {
-  case 1:
-    {
-    //Pasta
-    // ask for name, price, size, special ones
-    Pasta obj("boo", 2.50, 1, "black", "black");
+  switch (choice) {
+    case 1: {
+      system("clear");
 
-    Ingredient goo("lemon", 1.00);
-    obj.add_ingredient(goo);
+      string name;
+      double price;
+      char size;
+      int size_int;
+      string type;
+      string sauce;
 
-    WriteIn obj2;
+      cout << "Name of pasta: ";
 
-    obj2.write_pasta(obj);
+      getline(cin, name);
 
-    cout << "Readched here";
-    cin.get();
+      while (true) {
+        cout << "Price: ";
+        cin >> price;
+
+        if (cin.fail()) {
+          cin.clear();  // clear the error flag
+          cin.ignore(numeric_limits<streamsize>::max(),
+                     '\n');  // ignore invalid input
+          cout
+              << "Invalid input. Please enter a numeric value for the price.\n";
+        } else {
+          break;  // valid input
+        }
+      }
+
+      system("clear");
+
+      while (true) {
+        cout << "Size (S for small, M for medium, L for large): ";
+        cin >> size;
+
+        if (size == 'S') {
+          size_int = 1;
+          break;
+        } else if (size == 'M') {
+          size_int = 2;
+          break;
+        } else if (size == 'L') {
+          size_int = 3;
+          break;
+        } else {
+          cout << "Invalid input. Please enter a valid charecter for size.\n";
+        }
+      }
+
+      system("clear");
+
+      cin.ignore(numeric_limits<streamsize>::max(),
+                 '\n');  // ignore any extra \n
+
+      cout << "Enter pasta type: ";
+      getline(cin, type);
+
+      system("clear");
+
+      cout << "Enter pasta sauce name: ";
+      getline(cin, sauce);
+
+      Pasta obj(name, price, size, type, sauce);
+
+      system("clear");
+
+      bool finish_adding;
+
+      while (!finish_adding) {
+        cout << "Available new Ingredients:\t";
+
+        for (int i = 0; i < obj_ingredients.get_ingredient_list().size(); i++) {
+          cout << obj_ingredients.get_ingredient_list()[i].get_name() << " $("
+               << obj_ingredients.get_ingredient_list()[i].get_price() << ")\t";
+        }
+
+        cout << endl;
+
+        cout << "Add ingredient? (Type the exactly shown in list above or "
+                "'done' to stop adding ingredients): \n";
+
+        string chosen_ingredient;
+        int k = 0;
+        bool ingredient_found = false;
+
+        getline(cin, chosen_ingredient);
+
+        while (true) {
+          for (int i = 0; i < obj_ingredients.get_ingredient_list().size();
+               ++i) {
+            if (chosen_ingredient ==
+                obj_ingredients.get_ingredient_list()[i].get_name()) {
+              ingredient_found = true;
+              k = i;
+              break;
+            }
+          }
+
+          if (ingredient_found) {
+            cout << "Ingredient added: " << chosen_ingredient << endl;
+            break;
+          } else if (chosen_ingredient == "done") {
+            k = -1;
+            finish_adding = true;
+            break;
+          } else {
+            cout << "Doesn't match any ingredients. Caution it is "
+                    "case-sensitive. Try Again: ";
+            getline(cin, chosen_ingredient);
+          }
+        }
+
+        if (obj_ingredients.get_ingredient_list().size() > 0 && k >= 0) {
+          obj.add_ingredient(obj_ingredients.get_ingredient_list()[k]);
+        }
+      }
+
+      WriteIn obj2;
+
+      obj2.create_pasta(obj);
+
+      cout << "Successfully created an pasta dish. Press ENTER to return.";
+      cin.get();
+
+      this->state_categories_food = 1;
+
+      return;
 
     }
 
