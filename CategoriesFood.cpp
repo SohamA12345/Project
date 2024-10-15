@@ -32,15 +32,7 @@ void CategoriesFood::run(int& state_portal_food) {
 
     WriteIn obj2;
 
-    ReadIn obj3;
-
     obj2.write_pasta(obj);
-
-    vector<string> obj4 = obj3.read_menu_item_list("pastalist");
-
-    obj4.push_back(obj.get_item_name());
-
-    obj2.write_menu_item_list(obj4, "pastalist");
 
     cout << "Readched here";
     cin.get();
