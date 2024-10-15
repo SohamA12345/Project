@@ -1,7 +1,9 @@
 #ifndef CUSTOMER_DRINKS_H
 #define CUSTOMER_DRINKS_H
 
-class CustomerDrink {
+#include "CustomerFoodDrink.h"
+
+class CustomerDrink : public CustomerDrink {
  private:
   int state_drink;
 public:

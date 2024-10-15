@@ -1,10 +1,10 @@
 #include "CustomerFoodDrink.h"
-
+#include "CustomerDrink.h"
 #include "Checkout.h"
 #include "CustomerCategoriesFood.h"
 #include "MMaker.h"
 
-std::vector<FoodItem> CustomerFoodDrink::cart;
+std::vector<MenuItem> CustomerFoodDrink::cart;
 
 void CustomerFoodDrink::run(int& state_customer_login) {
   menu CustomerFoodDrink;
@@ -34,6 +34,7 @@ void CustomerFoodDrink::run(int& state_customer_login) {
 
   Checkout obj;
   CustomerCategoriesFood obj1;
+  CustomerDrink obj2;
 
   switch (choice) {
     case 1:
@@ -42,11 +43,14 @@ void CustomerFoodDrink::run(int& state_customer_login) {
         obj1.run(this->state_customer);
       } while (obj1.get_state_categories() == 1);
 
-      do {
-        obj1.run(this->state_customer);
-      } while (obj1.get_state_categories() == 1);
-
       break;
+    case 2:
+      //drinks
+      do
+      {
+        obj2.run(this->state_customer);
+      } while (obj2.get_state_drink() == 1);
+      
     case 3:
       // Check-out
       do {
