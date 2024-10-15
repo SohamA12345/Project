@@ -3,6 +3,7 @@
 
 #include <fstream>
 
+#include <cstdio>
 #include "MenuItem.h"
 #include "IngredientList.h"
 #include "Pasta.h"
@@ -74,6 +75,31 @@ void create_rice(Rice rice);
 
 // create drink
 void create_drink(Drink drink);
+
+
+// remove menu item
+void remove_menu_item();
+
+// remove pasta
+void remove_pasta(std::string name);
+
+// remove pizza
+void remove_pizza(std::string name);
+
+// remove burger
+void remove_burger(std::string name);
+
+// remove noodle
+void remove_noodle(std::string name);
+
+// remove chips
+void remove_chips(std::string name);
+
+// remove rice
+void remove_rice(std::string name);
+
+// remove drink
+void remove_drink(std::string name);
 
   // deconstructor
   ~WriteIn();

@@ -83,11 +83,27 @@ class DrinkTest {
     }
   }
 
+  // case with 5 input rather than 3
+  void test_drink_case3() {
+    // testing sugar and ice
+    Drink d3 = Drink(3, "Water", 0.5, 0, false);
+    if (d3.get_sugar() != 0) {
+      cout << "test 3 sugar failed, result unexpected" << endl;
+    }
+    if (d3.show_ice() != 0) {
+      cout << "test 3 ice failed, result unexpected" << endl;
+    }
+    if (d3.calculate_item_price() != (0.5*1.5)) {
+      cout << "test 3 price calculation failed, result unexpected" << endl;
+    }
+  }
+
  public:
   // run_tests runs the test cases created above.
   void run_tests() {
     test_drink_default();
     test_drink_case1();
     test_drink_case2();
+    test_drink_case3();
   };
 };
