@@ -4,7 +4,6 @@
 #include "MMaker.h"
 
 void CustomerLogin::run(int& state_portal) {
-<<<<<<< HEAD
   menu customer;  // A menu object to implement a login portal for manager.
   menu account_created;
   CustomerFoodDrink obj;
@@ -20,25 +19,6 @@ void CustomerLogin::run(int& state_portal) {
   customer.add("Back", 3, "Returns to Manager/Customer options.");
   customer_choice = customer.display();
   bool username_exist = true;
-=======
-    menu customer;  // A menu object to implement a login portal for manager.
-    menu account_created;
-    CustomerFoodDrink obj;
-    string username;
-    string password;
-    string read_line;
-
-    int customer_choice = 0;
-    int account_created_choice = 0;
-
-    // options for the user (customer)
-    customer.menu_head("Login/Create an account.");
-    customer.add("Login", 1, "Login if you already have an account.");
-    customer.add("Create an account", 2, "If you don't have an account, create using this option.");
-    customer.add("Back", 3, "Returns to Manager/Customer options.");
-    customer_choice = customer.display();
-    bool username_exist = true;
->>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
   switch (customer_choice) {
     case 1: {

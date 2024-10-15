@@ -35,28 +35,16 @@ void CustomerFoodDrink::run(int& state_customer_login) {
   Checkout obj;
   CustomerCategoriesFood obj1;
 
-<<<<<<< HEAD
   switch (choice) {
     case 1:
-=======
-  switch (choice)
-  {
-  case 1:
-    // food
-    do
-    {
-      obj1.run(this->state_customer);
-    } while (obj1.get_state_categories() == 1);
->>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
-
+      // food
       do {
         obj1.run(this->state_customer);
       } while (obj1.get_state_categories() == 1);
 
-<<<<<<< HEAD
-      break;
-    case 2:
-      // Drink
+      do {
+        obj1.run(this->state_customer);
+      } while (obj1.get_state_categories() == 1);
 
       break;
     case 3:
@@ -64,42 +52,18 @@ void CustomerFoodDrink::run(int& state_customer_login) {
       do {
         obj.run(this->state_customer);
       } while (obj.get_state_checkout() == 1);
-=======
-    break;
-  case 3:
-    //Check-out
-    do
-    {
-      obj.run(this->state_customer);
-    } while (obj.get_state_checkout() == 1);
-    
-    break;
-  case 4:
-    // clear cart
-    cart.clear();
-    cout << "Cart cleared. Press ENTER to continue.";
-    cin.get();
->>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
 
       break;
     case 4:
-
-<<<<<<< HEAD
+      // clear cart
       cart.clear();
       cout << "Cart cleared. Press ENTER to continue.";
       cin.get();
-=======
-    break;
-  case 5:
-    // log out
-    this->state_customer = 0;
-    state_customer_login = 1;
->>>>>>> f194919595e501686a4ef7ecdc319f9f4125fa46
-
-      this->state_customer = 1;
 
       break;
+      
     case 5:
+      // log out
       this->state_customer = 0;
       state_customer_login = 1;
 
