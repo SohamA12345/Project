@@ -32,7 +32,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
   // containing the 6 arrays
   vector<string> pasta_list = obj.read_menu_item_list("pastalist");
   vector<string> burger_list = obj.read_menu_item_list("burgerlist");
-  vector<string> chips_list = obj.read_menu_item_list("chipslist");
+  vector<string> chips_list = obj.read_menu_item_list("chips");
   vector<string> noodle_list = obj.read_menu_item_list("noodlelist");
   vector<string> pizza_list = obj.read_menu_item_list("pizzalist");
   vector<string> rice_list = obj.read_menu_item_list("ricelist");
