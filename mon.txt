@@ -1,0 +1,6 @@
+mon
+23
+medium
+w3
+weruio
+0

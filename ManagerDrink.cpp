@@ -54,7 +54,7 @@ void ManagerDrink::run(int& state_portal_food) {
   }
 
   while (true) {
-    cout << "Sugar (No. of scoops): ";
+    cout << "Sugar (No. of scoops, if you enter a double, it would be truncated): ";
     cin >> sugar;
 
     if (cin.fail()) {
@@ -91,7 +91,7 @@ void ManagerDrink::run(int& state_portal_food) {
 
 
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
-  cout << "Successfully created an pasta dish. Press ENTER to return.";
+  cout << "Successfully created an drink. Press ENTER to return.";
   cin.get();
 
   state_portal_food = 1;

@@ -1,18 +1,12 @@
-cheese
-1.5
 spring onion
-0.5
+1
 cucumber
-0.75
+2
 lemon
 1
-orange
-2.5
-Meatballs
+cheese
 2
-Meatballs
-2
-Meatballs
-2
-Ingredient1
+salt
 1
+pepper
+0.5

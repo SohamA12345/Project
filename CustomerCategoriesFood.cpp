@@ -415,7 +415,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
         return;
       }
       if (choice > 0) {
-        IngredientList obj_ingredients;
         Chips obj_chip = obj.read_chips(chips_list[choice - 1]);
         system("clear");
 
@@ -576,7 +575,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
         return;
       }
       if (choice > 0) {
-        IngredientList obj_ingredients;
         Noodle obj_noodle = obj.read_noodle(noodle_list[choice - 1]);
         system("clear");
 
@@ -738,7 +736,7 @@ void CustomerCategoriesFood::run(int& state_customer) {
         return;
       }
       if (choice > 0) {
-        IngredientList obj_ingredients;
+
         Pizza obj_pizza = obj.read_pizza(pizza_list[choice - 1]);
         system("clear");
 
@@ -898,7 +896,6 @@ void CustomerCategoriesFood::run(int& state_customer) {
         return;
       }
       if (choice > 0) {
-        IngredientList obj_ingredients;
         Rice obj_rice = obj.read_rice(rice_list[choice - 1]);
         system("clear");
 

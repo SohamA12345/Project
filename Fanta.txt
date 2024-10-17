@@ -1,5 +1,5 @@
 Fanta
-3.5
-small
+2.5
+large
+600
 1
-0
