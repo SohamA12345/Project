@@ -1,6 +1,0 @@
-BurgerTest2
-1
-small
-BunTest
-meatTest
-0

@@ -1,5 +1,0 @@
-ricetest
-234
-medium
-typetest
-0
