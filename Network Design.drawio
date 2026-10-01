@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="FBb6RAXtKsoxuj0Cvs_s">
-    <mxGraphModel dx="2244" dy="1945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1805" dy="1705" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -796,6 +796,26 @@
         </mxCell>
         <mxCell id="9KeoMW0anlYUu4ozwyXt-267" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
           <mxGeometry height="48" width="48" x="178" y="-343.5" as="geometry" />
+        </mxCell>
+        <mxCell id="9KeoMW0anlYUu4ozwyXt-268" edge="1" parent="1" source="9KeoMW0anlYUu4ozwyXt-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" target="9KeoMW0anlYUu4ozwyXt-271">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130.5" y="230" as="sourcePoint" />
+            <mxPoint x="14.5" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9KeoMW0anlYUu4ozwyXt-269" edge="1" parent="1" source="9KeoMW0anlYUu4ozwyXt-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" target="9KeoMW0anlYUu4ozwyXt-271">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-90.5" y="230" as="sourcePoint" />
+            <mxPoint x="14.5" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9KeoMW0anlYUu4ozwyXt-270" connectable="0" parent="9KeoMW0anlYUu4ozwyXt-269" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HSRP" vertex="1">
+          <mxGeometry relative="1" x="0.7297" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9KeoMW0anlYUu4ozwyXt-271" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Virtual IP:&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="60" x="-10" y="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
