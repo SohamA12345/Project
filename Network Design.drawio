@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="FBb6RAXtKsoxuj0Cvs_s">
-    <mxGraphModel dx="1738" dy="2493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1361" dy="1945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -769,7 +769,7 @@
         <mxCell id="9KeoMW0anlYUu4ozwyXt-271" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Virtual IP:&amp;nbsp;" vertex="1">
           <mxGeometry height="30" width="60" x="-13" y="-236" as="geometry" />
         </mxCell>
-        <mxCell id="9KeoMW0anlYUu4ozwyXt-272" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="*To reduce the clutter from the network addresses associated with WAN and OSPF lines, it is provided in the table." vertex="1">
+        <mxCell id="9KeoMW0anlYUu4ozwyXt-272" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="*To reduce the clutter from the network addresses associated with WAN and OSPF lines, it is provided in the Network and IP Assignment Table table." vertex="1">
           <mxGeometry height="64" width="175.5" x="537" y="-473" as="geometry" />
         </mxCell>
         <mxCell id="9KeoMW0anlYUu4ozwyXt-273" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Active" vertex="1">
@@ -884,6 +884,42 @@
         </mxCell>
         <mxCell id="WDpOREYVlyi_yUyFacgK-12" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
           <mxGeometry height="48" width="48" x="-228" y="-908.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-13" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#CC0000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="WDpOREYVlyi_yUyFacgK-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="14.75" y="-631" as="sourcePoint" />
+            <mxPoint x="14.206896551724185" y="-698.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-14" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
+          <mxGeometry height="48" width="48" x="-9.25" y="-728.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-15" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#CC0000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="WDpOREYVlyi_yUyFacgK-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-424" y="-811" as="sourcePoint" />
+            <mxPoint x="-424.5431034482758" y="-878.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-16" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
+          <mxGeometry height="48" width="48" x="-448" y="-908.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-17" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#CC0000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="WDpOREYVlyi_yUyFacgK-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-537" y="-721" as="sourcePoint" />
+            <mxPoint x="-537.5431034482758" y="-788.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-18" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
+          <mxGeometry height="48" width="48" x="-561" y="-818.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-19" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#CC0000,#000000);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" target="WDpOREYVlyi_yUyFacgK-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-644" y="-631" as="sourcePoint" />
+            <mxPoint x="-644.5431034482758" y="-698.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WDpOREYVlyi_yUyFacgK-20" parent="1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/assets/carbon-icons/1/Cloud_Ceiling.svg;align=center;spacing=0;spacingTop=-76;fontSize=19;" value="Internet" vertex="1">
+          <mxGeometry height="48" width="48" x="-668" y="-728.5" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
